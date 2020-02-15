@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="rhino,grasshopper," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="写在前面 &amp;emsp;&amp;emsp;这周的原创内容跟大家介绍一下GH中非常有用的小技巧——犀牛图层拾取器（**Pipeline**）以及与其配合使用的标识电池（**Tag**）。不知道大家在工作中有没有遇到过GH建模过程中需要经常重新手动拾取Rhino中物件的烦恼。前几天我收到结构提过来的构建尺寸：">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Y分享 | GH中犀牛图层拾取器（Pipeline）与标识电池（Tag）">
+<meta property="og:url" content="http://qingzheyuan93.github.io/2020/02/15/20200215/index.html">
+<meta property="og:site_name" content="Y&#39;s Study Blog">
+<meta property="og:description" content="写在前面 &amp;emsp;&amp;emsp;这周的原创内容跟大家介绍一下GH中非常有用的小技巧——犀牛图层拾取器（**Pipeline**）以及与其配合使用的标识电池（**Tag**）。不知道大家在工作中有没有遇到过GH建模过程中需要经常重新手动拾取Rhino中物件的烦恼。前几天我收到结构提过来的构建尺寸：">
+<meta property="og:image" content="https://s2.ax1x.com/2020/02/15/1zeCFJ.png">
+<meta property="og:image" content="https://s2.ax1x.com/2020/02/15/1xO3Mq.png">
+<meta property="og:image" content="https://s2.ax1x.com/2020/02/15/1xOtdU.png">
+<meta property="og:image" content="https://s2.ax1x.com/2020/02/15/1xO6eK.png">
+<meta property="og:image" content="https://s2.ax1x.com/2020/02/15/1xOXWj.png">
+<meta property="og:image" content="https://s2.ax1x.com/2020/02/15/1xjLxs.png">
+<meta property="og:image" content="https://s2.ax1x.com/2020/02/15/1xvCiF.md.png">
+<meta property="og:image" content="https://s2.ax1x.com/2020/02/15/1xvYeP.png">
+<meta property="og:image" content="https://s2.ax1x.com/2020/02/15/1xvRFU.png">
+<meta property="og:image" content="https://s2.ax1x.com/2020/02/15/1xxGp4.png">
+<meta property="og:image" content="https://s2.ax1x.com/2020/02/15/1xz0rn.png">
+<meta property="og:image" content="https://s2.ax1x.com/2020/02/15/1zPaBd.png">
+<meta property="og:image" content="https://s2.ax1x.com/2020/02/15/1zPhEn.png">
+<meta property="og:image" content="https://s2.ax1x.com/2020/02/15/1ziodA.png">
+<meta property="og:image" content="https://s2.ax1x.com/2020/02/15/1zkP7d.png">
+<meta property="og:image" content="https://s2.ax1x.com/2020/02/15/1zAtPI.png">
+<meta property="og:image" content="https://s2.ax1x.com/2020/02/15/1zEDl6.png">
+<meta property="og:image" content="https://s2.ax1x.com/2020/02/15/1zEgTH.png">
+<meta property="og:image" content="https://s2.ax1x.com/2020/02/15/1zV34A.gif">
+<meta property="og:image" content="https://s2.ax1x.com/2020/02/12/1HbXqI.png">
+<meta property="article:published_time" content="2020-02-15T08:21:15.000Z">
+<meta property="article:modified_time" content="2020-02-15T10:36:02.480Z">
+<meta property="article:author" content="Qingzhe Yuan">
+<meta property="article:tag" content="rhino">
+<meta property="article:tag" content="grasshopper">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s2.ax1x.com/2020/02/15/1zeCFJ.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://qingzheyuan93.github.io/2020/02/15/20200215/"/>
+
+
+
+
+
+  <title>Y分享 | GH中犀牛图层拾取器（Pipeline）与标识电池（Tag） | Y's Study Blog</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Y's Study Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://qingzheyuan93.github.io/2020/02/15/20200215/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Qingzhe Yuan">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://s2.ax1x.com/2020/02/11/1TMzAP.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Y's Study Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Y分享 | GH中犀牛图层拾取器（Pipeline）与标识电池（Tag）</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-02-15T16:21:15+08:00">
+                2020-02-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Y%E5%88%86%E4%BA%AB/" itemprop="url" rel="index">
+                    <span itemprop="name">Y分享</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h3><img src="https://s2.ax1x.com/2020/02/15/1zeCFJ.png" alt="13-7" width="800px" />
+&emsp;&emsp;这周的原创内容跟大家介绍一下GH中非常有用的小技巧——犀牛图层拾取器（**Pipeline**）以及与其配合使用的标识电池（**Tag**）。不知道大家在工作中有没有遇到过GH建模过程中需要经常重新手动拾取Rhino中物件的烦恼。前几天我收到结构提过来的构建尺寸：
+<a id="more"></a>
+![13-1](https://s2.ax1x.com/2020/02/15/1xLfK0.png)
+&emsp;&emsp;每个颜色的线，代表不同尺寸的工字钢，而我需要按照结构提资建模，与建筑模型合并检查碰撞与空间效果。同时根据检查结果对于结构的尺寸进行调整，如：由于没有吊顶，为保证某区域的视觉效果，将梁高统一为最厚尺寸。（结构提供尺寸为最小值，可以扩大）。
+
+<p>&emsp;&emsp;所以工作分为两步：<strong>1.根据尺寸构建工字梁；2.调整局部梁高</strong>。</p>
+<hr>
+<h3 id="工作流程——建模"><a href="#工作流程——建模" class="headerlink" title="工作流程——建模"></a>工作流程——建模</h3><p>&emsp;&emsp;首先，把结构线从cad中提取出来，导入到Rhino中（由于两个软件之中的图层信息是相通的）。可以得到下图：<br><img src="https://s2.ax1x.com/2020/02/15/1xO3Mq.png" alt="13-2"></p>
+<p>&emsp;&emsp;然后将图层名称和分组进行整理：<br> <img src="https://s2.ax1x.com/2020/02/15/1xOtdU.png" alt="13-3"></p>
+<p>&emsp;&emsp;将所有的结构图层整理好之后，下面就是开始建模了：需要写出能够处理树状结构的电池组，生成可自定义尺寸的工字钢。<br> <img src="https://s2.ax1x.com/2020/02/15/1xO6eK.png" alt="13-4"></p>
+<p>&emsp;&emsp;我把电池组打包命名为“线转工字钢”，共两个输入端，一个输出端。一个输入端为需要转化的曲线，另外一个是尺寸。由于工字钢结构尺寸较多，容易搞混，就按照结构常用写法的尺寸顺序进行输入，使用时直接复制粘贴即可。其中<strong>a*b*c*d</strong>代表的意思如下图：<br><img src="https://s2.ax1x.com/2020/02/15/1xOXWj.png" alt="13-5" width="250px" /><br>&emsp;&emsp;内部逻辑如下图所示：<br><img src="https://s2.ax1x.com/2020/02/15/1xjLxs.png" alt="13-6"><br>&emsp;&emsp;由于整体为水平直线，所欲整个逻辑比较简单（我把这个电池组进行了拓展，可以识别曲线和非水平线，之后有机会跟大家分享）。对于这个电池，第1部分，在每条曲线的起始点生成一个以该点为原点的垂直平面（Plane）；第2部分，将输入端的text，根据切分符“*”进行切分，获得四个尺寸，之后根据尺寸计算出工字钢截面组成部分相对于平面原点的域坐标（Domain）：</p>
+<img src="https://s2.ax1x.com/2020/02/15/1xvCiF.md.png" alt="13-7" width="250px" />
+&emsp;&emsp;第3部分，利用`Rectangle`电池将这三个方形形成，并利用`Reigon Union`将截面整合。
+<img src="https://s2.ax1x.com/2020/02/15/1xvYeP.png" alt="13-8" width="500px" />
+&emsp;&emsp;第4部分，进行单轨`Sweep`，并进行封面`cap holes`即可。
+<img src="https://s2.ax1x.com/2020/02/15/1xvRFU.png" alt="13-9" width="500px" />
+
+<hr>
+<h3 id="工作流程——调整"><a href="#工作流程——调整" class="headerlink" title="工作流程——调整"></a>工作流程——调整</h3><p>&emsp;&emsp;相信这个建模过程对于很多由GH基础的同学，并不难。而我今天主要想跟大家分享的是一个效率组合工具：<code>**Pipeline+Tag+Material**</code>。<br><img src="https://s2.ax1x.com/2020/02/15/1xxGp4.png" alt="13-10"></p>
+<h4 id="1-Pipeline"><a href="#1-Pipeline" class="headerlink" title="1.Pipeline"></a>1.Pipeline</h4><img src="https://s2.ax1x.com/2020/02/15/1xz0rn.png" alt="13-11" width="250px" />
+&emsp;&emsp;该电池用来选取Rhino模型中某一图层内的物件。该电池支持图层的嵌套、图层中根据Name和Type进行深层选择。
+
+<blockquote>
+<p><strong>科普一下——ObjectName与ObjectID</strong><br>&emsp;&emsp;当你选取一条曲线时，Rhino中会展示出Object属性：<br><img src="https://s2.ax1x.com/2020/02/15/1zPaBd.png" alt="13-12" width="300px" /><br>&emsp;&emsp;其中的<strong>Type</strong>和<strong>Name</strong>即对应着Pipeline的Type和Name。另外，千万不要把ObjectID和ObjectName混淆。ObjectID是物件的唯一识别码，类似于身份证，不可重复，基本不能修改，而ObjectName类似于昵称，可随意重复与修改。在后面对于RhinoPython的学习中，很容易搞混，现在要打好基础。</p>
+ <img src="https://s2.ax1x.com/2020/02/15/1zPhEn.png" alt="13-13" width="600px" />
+&emsp;&emsp;上图中即是根据物体的ObjectID选取物体，并改变其ObjectName，略懂Python的同学可以直观了解区别。
+
+</blockquote>
+<p>&emsp;&emsp;回到正题，Pipeline的使用方式：<strong>1.Layer</strong>：输入图层名称（嵌套的话在母图层和子图层之间加两个冒号“::”，注意要英文输入法。如本案例中的“结构::H-500”）。<strong>2.Name</strong>：我并不常使用，不过只要输出对应物体的name属性的文本，即可选取该图层中的物件。<strong>3.Type</strong>：Pipeline电池的Type栏里面，有四个图标，从左至右分别为：“Point、Curve、Brep、Mesh”，双击后变为绿色，在Layer和Name限制条件下选取该类型的物件（支持多选）。</p>
+<h4 id="2-Text-Tag-3D"><a href="#2-Text-Tag-3D" class="headerlink" title="2.Text Tag 3D"></a>2.Text Tag 3D</h4><p>&emsp;&emsp;顾名思义，该电池的功能是进行标注，使用方法如下图所示：</p>
+<img src="https://s2.ax1x.com/2020/02/15/1ziodA.png" alt="13-14" width="400px" />
+&emsp;&emsp;**L（Location）**输入端代表tag的位置；**T（Text）**输入端代表tag的文本信息；**S（Size）**输入端代表文本的尺寸；**C（Colour）**输入端代表文本的颜色；**J（Justification）**输入端代表文本与**Location**的关系（右键后有Middle Center、Top Right等选项）。所有数据输入后可以得到下图：
+
+<img src="https://s2.ax1x.com/2020/02/15/1zkP7d.png" alt="13-14" width="500px" />
+
+<p>&emsp;&emsp;同颜色的文字和物件<code>bake</code>出来后会有一定的色差。</p>
+<h4 id="3-Material"><a href="#3-Material" class="headerlink" title="3.Material"></a>3.Material</h4><p>&emsp;&emsp;模型Bake后会存在一个问题，每当需要修改的时候，需要把原物件删除后，再<code>Bake</code>。如果已经成组了，还需要把组炸开，调整完再group，有时候就不是那么好选择到所有的物件了。所以我们需要在不Bake的情况下预览所有的物件。但是GH自带的显示模式只能提供单色的预览模式，这时候就需要<code>Material</code>电池的帮助了。<br><img src="https://s2.ax1x.com/2020/02/15/1zAtPI.png" alt="13-14" width="150px" /></p>
+<p>&emsp;&emsp;这个电池有两个输入端，<strong>G（Geometry）</strong>端输入附着该材质的物件，<strong>M（Material）</strong>端为自定义的材质。当附着材质后，bake后的物体带有材质，导入到su里面也存在。</p>
+<p>&emsp;&emsp;材质的自定义空间非常大。通过<code>CreateMaterial</code>电池可以自定义材质的漫反射、镜面反射、发光、透明度等属性。而当只给予颜色时，便附着改颜色的普通材质。<br><img src="https://s2.ax1x.com/2020/02/15/1zEDl6.png" alt="13-14" width="150px" /><br>&emsp;&emsp;将所有的尺寸的结构设置不同颜色的材质后，得到下图（并没有bake，只是正常shaded模式预览）：<br><img src="https://s2.ax1x.com/2020/02/15/1zEgTH.png" alt="13-14" width="800px" /></p>
+<p>&emsp;&emsp;不同尺寸的结构都配有不同的颜色，同时带有Tag进行说明。接下来调整就非常简单了。根据空间需要，把该结构的控制线的同层进行调整即可。</p>
+<p>&emsp;&emsp;比如：希望某一跨内的梁需要空间拉起，都按照最厚的梁进行对齐。只需要将所有控制线的图层match即可：<br><img src="https://s2.ax1x.com/2020/02/15/1zV34A.gif" alt="13-14" width="1000px" /></p>
+<hr>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>&emsp;&emsp;通过上述的介绍，大家对于Pipeline+Tag的使用方法应该比较熟悉了。个人是觉得这个组合不单单是个建模软件，更是一种效率工具。能够让Rhino模型与GH进行互动，不用每次都进行抓取。另外，还有很多类似的应用方式，下一篇介绍如何在城市设计中应用这个组合进行建筑体块的排布并自动进行相关数据的计算。</p>
+<p><img src="https://s2.ax1x.com/2020/02/12/1HbXqI.png" alt="tags"></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/rhino/" rel="tag"># rhino</a>
+          
+            <a href="/tags/grasshopper/" rel="tag"># grasshopper</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/02/11/20200212/" rel="next" title="Read Me - 关于这个网站的初衷和使用方法">
+                <i class="fa fa-chevron-left"></i> Read Me - 关于这个网站的初衷和使用方法
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="https://s2.ax1x.com/2020/02/11/1TMzAP.png"
+                alt="Qingzhe Yuan" />
+            
+              <p class="site-author-name" itemprop="name">Qingzhe Yuan</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/%7C%7C%20archive">
+              
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#写在前面"><span class="nav-number">1.</span> <span class="nav-text">写在前面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#工作流程——建模"><span class="nav-number">2.</span> <span class="nav-text">工作流程——建模</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#工作流程——调整"><span class="nav-number">3.</span> <span class="nav-text">工作流程——调整</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-Pipeline"><span class="nav-number">3.1.</span> <span class="nav-text">1.Pipeline</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-Text-Tag-3D"><span class="nav-number">3.2.</span> <span class="nav-text">2.Text Tag 3D</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-Material"><span class="nav-number">3.3.</span> <span class="nav-text">3.Material</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结"><span class="nav-number">4.</span> <span class="nav-text">总结</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Qingzhe Yuan</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
