@@ -105,13 +105,14 @@
 
 
 
-<meta name="description" content="写在前面 &amp;emsp;&amp;emsp;这周的原创内容跟大家介绍一下GH中非常有用的小技巧——犀牛图层拾取器（**Pipeline**）以及与其配合使用的标识电池（**Tag**）。不知道大家在工作中有没有遇到过GH建模过程中需要经常重新手动拾取Rhino中物件的烦恼。前几天我收到结构提过来的构建尺寸：">
+<meta name="description" content="写在前面&amp;emsp;&amp;emsp;这周的原创内容跟大家介绍一下GH中非常有用的小技巧——犀牛图层拾取器（Pipeline）以及与其配合使用的标识电池（Tag）。不知道大家在工作中有没有遇到过GH建模过程中需要经常重新手动拾取Rhino中物件的烦恼。前几天我收到结构提过来的构建尺寸：">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Y分享 | GH中犀牛图层拾取器（Pipeline）与标识电池（Tag）">
 <meta property="og:url" content="http://qingzheyuan93.github.io/2020/02/15/20200215/index.html">
 <meta property="og:site_name" content="Y&#39;s Study Blog">
-<meta property="og:description" content="写在前面 &amp;emsp;&amp;emsp;这周的原创内容跟大家介绍一下GH中非常有用的小技巧——犀牛图层拾取器（**Pipeline**）以及与其配合使用的标识电池（**Tag**）。不知道大家在工作中有没有遇到过GH建模过程中需要经常重新手动拾取Rhino中物件的烦恼。前几天我收到结构提过来的构建尺寸：">
+<meta property="og:description" content="写在前面&amp;emsp;&amp;emsp;这周的原创内容跟大家介绍一下GH中非常有用的小技巧——犀牛图层拾取器（Pipeline）以及与其配合使用的标识电池（Tag）。不知道大家在工作中有没有遇到过GH建模过程中需要经常重新手动拾取Rhino中物件的烦恼。前几天我收到结构提过来的构建尺寸：">
 <meta property="og:image" content="https://s2.ax1x.com/2020/02/15/1zeCFJ.png">
+<meta property="og:image" content="https://s2.ax1x.com/2020/02/15/1xLfK0.png">
 <meta property="og:image" content="https://s2.ax1x.com/2020/02/15/1xO3Mq.png">
 <meta property="og:image" content="https://s2.ax1x.com/2020/02/15/1xOtdU.png">
 <meta property="og:image" content="https://s2.ax1x.com/2020/02/15/1xO6eK.png">
@@ -132,7 +133,7 @@
 <meta property="og:image" content="https://s2.ax1x.com/2020/02/15/1zV34A.gif">
 <meta property="og:image" content="https://s2.ax1x.com/2020/02/12/1HbXqI.png">
 <meta property="article:published_time" content="2020-02-15T08:21:15.000Z">
-<meta property="article:modified_time" content="2020-02-15T10:36:02.480Z">
+<meta property="article:modified_time" content="2020-02-21T09:14:36.322Z">
 <meta property="article:author" content="Qingzhe Yuan">
 <meta property="article:tag" content="rhino">
 <meta property="article:tag" content="grasshopper">
@@ -394,12 +395,11 @@
       
 
       
-        <h3 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h3><img src="https://s2.ax1x.com/2020/02/15/1zeCFJ.png" alt="13-7" width="800px" />
-&emsp;&emsp;这周的原创内容跟大家介绍一下GH中非常有用的小技巧——犀牛图层拾取器（**Pipeline**）以及与其配合使用的标识电池（**Tag**）。不知道大家在工作中有没有遇到过GH建模过程中需要经常重新手动拾取Rhino中物件的烦恼。前几天我收到结构提过来的构建尺寸：
-<a id="more"></a>
-![13-1](https://s2.ax1x.com/2020/02/15/1xLfK0.png)
-&emsp;&emsp;每个颜色的线，代表不同尺寸的工字钢，而我需要按照结构提资建模，与建筑模型合并检查碰撞与空间效果。同时根据检查结果对于结构的尺寸进行调整，如：由于没有吊顶，为保证某区域的视觉效果，将梁高统一为最厚尺寸。（结构提供尺寸为最小值，可以扩大）。
+        <img src="https://s2.ax1x.com/2020/02/15/1zeCFJ.png" alt="13-7" width="800px" />
 
+<h3 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h3><p>&emsp;&emsp;这周的原创内容跟大家介绍一下GH中非常有用的小技巧——犀牛图层拾取器（<strong>Pipeline</strong>）以及与其配合使用的标识电池（<strong>Tag</strong>）。不知道大家在工作中有没有遇到过GH建模过程中需要经常重新手动拾取Rhino中物件的烦恼。前几天我收到结构提过来的构建尺寸：</p>
+<a id="more"></a>
+<p><img src="https://s2.ax1x.com/2020/02/15/1xLfK0.png" alt="13-1"><br>&emsp;&emsp;每个颜色的线，代表不同尺寸的工字钢，而我需要按照结构提资建模，与建筑模型合并检查碰撞与空间效果。同时根据检查结果对于结构的尺寸进行调整，如：由于没有吊顶，为保证某区域的视觉效果，将梁高统一为最厚尺寸。（结构提供尺寸为最小值，可以扩大）。</p>
 <p>&emsp;&emsp;所以工作分为两步：<strong>1.根据尺寸构建工字梁；2.调整局部梁高</strong>。</p>
 <hr>
 <h3 id="工作流程——建模"><a href="#工作流程——建模" class="headerlink" title="工作流程——建模"></a>工作流程——建模</h3><p>&emsp;&emsp;首先，把结构线从cad中提取出来，导入到Rhino中（由于两个软件之中的图层信息是相通的）。可以得到下图：<br><img src="https://s2.ax1x.com/2020/02/15/1xO3Mq.png" alt="13-2"></p>
@@ -481,8 +481,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2020/02/20/20200220/" rel="prev" title="Y笔记 | 跟着Noah源码学Grasshopper——自动立面（二）">
-                Y笔记 | 跟着Noah源码学Grasshopper——自动立面（二） <i class="fa fa-chevron-right"></i>
+              <a href="/2020/02/17/20200217/" rel="prev" title="Y笔记 | 跟着Noah源码学Grasshopper——自动立面（一）">
+                Y笔记 | 跟着Noah源码学Grasshopper——自动立面（一） <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -564,7 +564,7 @@
               
                 <a href="/archives/%7C%7C%20archive">
               
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -575,7 +575,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
