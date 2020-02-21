@@ -107,7 +107,7 @@
 
 <meta name="description" content="写在前面&amp;emsp;&amp;emsp;从大二开始，断断续续学习了Rhino&#x2F; GH&#x2F; Python等，但是都是浅尝辄止，鲜有系统性的学习计划和记录，最后也忘记了自己学了什么，一直希望有个东西督促自己同时记录学习过程。 &amp;emsp;&amp;emsp;前几天看了NCF发布的Noah-诺亚方舟计划，还挺有意思的，可以自动生成规划、立面等等。而最重要的是免费、开源，并且鼓励大家在此基础上进行修改和优化。这种优化并且封">
 <meta property="og:type" content="article">
-<meta property="og:title" content="跟着Noah源码学Grasshopper——自动城市（一）">
+<meta property="og:title" content="Y笔记 | 跟着Noah源码学Grasshopper——自动城市（一）">
 <meta property="og:url" content="http://qingzheyuan93.github.io/2019/10/14/20191014/index.html">
 <meta property="og:site_name" content="Y&#39;s Study Blog">
 <meta property="og:description" content="写在前面&amp;emsp;&amp;emsp;从大二开始，断断续续学习了Rhino&#x2F; GH&#x2F; Python等，但是都是浅尝辄止，鲜有系统性的学习计划和记录，最后也忘记了自己学了什么，一直希望有个东西督促自己同时记录学习过程。 &amp;emsp;&amp;emsp;前几天看了NCF发布的Noah-诺亚方舟计划，还挺有意思的，可以自动生成规划、立面等等。而最重要的是免费、开源，并且鼓励大家在此基础上进行修改和优化。这种优化并且封">
@@ -128,7 +128,7 @@
 <meta property="og:image" content="https://s2.ax1x.com/2020/02/21/3mWQmj.gif">
 <meta property="og:image" content="https://s2.ax1x.com/2020/02/12/1HbXqI.png">
 <meta property="article:published_time" content="2019-10-14T02:23:45.000Z">
-<meta property="article:modified_time" content="2020-02-21T02:59:12.079Z">
+<meta property="article:modified_time" content="2020-02-21T08:07:23.857Z">
 <meta property="article:author" content="Qingzhe Yuan">
 <meta property="article:tag" content="rhino">
 <meta property="article:tag" content="grasshopper">
@@ -169,7 +169,7 @@
 
 
 
-  <title>跟着Noah源码学Grasshopper——自动城市（一） | Y's Study Blog</title>
+  <title>Y笔记 | 跟着Noah源码学Grasshopper——自动城市（一） | Y's Study Blog</title>
   
 
 
@@ -313,7 +313,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">跟着Noah源码学Grasshopper——自动城市（一）</h1>
+          <h1 class="post-title" itemprop="name headline">Y笔记 | 跟着Noah源码学Grasshopper——自动城市（一）</h1>
         
 
         <div class="post-meta">
@@ -401,29 +401,24 @@
 <p><strong>2.蒯鼎大神的“100个GH运算器详解”与“Ctrl+Alt”快捷键</strong>。按住“Ctrl+Alt”同时点击电池，可以等到电池所在分栏，之后通过“100个GH运算器详解”检索到相应的说明（PDF文档中目录可以直接点击），可以得到中文的电池说明。（PDF文档下载地址见文章结尾）</p>
 <img src="https://s2.ax1x.com/2020/02/20/3mcvY8.gif" alt="1" />
 
-<h3 id="Noah-Step1：用地红线录入"><a href="#Noah-Step1：用地红线录入" class="headerlink" title="Noah-Step1：用地红线录入"></a>Noah-Step1：用地红线录入</h3><p>Noah一共有多个功能，定容强排，光照模拟的住宅强排，立面生成等等。其中提供了可调节的参数，和三个形状的初始地形，大家可以修改电池的输入端体验一下。目前只放出了定容强排的源码（GH文件下载地址见文章结尾）。</p>
-<img src="https://s2.ax1x.com/2020/02/20/3mg1Tx.png" alt="1" />
-
-<p>打开下载的gh文件，可以看到上图。今天主要分析Step1，“数据录入”，也就是红色方块中的电池。这部分的电池逻辑比较简单，正好作为这系列的开篇。</p>
-<img src="https://s2.ax1x.com/2020/02/21/3mgU6H.png" alt="1" />
-
-<p>电池一共有两个输入参数，两个输出参数，输入“原始红线”和“退线距离”得到最终的建筑用地红线。双击电池，输入密码<strong>“168749”</strong>，可以看到内层逻辑。</p>
-<img src="https://s2.ax1x.com/2020/02/21/3mg2cQ.png" alt="1" />
-
-<p>其中<strong>“1”</strong>和<strong>“5”</strong>部分是电池的输入端和输出端，与外层电池显示一致（写着“10”的这个panel先不管）。鼠标悬浮在<strong>“2”</strong>这个电池上，或者右键点击出菜单，再点击其中“Help”，可以看到说明。</p>
-<img src="https://s2.ax1x.com/2020/02/21/3mgoNV.png" alt="1" width="400px" />
-
-<p><strong>“2”号电池</strong>叫<code>Rebuild Plus</code>，顾名思义，是用来把<strong>CAD导入的曲线重建，输出一条新的曲线，从而修复一系列bug</strong>。（具体修复什么bug将在04.1章节中对其内部进行分析）。</p>
-<p><strong>“3”电池</strong>是GH原生电池，相当于offset命令。具体功能就不多介绍了。但是其中”D”输入端有一个星号”*”，说明其中包含一个Expression （表达式），说明”退线距离“需要通过表达式计算才会输入到”D”端。右键点击”*”号， 看到Expression一栏中写着”-x”，代表“退线距离”的相反数进行计算（为什么是相反数，其实是与”2”重建曲线电池的重建逻辑有关，具体后面详细讲）。</p>
-<p><strong>“4”号电池</strong>叫<code>Simplify Plus</code>与原生电池<code>Simplify</code>很像，功能有所升级。通过说明文档“Help”了解，它的主要功能与<code>Simplify</code>相同，简化树形数据的路径，同时修复了原生Simplify无法简化单组数据的bug（树形数据之后再与大家深入探讨，这个电池在后文04.4章节详细分析）。</p>
-<p>通过简单分析发现，逻辑很简单。<strong>1.重建用地曲线；2.offset一定距离；3.简化路径；</strong>最后就得到了建筑退线。这里，有些人就会想，单纯的一个offset就能解决的事情，为什么要这么麻烦。其实这就是编程的一个特点，就是要应对所有的情况，以及让生成的数据方便之后调用。2号”ReBuild Plus” 就是为了无论用地曲线存在什么bug（如：不闭合或者不共面等等）都可以进行计算。而4号”Simplify Plus”是整理数据路径，有利于之后的调用。这些都是不亚于offset这个本身功能的重要性的事项。</p>
+<h3 id="Noah-Step1：用地红线录入"><a href="#Noah-Step1：用地红线录入" class="headerlink" title="Noah-Step1：用地红线录入"></a>Noah-Step1：用地红线录入</h3><p>&emsp;&emsp;Noah一共有多个功能，定容强排，光照模拟的住宅强排，立面生成等等。其中提供了可调节的参数，和三个形状的初始地形，大家可以修改电池的输入端体验一下。目前只放出了定容强排的源码（GH文件下载地址见文章结尾）。</p>
+<p><img src="https://s2.ax1x.com/2020/02/20/3mg1Tx.png" alt="1" /><br></p>
+<p>&emsp;&emsp;打开下载的gh文件，可以看到上图。今天主要分析Step1，“数据录入”，也就是红色方块中的电池。这部分的电池逻辑比较简单，正好作为这系列的开篇。</p>
+<p><img src="https://s2.ax1x.com/2020/02/21/3mgU6H.png" alt="1" /><br></p>
+<p>&emsp;&emsp;电池一共有两个输入参数，两个输出参数，输入“原始红线”和“退线距离”得到最终的建筑用地红线。双击电池，输入密码<strong>“168749”</strong>，可以看到内层逻辑。</p>
+<p><img src="https://s2.ax1x.com/2020/02/21/3mg2cQ.png" alt="1" /><br></p>
+<p>&emsp;&emsp;其中<strong>“1”</strong>和<strong>“5”</strong>部分是电池的输入端和输出端，与外层电池显示一致（写着“10”的这个panel先不管）。鼠标悬浮在<strong>“2”</strong>这个电池上，或者右键点击出菜单，再点击其中“Help”，可以看到说明。</p>
+<p><img src="https://s2.ax1x.com/2020/02/21/3mgoNV.png" alt="1" width="400px" /><br></p>
+<p>&emsp;&emsp;<strong>“2”号电池</strong>叫<code>Rebuild Plus</code>，顾名思义，是用来把<strong>CAD导入的曲线重建，输出一条新的曲线，从而修复一系列bug</strong>。（具体修复什么bug将在04.1章节中对其内部进行分析）。</p>
+<p>&emsp;&emsp;<strong>“3”电池</strong>是GH原生电池，相当于offset命令。具体功能就不多介绍了。但是其中”D”输入端有一个星号”*”，说明其中包含一个Expression （表达式），说明”退线距离“需要通过表达式计算才会输入到”D”端。右键点击”*”号， 看到Expression一栏中写着”-x”，代表“退线距离”的相反数进行计算（为什么是相反数，其实是与”2”重建曲线电池的重建逻辑有关，具体后面详细讲）。</p>
+<p>&emsp;&emsp;<strong>“4”号电池</strong>叫<code>Simplify Plus</code>与原生电池<code>Simplify</code>很像，功能有所升级。通过说明文档“Help”了解，它的主要功能与<code>Simplify</code>相同，简化树形数据的路径，同时修复了原生Simplify无法简化单组数据的bug（树形数据之后再与大家深入探讨，这个电池在后文04.4章节详细分析）。</p>
+<p>&emsp;&emsp;通过简单分析发现，逻辑很简单。<strong>1.重建用地曲线；2.offset一定距离；3.简化路径；</strong>最后就得到了建筑退线。这里，有些人就会想，单纯的一个offset就能解决的事情，为什么要这么麻烦。其实这就是编程的一个特点，就是要应对所有的情况，以及让生成的数据方便之后调用。2号”ReBuild Plus” 就是为了无论用地曲线存在什么bug（如：不闭合或者不共面等等）都可以进行计算。而4号”Simplify Plus”是整理数据路径，有利于之后的调用。这些都是不亚于offset这个本身功能的重要性的事项。</p>
 <p>下面来详细介绍非原生的电池。</p>
 <h4 id="非原生电池介绍-Rebuild-Plus"><a href="#非原生电池介绍-Rebuild-Plus" class="headerlink" title="非原生电池介绍-Rebuild Plus"></a>非原生电池介绍-Rebuild Plus</h4><img src="https://s2.ax1x.com/2020/02/21/3m28Ds.png" alt="1" width="200px" />
 
-<p>“2”号Rebuild Plus电池有两个输入端C和D和一个输出端C，双击进入Cluster，得到下图：</p>
-<img src="https://s2.ax1x.com/2020/02/21/3m2cUx.jpg" alt="1"  />
-
-<p>这个电池可以分为三个部分来进行理解。<strong>第1部分</strong>：C输入端的曲线按照”D“长度进行等分（D默认为10），得到等分点；<strong>第2部分</strong>：将等分点的Z坐标归零，相当于把所有的点拍平，再删除所有（在一定的范围内）重合的点；<strong>第三部分</strong>：将这些点build成一条由Pline线简化而成的Curve。最后再用一个非原生电池FP2D（功能是统一曲线的方向为逆时针，与原生”Flip Curve”相似，将在04.2章节中详细分析）进行运算、输出。</p>
+<p>&emsp;&emsp;”2”号Rebuild Plus电池有两个输入端C和D和一个输出端C，双击进入Cluster，得到下图：</p>
+<p><img src="https://s2.ax1x.com/2020/02/21/3m2cUx.jpg" alt="1"  /><br></p>
+<p>&emsp;&emsp;这个电池可以分为三个部分来进行理解。<strong>第1部分</strong>：C输入端的曲线按照”D“长度进行等分（D默认为10），得到等分点；<strong>第2部分</strong>：将等分点的Z坐标归零，相当于把所有的点拍平，再删除所有（在一定的范围内）重合的点；<strong>第三部分</strong>：将这些点build成一条由Pline线简化而成的Curve。最后再用一个非原生电池FP2D（功能是统一曲线的方向为逆时针，与原生”Flip Curve”相似，将在04.2章节中详细分析）进行运算、输出。</p>
 <p>所以，这个电池可以<strong>修复曲线不闭合，不水平共面的bug</strong>（所有的点z坐标为零，其实可以设置为原z坐标的极值或平均值，以防新建筑红线与旧红线相距太远）。</p>
 <p>BTW，可能有人想问，<strong>为什么在输出前要统一曲线方向为逆时针</strong>。不知有没有人还记得，之前offset电池的Distance输入端设置了Expression：”-x”，与这里有密切的关系。Rhino里的Curve（包括直线）都有方向属性，而offset与Curve的<strong>法向量</strong>相关。所以设置的”逆时针“与”-x”同时确保了曲线向内进行offset，满足求建筑退线的需求。</p>
 <h4 id="非原生电池介绍-FP2D"><a href="#非原生电池介绍-FP2D" class="headerlink" title="非原生电池介绍-FP2D"></a>非原生电池介绍-FP2D</h4><img src="https://s2.ax1x.com/2020/02/21/3m2f2D.jpg" alt="1" width="200px" />

@@ -141,7 +141,7 @@
 <meta property="og:image" content="https://s2.ax1x.com/2020/02/20/3erOfJ.png">
 <meta property="og:image" content="https://s2.ax1x.com/2020/02/12/1HbXqI.png">
 <meta property="article:published_time" content="2020-02-20T06:21:17.000Z">
-<meta property="article:modified_time" content="2020-02-20T09:18:01.887Z">
+<meta property="article:modified_time" content="2020-02-21T08:07:14.305Z">
 <meta property="article:author" content="Qingzhe Yuan">
 <meta property="article:tag" content="rhino">
 <meta property="article:tag" content="grasshopper">
@@ -412,7 +412,7 @@
 
 <p>&emsp;&emsp;我们这次学习Step3、4、5，<strong>Step3</strong>是对于分割好的立面进行筛选，分为<strong>玻璃</strong>和<strong>实墙</strong>；<strong>Step4</strong>是生成楼板，Step5是进行玻璃洞口的构造生成。每个电池的输入端很类似，通过<strong>“手动输入”</strong>选择模型生成的逻辑，并且通过<strong>“随机种子”</strong>输入端产生不同的结果。模型结果如下图：<br><img src="https://s2.ax1x.com/2020/02/20/3eFudA.png" alt="15-3" width="800px" /></p>
 <h3 id="Step3：区域筛选"><a href="#Step3：区域筛选" class="headerlink" title="Step3：区域筛选"></a>Step3：区域筛选</h3><p>&emsp;&emsp;该部分的目的是选取玻璃和实墙的范围。内部逻辑如下：<br><img src="https://s2.ax1x.com/2020/02/20/3eF3z8.png" alt="15-4" width="800px" /></p>
-<p>&emsp;&emsp;整体逻辑也比较简单。根据输入端选择筛选方式（其中手动输入和自动随机种子之间的选择是通过之前介绍过的非原生<code>Defalut Data</code>，这个电池贯穿整个电池逻辑，该电池的详情点击：(）。之后根据不同模式划分墙面。其中分为四种模式：</p>
+<p>&emsp;&emsp;整体逻辑也比较简单。根据输入端选择筛选方式（其中手动输入和自动随机种子之间的选择是通过之前介绍过的非原生<code>Defalut Data</code>，这个电池贯穿整个电池逻辑，该电池的详情点击：<a href="https://qingzheyuan93.github.io/2019/10/14/20191014/"><strong>Y笔记 | 跟着Noah源码学Grasshopper——自动城市（一）</strong></a><br>。之后根据不同模式划分墙面。其中分为四种模式：</p>
 <h4 id="随机筛选"><a href="#随机筛选" class="headerlink" title="随机筛选"></a>随机筛选</h4><img src="https://s2.ax1x.com/2020/02/20/3eVH3t.png" alt="15-5" width="800px" />
 
 <p>&emsp;&emsp;其中，<code>Random Reduce plus</code>是非原生电池，与原生电池<code>Random Reduce</code>不同点在于<code>Random Reduce Plus</code>增加了一个输出删减物件端，并且通过比例而不是数量进行删减。</p>
