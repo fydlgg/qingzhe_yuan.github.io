@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="rhino,python," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="写在前面&amp;emsp;&amp;emsp;我们在使用建模软件（Rhino、Su）时，多少都会使用插件进行辅助。这些插件的本质就是在软件中嵌入新的代码，或者对于软件自带的命令进行组合。其中，Su兼容的语言是Ruby，Rhino和GH与很多语言都兼容，如：VBscipt、Python、C#等。由于编程语言特性以及软件的属性，Rhino的开源程度更高，所以对于命令自定义和插件开发更加容易。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Y原创 | 用Macro和Python制作第一个自己的Rhino命令">
+<meta property="og:url" content="http://qingzheyuan93.github.io/2020/03/02/20200302/index.html">
+<meta property="og:site_name" content="Y&#39;s Study Blog">
+<meta property="og:description" content="写在前面&amp;emsp;&amp;emsp;我们在使用建模软件（Rhino、Su）时，多少都会使用插件进行辅助。这些插件的本质就是在软件中嵌入新的代码，或者对于软件自带的命令进行组合。其中，Su兼容的语言是Ruby，Rhino和GH与很多语言都兼容，如：VBscipt、Python、C#等。由于编程语言特性以及软件的属性，Rhino的开源程度更高，所以对于命令自定义和插件开发更加容易。">
+<meta property="og:image" content="https://s2.ax1x.com/2020/03/02/3fezyd.png">
+<meta property="og:image" content="https://s2.ax1x.com/2020/03/01/3gNzf1.png">
+<meta property="og:image" content="https://s2.ax1x.com/2020/03/01/3gUJts.png">
+<meta property="og:image" content="https://s2.ax1x.com/2020/03/01/3gdSsK.png">
+<meta property="og:image" content="https://s2.ax1x.com/2020/03/01/3gwYhd.png">
+<meta property="og:image" content="https://s2.ax1x.com/2020/03/01/3gwWj0.png">
+<meta property="og:image" content="https://s2.ax1x.com/2020/03/01/3g4U8P.png">
+<meta property="og:image" content="https://s2.ax1x.com/2020/03/01/3g5ssO.png">
+<meta property="og:image" content="https://s2.ax1x.com/2020/03/01/3gIEf1.png">
+<meta property="og:image" content="https://s2.ax1x.com/2020/03/01/3goBDO.png">
+<meta property="og:image" content="https://s2.ax1x.com/2020/03/01/3gH0K0.png">
+<meta property="og:image" content="https://s2.ax1x.com/2020/03/01/3gqtcn.gif">
+<meta property="og:image" content="https://s2.ax1x.com/2020/03/01/3gq639.png">
+<meta property="og:image" content="https://s2.ax1x.com/2020/03/01/3gLBrt.png">
+<meta property="og:image" content="https://s2.ax1x.com/2020/03/01/3gLWxs.gif">
+<meta property="og:image" content="https://s2.ax1x.com/2020/03/01/3gO1zj.png">
+<meta property="article:published_time" content="2020-03-02T14:40:06.000Z">
+<meta property="article:modified_time" content="2020-03-02T14:52:39.943Z">
+<meta property="article:author" content="Qingzhe Yuan">
+<meta property="article:tag" content="rhino">
+<meta property="article:tag" content="python">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s2.ax1x.com/2020/03/02/3fezyd.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://qingzheyuan93.github.io/2020/03/02/20200302/"/>
+
+
+
+
+
+  <title>Y原创 | 用Macro和Python制作第一个自己的Rhino命令 | Y's Study Blog</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Y's Study Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://qingzheyuan93.github.io/2020/03/02/20200302/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Qingzhe Yuan">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://s2.ax1x.com/2020/02/11/1TMzAP.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Y's Study Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Y原创 | 用Macro和Python制作第一个自己的Rhino命令</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-03-02T22:40:06+08:00">
+                2020-03-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Y%E5%8E%9F%E5%88%9B/" itemprop="url" rel="index">
+                    <span itemprop="name">Y原创</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <img src="https://s2.ax1x.com/2020/03/02/3fezyd.png" alt="14.1" width="800">
+
+<h3 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h3><p>&emsp;&emsp;我们在使用建模软件（Rhino、Su）时，多少都会使用插件进行辅助。这些插件的本质就是在软件中嵌入新的代码，或者对于软件自带的命令进行组合。其中，Su兼容的语言是Ruby，Rhino和GH与很多语言都兼容，如：VBscipt、Python、C#等。由于编程语言特性以及软件的属性，Rhino的开源程度更高，所以对于命令自定义和插件开发更加容易。</p>
+<a id="more"></a>
+
+<p>&emsp;&emsp;其中Rhino自身对于命令调用可以通过两个方式：<strong>Macro</strong>（宏命令）和<strong>Script</strong>（脚本）。本质上两个东西是一样的，只是Macro我们可以直接通过Rhino界面上的Button进行调用，而Script需要通过脚本语言如：Python、VBscript（GH中还提供了C#script的接口）。</p>
+<img src="https://s2.ax1x.com/2020/03/01/3gNzf1.png" alt="14.1" width="800">
+
+<p>&emsp;&emsp;由于本人常用Python也只会它，今天就跟大家介绍下如何用Marco和Python在Rhino中编写自己的第一个命令。</p>
+<h3 id="Rhino的特性"><a href="#Rhino的特性" class="headerlink" title="Rhino的特性"></a>Rhino的特性</h3><p>&emsp;&emsp;在Rhino软件中，我们每一个动作都是在调用宏命令。</p>
+<img src="https://s2.ax1x.com/2020/03/01/3gUJts.png" alt="14.1" width="300">
+
+<p>&emsp;&emsp;具体为什么有的命令前有下划线，我不太确定，但是Python中是用来区分“私有变量”和“共有变量”，这对于我们学习没有影响，先不管。</p>
+<p>&emsp;&emsp;通过Rhino中的按钮，可以快速查看的每个命令所对应的的代码。比如当你点击多段线按钮时，在Rhino的控制台中你可以看到 <code>_Polyline</code>这个指令代码。说明调用了这个命令。而当你在控制台中直接输入<strong>Polyline</strong>，也可以进行调用。另外，我们可以通过右键点击任意命令的按钮，进行进一步了解。如：右键点击下图命令时：</p>
+<img src="https://s2.ax1x.com/2020/03/01/3gdSsK.png" alt="14.1" width="200">
+<br>
+
+<p>&emsp;&emsp;可以对于这个按钮的相关内容进行编辑和修改：</p>
+<img src="https://s2.ax1x.com/2020/03/01/3gwYhd.png" alt="14.1" width="800">
+<br>
+
+<p>&emsp;&emsp;其中，我们可以对于3个方面进行编辑：</p>
+<ol>
+<li>对于图标和文字进行编辑。</li>
+<li>当我们悬浮在按钮上时，会有相应的文字提示，我们也可以在刚才的界面中对于该悬浮的提示进行编辑；</li>
+</ol>
+<p><img src="https://s2.ax1x.com/2020/03/01/3gwWj0.png" alt="14.1" width="300"><br></p>
+<ol start="3">
+<li>对于所调用的命令进行编辑。命令行为： <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">! _ExtrudeSrf</span><br><span class="line">_Pause</span><br><span class="line">_DeleteInput&#x3D;_Yes</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<p>&emsp;&emsp;其中，命令行中就是<strong>宏命令</strong>（Marco）， <code>! _ExtrudeSrf</code>是调用宏命令， <code>_DeleteInput=_Yes</code>是用来删除输入的物件，<code>_Pause</code>可能是让第一个命令执行结束，在进行<code>Delete</code>的命令。说明这个按钮执行了两个命令，<code>Extrude</code>和<code>DeleteInput</code></p>
+<p>&emsp;&emsp;我们做一个实验，随便建两个面，一个输入<code>ExtrudeSrf</code>调用命令，一个利用按钮调用命令，结果输入调用命令的保留了初始的面，而利用按钮调用的原物件被删除了。而 <code>_DeleteInput=_Yes</code>我们把设置为<code>_No</code>，可以达到同样的效果。所以，我们可以通过此特性对犀牛命令进行组合：当需要某命令执行之后删除原物件，便可以将该代码复制其中。如果需要两个命令依次执行，也可以进行组合。</p>
+<p>&emsp;&emsp;如：在ExtrudeSrf之后，我经常会使用MergeAllFaces对于面进行简化。所以我们可以将<code>ExtrudeSrf</code>和<code>MergeAllFaces</code>进行结合：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">! _ExtrudeSrf</span><br><span class="line">_Pause</span><br><span class="line">_DeleteInput&#x3D;_Yes</span><br><span class="line">_Pause</span><br><span class="line">_MergeAllFaces</span><br></pre></td></tr></table></figure>
+
+<p>&emsp;&emsp;这样就可以将两个命令进行组合，依次执行<code>ExtrudeSrf</code>和<code>MergeAllFaces</code>两个命令，对于我们建模方便了不少。</p>
+<h3 id="通过Macro设置Rhino新按钮（功能组合）"><a href="#通过Macro设置Rhino新按钮（功能组合）" class="headerlink" title="通过Macro设置Rhino新按钮（功能组合）"></a>通过Macro设置Rhino新按钮（功能组合）</h3><p><img src="https://s2.ax1x.com/2020/03/01/3g4U8P.png" alt="14.1" width="800"><br></p>
+<p>&emsp;&emsp;我们在Rhino顶部命令栏中的空白处右键点击，弹出菜单，选取其中的”New Button”，弹出以下窗口：</p>
+<p><img src="https://s2.ax1x.com/2020/03/01/3g5ssO.png" alt="14.1" width="800"><br></p>
+<p>&emsp;&emsp;我们就可以开始自定义了。今天我们主要介绍Rhino的开源逻辑，所以自定义一个简单的命令。SU里面最常用的就是Pull推拉命令，而Rhino里面也有，正是我们刚才使用到的ExtrudeSrf命令，只是该按钮比较隐蔽，不好寻找，所以我们本次尝试对于该命令进行设置，让其更加好用。</p>
+<p>&emsp;&emsp;首先我们在顶部工具栏的空白处右键，弹出菜单，选择“New Tab”，可以根据自己需要命名。然后再新的tab中再次右键，选择“New Button”进行我们新功能的编辑。</p>
+<p>&emsp;&emsp;图标我们可以直接用SU中推拉Pull的图标，在右上角的Edit中上传该图标；Text设置为Pull_su，在“Left mouse button”中“Tooltip”命名为Pull_su，命令更上文中一样，ExtrudeSrf和MergeAllFaces相组合。最后确定即可。</p>
+<p><img src="https://s2.ax1x.com/2020/03/01/3gIEf1.png" alt="14.1" width="800"><br></p>
+<p>&emsp;&emsp;最后把该tab拖到自己喜欢的位置，便可以进行使用了。</p>
+<p><img src="https://s2.ax1x.com/2020/03/01/3goBDO.png" alt="14.1" width="800"><br></p>
+<h3 id="用Python编写代码并调用"><a href="#用Python编写代码并调用" class="headerlink" title="用Python编写代码并调用"></a>用Python编写代码并调用</h3><p>&emsp;&emsp;我们尝试利用python实现相同的目的。但是Python的相关知识比较多，我会单独分一期跟大家介绍，本次旨在让大家初步熟悉下<strong>Pythonscript</strong>编写界面。</p>
+<p>&emsp;&emsp;在Rhino命令栏里面输入<code>editpythonscript</code>，便可以打开编写界面：</p>
+<p><img src="https://s2.ax1x.com/2020/03/01/3gH0K0.png" alt="14.1" width="800"><br></p>
+<p>&emsp;&emsp;在中间的文本框中输入:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">import rhinoscriptsyntax as rs</span><br><span class="line"></span><br><span class="line">rs.Command(&#39;_ExtrudeSrf&#39;)</span><br><span class="line">rs.Command(&#39;_MergeAllFaces&#39;)</span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;这段代码代表的意思是（看不懂没关系，我会在下一期进行详细解释）：先导入rhinoscriptsyntax的库命名为“rs”，在通过rs内置功能command调用Rhino内置的Macro（宏命令）。先执行ExtrudeSrf，然后是MergeAllFaces。可以点击Editor界面中的绿色的播放键尝试，最后得到的结果与直接调用宏命令一样。</p>
+<img src="https://s2.ax1x.com/2020/03/01/3gqtcn.gif" alt="14.1" width="800">
+
+<p>&emsp;&emsp;其实在现实场景中没人会这么用，多此一举。<strong>rhinoscriptsyntax</strong>给大家提供了非常全面的功能，<code>command</code>只是连接script脚本和macro宏命令的一种方式，用来补充脚本语言的不足。另外，command命令的返回值没有实用价值，很不利于脚本的编写。</p>
+<p>&emsp;&emsp;之后就是调用我们写好的脚本。我们<code>ctrl+s</code>进行保存，文件名可以自定义，我命名为“Test.Py”地址就用默认即可，本机地址是：<br><code>“C:\Users\YuanQingzhe\AppData\Roaming\McNeel\Rhinoceros\6.0\Plug-ins\IronPython (814d908a-e25c-493d-97e9-ee3861957f49)\settings\lib”。</code></p>
+<p>&emsp;&emsp;之后在Rhino中<strong>新建Button</strong>，方式在上文介绍过，右键点击顶部菜单栏空白处，菜单中选择“New Button”。图标什么的可以自己设置，我就直接用“test only”了。在命令行输入：<code>! -RunPythonScript &quot;test.py&quot;</code>，然后直接点击OK即可。</p>
+<p><img src="https://s2.ax1x.com/2020/03/01/3gq639.png" alt="14.1" width="800"><br></p>
+<p>&emsp;&emsp;之后在命令栏中就会出现一个新的按钮。如下图：</p>
+<p><img src="https://s2.ax1x.com/2020/03/01/3gLBrt.png" alt="14.1" width="800"><br></p>
+<p>&emsp;&emsp;可以自己建tab进行分类。然后点击这个Button，就可以执行我们test.py中的脚本了。</p>
+<img src="https://s2.ax1x.com/2020/03/01/3gLWxs.gif" alt="14.1" width="800">
+
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>&emsp;&emsp;我们这次介绍了Rhino软件如何通过<strong>Macro</strong>和<strong>Python</strong>自定义命令（功能组合）。之后更加深入跟大家介绍<strong>Rhino Python Script</strong>，到时候大家可以按照自己的需求编写命令，最后可以形成专属于自己的插件。</p>
+<p>&emsp;&emsp;下一期Y原创我会通过一个实际应用更加深入介绍Python代码在Rhino中去的应用，同时向大家介绍Rhino中python代码的编写和调用的方式。</p>
+<img src="https://s2.ax1x.com/2020/03/01/3gO1zj.png" alt="14.1" width="800">
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/rhino/" rel="tag"># rhino</a>
+          
+            <a href="/tags/python/" rel="tag"># python</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/02/20/20200220/" rel="next" title="Y笔记 | 跟着Noah源码学Grasshopper——自动立面（二）">
+                <i class="fa fa-chevron-left"></i> Y笔记 | 跟着Noah源码学Grasshopper——自动立面（二）
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="https://s2.ax1x.com/2020/02/11/1TMzAP.png"
+                alt="Qingzhe Yuan" />
+            
+              <p class="site-author-name" itemprop="name">Qingzhe Yuan</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/%7C%7C%20archive">
+              
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#写在前面"><span class="nav-number">1.</span> <span class="nav-text">写在前面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Rhino的特性"><span class="nav-number">2.</span> <span class="nav-text">Rhino的特性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#通过Macro设置Rhino新按钮（功能组合）"><span class="nav-number">3.</span> <span class="nav-text">通过Macro设置Rhino新按钮（功能组合）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#用Python编写代码并调用"><span class="nav-number">4.</span> <span class="nav-text">用Python编写代码并调用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结"><span class="nav-number">5.</span> <span class="nav-text">总结</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Qingzhe Yuan</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
