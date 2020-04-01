@@ -105,32 +105,33 @@
 
 
 
-<meta name="description" content="写在前面&amp;emsp;&amp;emsp;这一期我们学习Noah的新功能——根据层线自动生成建筑立面。相比于之前自动生成城市的功能，我自己更期待这个功能的应用。因为在日常工作中设计一个城市需要考虑的条件远比电池功能中所考虑的更加复杂，而且其中的很多条件并没有达到完全的自定义，所以感觉应用性不强。而这次的功能非常的实用。在城市设计中，经常苦恼模型过于简单，没有立面看不出效果。通过这个功能可以快速得到简单的">
+<meta name="description" content="写在前面上周实在是太忙了，项目从中标到出施工图一共就半年时间，而且基本上边施工边修改设计。由于是个矿坑改造项目，并且未来会有舞台表演，所有还要跟其他很多团队配合，真的还挺多事情，但是好的方面是在这么短时间内可以完整的跟一个这么复杂的项目，还是能学到不少的。Anyway，虽然拖了几天了，但是学习还是要继续的。今天我们学习Noah的最后一个功能：高层住宅强排。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Y笔记 | 跟着Noah源码学Grasshopper——自动立面（一）">
-<meta property="og:url" content="http://qingzheyuan93.github.io/2020/02/17/20200217/index.html">
+<meta property="og:title" content="Y笔记 | 跟着Noah源码学Grasshopper——自动住宅强排（一）">
+<meta property="og:url" content="http://qingzheyuan93.github.io/2020/04/01/20200401/index.html">
 <meta property="og:site_name" content="Y&#39;s Study Blog">
-<meta property="og:description" content="写在前面&amp;emsp;&amp;emsp;这一期我们学习Noah的新功能——根据层线自动生成建筑立面。相比于之前自动生成城市的功能，我自己更期待这个功能的应用。因为在日常工作中设计一个城市需要考虑的条件远比电池功能中所考虑的更加复杂，而且其中的很多条件并没有达到完全的自定义，所以感觉应用性不强。而这次的功能非常的实用。在城市设计中，经常苦恼模型过于简单，没有立面看不出效果。通过这个功能可以快速得到简单的">
-<meta property="og:image" content="https://s2.ax1x.com/2020/02/20/3eiwvD.png">
-<meta property="og:image" content="https://s2.ax1x.com/2020/02/21/3ueXGQ.png">
-<meta property="og:image" content="https://s2.ax1x.com/2020/02/21/3um3Je.png">
-<meta property="og:image" content="https://s2.ax1x.com/2020/02/21/3unWjA.png">
-<meta property="og:image" content="https://s2.ax1x.com/2020/02/21/3unOjs.jpg">
-<meta property="og:image" content="https://s2.ax1x.com/2020/02/21/3uuVD1.png">
-<meta property="og:image" content="https://s2.ax1x.com/2020/02/21/3uuZHx.png">
-<meta property="og:image" content="https://s2.ax1x.com/2020/02/21/3uuorR.png">
-<meta property="og:image" content="https://s2.ax1x.com/2020/02/21/3uKnLn.png">
-<meta property="og:image" content="https://s2.ax1x.com/2020/02/21/3uKMd0.png">
-<meta property="og:image" content="https://s2.ax1x.com/2020/02/21/3uKKZq.png">
-<meta property="og:image" content="https://s2.ax1x.com/2020/02/21/3uQU56.png">
+<meta property="og:description" content="写在前面上周实在是太忙了，项目从中标到出施工图一共就半年时间，而且基本上边施工边修改设计。由于是个矿坑改造项目，并且未来会有舞台表演，所有还要跟其他很多团队配合，真的还挺多事情，但是好的方面是在这么短时间内可以完整的跟一个这么复杂的项目，还是能学到不少的。Anyway，虽然拖了几天了，但是学习还是要继续的。今天我们学习Noah的最后一个功能：高层住宅强排。">
+<meta property="og:image" content="https://s1.ax1x.com/2020/03/31/Gl3FJg.gif">
+<meta property="og:image" content="https://s1.ax1x.com/2020/03/31/Gl3gmt.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/03/31/Gl3T6s.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/03/31/Gl3zp4.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/03/31/Gl89XR.jpg">
+<meta property="og:image" content="https://s1.ax1x.com/2020/03/31/Gl86CF.gif">
+<meta property="og:image" content="https://s1.ax1x.com/2020/03/31/GlYt3D.gif">
+<meta property="og:image" content="https://s1.ax1x.com/2020/03/31/GlYc8S.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/03/31/Gltixe.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/04/01/GltMRS.gif">
+<meta property="og:image" content="https://s1.ax1x.com/2020/04/01/GltYaq.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/04/01/GltwzF.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/04/01/GltyZR.gif">
 <meta property="og:image" content="https://s2.ax1x.com/2020/02/12/1HbXqI.png">
-<meta property="article:published_time" content="2020-02-17T08:27:22.000Z">
-<meta property="article:modified_time" content="2020-03-09T06:16:11.944Z">
+<meta property="article:published_time" content="2020-04-01T06:21:17.000Z">
+<meta property="article:modified_time" content="2020-04-01T10:50:07.771Z">
 <meta property="article:author" content="Qingzhe Yuan">
 <meta property="article:tag" content="rhino">
 <meta property="article:tag" content="grasshopper">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://s2.ax1x.com/2020/02/20/3eiwvD.png">
+<meta name="twitter:image" content="https://s1.ax1x.com/2020/03/31/Gl3FJg.gif">
 
 
 
@@ -160,13 +161,13 @@
 
 
 
-  <link rel="canonical" href="http://qingzheyuan93.github.io/2020/02/17/20200217/"/>
+  <link rel="canonical" href="http://qingzheyuan93.github.io/2020/04/01/20200401/"/>
 
 
 
 
 
-  <title>Y笔记 | 跟着Noah源码学Grasshopper——自动立面（一） | Y's Study Blog</title>
+  <title>Y笔记 | 跟着Noah源码学Grasshopper——自动住宅强排（一） | Y's Study Blog</title>
   
 
 
@@ -293,7 +294,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://qingzheyuan93.github.io/2020/02/17/20200217/">
+    <link itemprop="mainEntityOfPage" href="http://qingzheyuan93.github.io/2020/04/01/20200401/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Qingzhe Yuan">
@@ -310,7 +311,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Y笔记 | 跟着Noah源码学Grasshopper——自动立面（一）</h1>
+          <h1 class="post-title" itemprop="name headline">Y笔记 | 跟着Noah源码学Grasshopper——自动住宅强排（一）</h1>
         
 
         <div class="post-meta">
@@ -322,8 +323,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-02-17T16:27:22+08:00">
-                2020-02-17
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-04-01T14:21:17+08:00">
+                2020-04-01
               </time>
             
 
@@ -387,52 +388,43 @@
       
 
       
-        <img src="https://s2.ax1x.com/2020/02/20/3eiwvD.png" alt="15-1" width="800px" />
+        <img src="https://s1.ax1x.com/2020/03/31/Gl3FJg.gif" alt="18" width="800px" />
 
-<h3 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h3><p>&emsp;&emsp;这一期我们学习Noah的新功能——根据层线自动生成建筑立面。相比于之前自动生成城市的功能，我自己更期待这个功能的应用。因为在日常工作中设计一个城市需要考虑的条件远比电池功能中所考虑的更加复杂，而且其中的很多条件并没有达到完全的自定义，所以感觉应用性不强。而这次的功能非常的实用。在城市设计中，经常苦恼模型过于简单，没有立面看不出效果。通过这个功能可以快速得到简单的建筑立面，并提供了一定的自定义选项，可以组合出丰富的效果，基本满足了在城市设计层面的立面需求。</p>
+<h3 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h3><p>上周实在是太忙了，项目从中标到出施工图一共就半年时间，而且基本上边施工边修改设计。由于是个矿坑改造项目，并且未来会有舞台表演，所有还要跟其他很多团队配合，真的还挺多事情，但是好的方面是在这么短时间内可以完整的跟一个这么复杂的项目，还是能学到不少的。Anyway，虽然拖了几天了，但是学习还是要继续的。今天我们学习Noah的最后一个功能：<strong>高层住宅强排</strong>。</p>
 <a id="more"></a>
 
-<h3 id="整体逻辑"><a href="#整体逻辑" class="headerlink" title="整体逻辑"></a>整体逻辑</h3><p><img src="https://s2.ax1x.com/2020/02/21/3ueXGQ.png" alt="12" /><br></p>
-<p>&emsp;&emsp;从电池可以看出，整体逻辑较为清晰。基本逻辑就是从层线–&gt;楼板–&gt;洞口–&gt;墙体–&gt;玻璃–&gt;窗框，层层递进。最终呈现效果如下（Rhino自带渲染）：</p>
-<p><img src="https://s2.ax1x.com/2020/02/21/3um3Je.png" alt="12" /><br></p>
-<p>&emsp;&emsp;对于不同形状的轮廓，均可呈现出明显的分隔，玻璃存在明显的粗细两个层次，另外，对于分割方式，洞口的构造，玻璃的划分等等均有自定义的选项，可以满足日常的需求。</p>
-<h3 id="Step1：层线整理"><a href="#Step1：层线整理" class="headerlink" title="Step1：层线整理"></a>Step1：层线整理</h3><p><img src="https://s2.ax1x.com/2020/02/21/3unWjA.png" alt="12" /><br></p>
-<p>&emsp;&emsp;这部分电池的功能及其逻辑较为简单。主要的功能是将层线按照高度进行排序。应用的方法就是常用的排序方法：通过Sort List将Z轴高度排序，并依次提取线框并成为树形结构。最后输出排序后的建筑层线以及不同层的标高。</p>
-<h3 id="Step2：立面分割"><a href="#Step2：立面分割" class="headerlink" title="Step2：立面分割"></a>Step2：立面分割</h3><p>&emsp;&emsp;这部分叫立面分割，主要功能是将建筑的立面按照不同的方式进行分割，方便后期进行材料的区分和立面的处理。其内部逻辑如下：</p>
-<p><img src="https://s2.ax1x.com/2020/02/21/3unOjs.jpg" alt="12" /><br></p>
-<p><strong>&emsp;&emsp;第1部分</strong>将楼板下根据标高向下移动（排除楼板厚度）；<strong>第2部分</strong>将楼板根据“分割估距”进行分割，并进行连线；<strong>第3部分</strong>是对于转角进行连线。</p>
-<p><img src="https://s2.ax1x.com/2020/02/21/3uuVD1.png" alt="12" /><br></p>
-<p><strong>&emsp;&emsp;第4部分</strong>是是对于这些线进行部分选取，而选取的方式可由用户手动输入选择，也可以随机选择。目前自带四种分割方式：<strong>等距分割、随机分割、对应分割，特殊分割</strong>。</p>
-<p><img src="https://s2.ax1x.com/2020/02/21/3uuZHx.png" alt="12" /><br></p>
-<p>&emsp;&emsp;对应分割是随机保留分割线，但是每层保留一致线条，如下图：</p>
-<p><img src="https://s2.ax1x.com/2020/02/21/3uuorR.png" alt="12" /><br></p>
-<p>&emsp;&emsp;<strong>特殊分割</strong>是作者通过自制的数学算法进行选取，没有具体的实际意义，丰富立面分割方式的选择。具体方式的电池逻辑就不进行详细介绍了，一方面大家可以根据自己的需求进行选择，另一方面其逻辑较为简单， 大家完全可以根据需求自制选择的算法。</p>
-<p>&emsp;&emsp;<strong>第5部分</strong>将生成的分割线进行消重、排序和封面的操作。其中进行消重的操作是通过插件<code>kangaroo</code>内的<code>removeDuplicateLines</code>电池实现的。对于没有该插件的同学可以尝试自己写一个该功能的电池。提示：可以提取线段的起点终点的坐标数据，通过自带的<code>set</code>电池（该电池的功能是创造<strong>集合</strong>，根据集合的<strong>互异性</strong>，保证集合内部没有重复的元素）消除相同坐标，最后再进行连线。</p>
-<center>
-    <img src="https://s2.ax1x.com/2020/02/21/3uKnLn.png" width="100px" alt="12"/>
-    <div style="color:orange; border-bottom: 
-    display: inline-block;
-    color: #999;">Remove Duplicated Lines</div>
-    <img src="https://s2.ax1x.com/2020/02/21/3uKMd0.png" width="100px" alt="12"/>
-    <div style="color:orange;
-    display: inline-block;
-    color: #999;">Create Set</div>
-</center>
-
-<p>&emsp;&emsp;消重后，并进行排序（将转角的分割线按照顺序排列进序列之中）之后，通shift list将每层的分割线依次进行<code>Ruled Surface</code>（Loft），最后进行输出墙面。</p>
-<center>
-    <img src="https://s2.ax1x.com/2020/02/21/3uKKZq.png" width="100px" alt="12"/>
-    <div style="color:orange;
-    display: inline-block;
-    color: #999;">Rule Surface</div>
-</center>
-<br>
-
-<img src="https://s2.ax1x.com/2020/02/21/3uQU56.png"  alt="12" />
-
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>&emsp;&emsp;目前只介绍了第1、2部分，但是找了一个具体的城市设计模型，对于整体算法进行了尝试，整体来说使用起来还是比较顺畅的，只是当面积较大时，运算速度还是比较慢的，但是出来的效果是可以接受的。</p>
-<p>&emsp;&emsp;但是这个电池还有比较局限的地方，只能搭建出比较传统的立面，有时建筑的里面是根据设计来的，这个电池并不能满足。所以才是要拆开这个电池去学习的目的，通过了解其内部的逻辑，才能在自己需要的时候，通过最小化的修改，得到自己的需求。</p>
-<hr>
+<h3 id="整体预览"><a href="#整体预览" class="headerlink" title="整体预览"></a>整体预览</h3><p><img src="https://s1.ax1x.com/2020/03/31/Gl3gmt.png" alt="18" width="800px" /><br></p>
+<p>通过整体预览，我们可以看到大致的逻辑并不复杂，用地红线退让和模拟太阳光作为基础数据，输入核心计算电池，得到建筑体量相关的数据，最后再进行地形和绿化区域的细分。本篇主要对于前期的两个电池进行分析：<strong>数据录入、太阳计算</strong>。 </p>
+<h3 id="数据录入"><a href="#数据录入" class="headerlink" title="数据录入"></a>数据录入</h3><p> <img src="https://s1.ax1x.com/2020/03/31/Gl3T6s.png" alt="18" width="500px" /><br></p>
+<p>这个电池其实在Noah的学习笔记第一期分析过，就是将线框进行offset，同时转换成为平面，且统一方向，具体分析可以一下链接中的讲解：<a href="https://qingzheyuan93.github.io/2019/10/14/20191014/">Y笔记 | 跟着Noah源码学Grasshopper——自动城市（一）</a></p>
+<p>所以这个电池的根本功能是<strong>红线退距</strong>。</p>
+<h3 id="太阳计算"><a href="#太阳计算" class="headerlink" title="太阳计算"></a>太阳计算</h3><p>这个电池很实用，可以通过所在位置的纬度，得到大寒日或冬至日中全天的太阳高度角。并且在后面得出场地中建筑的日照分析。学会这层逻辑，可以对于其他项目进行日照分析了。</p>
+<p> <img src="https://s1.ax1x.com/2020/03/31/Gl3zp4.png" alt="18" width="500px" /><br></p>
+<p>外部逻辑很简单，双击进入核心电池。</p>
+<p> <img src="https://s1.ax1x.com/2020/03/31/Gl89XR.jpg" alt="18" width="800px" /><br></p>
+<p> 内部逻辑比较复杂，我们逐步分析：</p>
+<p><strong>1</strong>.这部分并没真正的与整套逻辑，正如注释所写，只是提供了一个椭圆的地球模型作为备选（更加符合真实的地形）。</p>
+<p><strong>2</strong>.根据不同的节气，确定日出和日落的角度，按照小时进行等分得到相应的经线。之后根据纬度确定在每一根经线对应的点，并得到该点在球面的切面。</p>
+<p><img src="https://s1.ax1x.com/2020/03/31/Gl86CF.gif" alt="18" width="400px" /><br></p>
+<p><strong>3</strong>.根据每个点的相应切面的法向量，与水平面的夹角得到每个时刻的大地维度。 </p>
+<p><img src="https://s1.ax1x.com/2020/03/31/GlYt3D.gif" alt="18" width="800px" /><br></p>
+<p><img src="https://s1.ax1x.com/2020/03/31/GlYc8S.png" alt="18" width="800px" /><br></p>
+<p>目前大地纬度和地心纬度是一致，但是对于椭圆会有差距。地心纬度是点与圆心的连线与水平面的夹角；而大地纬度是该点对于球面的切面的法向量。图解示意下：</p>
+<p><img src="https://s1.ax1x.com/2020/03/31/Gltixe.png" alt="18" width="800px" /><br></p>
+<p>其中，紫色的就是地心纬度，绿色的大地维度，对于椭圆来说区别还是挺大的。</p>
+<p><strong>4&amp;5</strong>.这部分提供<strong>大寒日</strong>和<strong>冬至日</strong>的正午太阳高度角和日出日落的水平经线角度。并且得到正午时的太阳光向量。</p>
+<p><strong>6</strong>.这部分计算太阳的<strong>地表高度角</strong>。其实就是太阳光在该点所在球体切面的投影角度。</p>
+<p><img src="https://s1.ax1x.com/2020/04/01/GltMRS.gif" alt="18" width="800px" /><br></p>
+<p><img src="https://s1.ax1x.com/2020/04/01/GltYaq.png" alt="18" width="800px" /><br></p>
+<p><img src="https://s1.ax1x.com/2020/04/01/GltwzF.png" alt="18" width="800px" /><br></p>
+<p><strong>绿色是地表平面，蓝色是太阳光向量，红色是地面法向量</strong>，90度减去两个向量的夹角就是地表高度角。</p>
+<p><strong>7</strong>.这部分计算太阳的<strong>太阳高度角</strong>。<strong>地表高度角</strong>和<strong>太阳高度角</strong>区别逻辑是，点与圆心连线的向量与点切面的法向量的区别，与<strong>大地纬度</strong>和<strong>地心纬度</strong>的差异一致。</p>
+<p><strong>8</strong>.最后一部分是将太阳光相对于地平面的关系转换到XY Plane上，可以直接应用于场地日常计算。</p>
+<p><img src="https://s1.ax1x.com/2020/04/01/GltyZR.gif" alt="18" width="800px" /><br></p>
+<p>虽然计算出了很多种变量，但是真正输出的只有<strong>太阳高度角</strong>和<strong>太阳光向量</strong>，其他的多个变量也是方便使用者进行对照理解。</p>
+<p>需要注意的是，<strong>Vector</strong>和<strong>point</strong>是可以相互转换的。<strong>point</strong>转换为<strong>Vector</strong>是生成一个原点出发到<strong>point</strong>的向量。<strong>Vector</strong>转化为<strong>point</strong>的话，先将<strong>vector</strong>的出发点移动到原点后，此时向量结束点的坐标就是转化后的point。</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>随着前面的学习，已经可以越来越快速地看懂封装后地电池。相比于第一期时，阅读Noah的源码真的是耗费了很多精力，这段时间也是明显的感受到对于GH的理解和思路的梳理有了明显的进步。所以在笔记中也会相对的简化逻辑步骤，重点学习达到某种目标的方法。</p>
+<p>上文中介绍的模拟太阳光照的电池还是很值得琢磨的，整体理解后会对于plane和vector两个不好理解的数据类型有更深层次的认识。<br></p>
 <center>
 <b>
 版权声明：文章中所有的Noah相关的电池及电池组版权归属于<br>
@@ -440,10 +432,21 @@ NCF论坛，本人在开源的基础上进行分析与学习。
 <b>
 </center>
 
+<p><br><br></p>
+<p><strong>往期原创：</strong></p>
+<p><a href="http://mp.weixin.qq.com/s?__biz=MjM5NTE1NDAzMg==&mid=2247483733&idx=1&sn=486bc15a585ceccb026eca49ede63a6d&chksm=a6fd904a918a195cd12a6303a57cb82239ea378653c9efc2149ae0e0720b599b59fef9e805f3&scene=21#wechat_redirect" target="_blank" rel="noopener">Y原创 | 用Macro和Python制作第一个自己的Rhino命令</a></p>
+<p><a href="http://mp.weixin.qq.com/s?__biz=MjM5NTE1NDAzMg==&mid=2247483733&idx=1&sn=486bc15a585ceccb026eca49ede63a6d&chksm=a6fd904a918a195cd12a6303a57cb82239ea378653c9efc2149ae0e0720b599b59fef9e805f3&scene=21#wechat_redirect" target="_blank" rel="noopener">Y原创 | 用Macro和Python制作第一个自己的Rhino命令</a></p>
+<p><a href="http://mp.weixin.qq.com/s?__biz=MjM5NTE1NDAzMg==&mid=2247483716&idx=1&sn=cdc48ead094af01c8d31f780c8e58926&chksm=a6fd905b918a194d4081fc746d64068b1bd8368262aa9c097314b0846e822c75f7a10925dd37&scene=21#wechat_redirect" target="_blank" rel="noopener">Y分享 | GH中犀牛图层拾取器（Pipeline）与标识电池（Tag）</a></p>
+<p><a href="http://mp.weixin.qq.com/s?__biz=MjM5NTE1NDAzMg==&mid=2247483715&idx=1&sn=7ba67b236a5a925f65e27144cff89457&chksm=a6fd905c918a194ab75e248220edf6635bbf8717d7ecb8f4cccc32bf97c713ceaf0428da939b&scene=21#wechat_redirect" target="_blank" rel="noopener">Y选修 | 用GH编写游戏Flappy Bird</a></p>
+<p><a href="http://mp.weixin.qq.com/s?__biz=MjM5NTE1NDAzMg==&mid=2247483697&idx=1&sn=f322a660932fda7022c11e731fcac770&chksm=a6fd902e918a193847b5b136fc8dad11b6cf5b891888dd3e5a4104d602976b6670aa96bec9de&scene=21#wechat_redirect" target="_blank" rel="noopener">Y原创 | GH小知识：GH中的遗传算法（Galapagos）——实践篇</a></p>
+<p><a href="http://mp.weixin.qq.com/s?__biz=MjM5NTE1NDAzMg==&mid=2247483694&idx=1&sn=378061dc8c7a28b429b7141ee657580c&chksm=a6fd9031918a192741b08e106ea71f2a5b8a2d71d5d7dd3bcc16990f51d15e33494bf6e34a7c&scene=21#wechat_redirect" target="_blank" rel="noopener">Y原创 | GH小知识：GH中的遗传算法（Galapagos）——理论篇</a></p>
+<p><a href="http://mp.weixin.qq.com/s?__biz=MjM5NTE1NDAzMg==&mid=2247483682&idx=1&sn=0d7badb4584e432185d6cb77a36a0e57&chksm=a6fd903d918a192b974e7f1d2510bb98d185705aec0b2afc4dcf815b9d1db9a476c39ed6badb&scene=21#wechat_redirect" target="_blank" rel="noopener">Y原创 | GH小知识：“t”值的含义以及相关的常用电池</a></p>
+<p><a href="http://mp.weixin.qq.com/s?__biz=MjM5NTE1NDAzMg==&mid=2247483671&idx=1&sn=980812b270b0092afc13d708f6afcaca&chksm=a6fd9008918a191ec98781b6ca04165e3e57853b423e4d08feddccfc5c08b7ec296ba8de72f6&scene=21#wechat_redirect" target="_blank" rel="noopener">Y原创 | 基于实际项</a><a href="http://mp.weixin.qq.com/s?__biz=MjM5NTE1NDAzMg==&mid=2247483671&idx=1&sn=980812b270b0092afc13d708f6afcaca&chksm=a6fd9008918a191ec98781b6ca04165e3e57853b423e4d08feddccfc5c08b7ec296ba8de72f6&scene=21#wechat_redirect" target="_blank" rel="noopener">目的GH树形数据介绍</a></p>
 <br>
 
-<p><img src="https://s2.ax1x.com/2020/02/12/1HbXqI.png" alt="end"></p>
 
+
+<img src="https://s2.ax1x.com/2020/02/12/1HbXqI.png" alt="17" width="800px" />
       
     </div>
     
@@ -475,8 +478,8 @@ NCF论坛，本人在开源的基础上进行分析与学习。
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/02/15/20200215/" rel="next" title="Y分享 | GH中犀牛图层拾取器（Pipeline）与标识电池（Tag）">
-                <i class="fa fa-chevron-left"></i> Y分享 | GH中犀牛图层拾取器（Pipeline）与标识电池（Tag）
+              <a href="/2020/03/31/20200331/" rel="next" title="Y原创 | RhinoPython的集成开发环境介绍以及简单应用实例">
+                <i class="fa fa-chevron-left"></i> Y原创 | RhinoPython的集成开发环境介绍以及简单应用实例
               </a>
             
           </div>
@@ -484,10 +487,6 @@ NCF论坛，本人在开源的基础上进行分析与学习。
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2020/02/20/20200220/" rel="prev" title="Y笔记 | 跟着Noah源码学Grasshopper——自动立面（二）">
-                Y笔记 | 跟着Noah源码学Grasshopper——自动立面（二） <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -623,7 +622,7 @@ NCF论坛，本人在开源的基础上进行分析与学习。
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#写在前面"><span class="nav-number">1.</span> <span class="nav-text">写在前面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#整体逻辑"><span class="nav-number">2.</span> <span class="nav-text">整体逻辑</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Step1：层线整理"><span class="nav-number">3.</span> <span class="nav-text">Step1：层线整理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Step2：立面分割"><span class="nav-number">4.</span> <span class="nav-text">Step2：立面分割</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结"><span class="nav-number">5.</span> <span class="nav-text">总结</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#写在前面"><span class="nav-number">1.</span> <span class="nav-text">写在前面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#整体预览"><span class="nav-number">2.</span> <span class="nav-text">整体预览</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据录入"><span class="nav-number">3.</span> <span class="nav-text">数据录入</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#太阳计算"><span class="nav-number">4.</span> <span class="nav-text">太阳计算</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结"><span class="nav-number">5.</span> <span class="nav-text">总结</span></a></li></ol></div>
             
 
           </div>
