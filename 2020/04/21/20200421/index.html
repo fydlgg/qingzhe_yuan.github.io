@@ -105,12 +105,10 @@
 
 
 
-<meta name="description" content="写在前面最近小编在绘制剖面的时候，觉得目前的用一个平面Surface去跟整个建筑进行intersect的工作流不是很有效率，一方面是因为相交之后的线型并不会保留图层的信息，另一方面是每一次更新都要进行一系列步骤：相交—&gt;水平旋转至X轴—&gt;竖向旋转至水平—&gt;导出。希望找到一个更有效率的工作流，可以更加快速的预览剖面以及导出。通过一系列搜索之后，发现了SectionTool这一个非">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Y原创 | 黑科技：Rhino中3秒快速生成剖面并且与模型同步更新">
 <meta property="og:url" content="http://qingzheyuan93.github.io/2020/04/21/20200421/index.html">
 <meta property="og:site_name" content="Y&#39;s Study Blog">
-<meta property="og:description" content="写在前面最近小编在绘制剖面的时候，觉得目前的用一个平面Surface去跟整个建筑进行intersect的工作流不是很有效率，一方面是因为相交之后的线型并不会保留图层的信息，另一方面是每一次更新都要进行一系列步骤：相交—&gt;水平旋转至X轴—&gt;竖向旋转至水平—&gt;导出。希望找到一个更有效率的工作流，可以更加快速的预览剖面以及导出。通过一系列搜索之后，发现了SectionTool这一个非">
 <meta property="og:image" content="https://s1.ax1x.com/2020/04/20/JMwUOI.png">
 <meta property="og:image" content="https://s1.ax1x.com/2020/04/19/JMaeNF.gif">
 <meta property="og:image" content="https://s1.ax1x.com/2020/04/20/JMaYND.gif">
@@ -168,7 +166,7 @@
 <meta property="og:image" content="https://s1.ax1x.com/2020/04/21/J3uoZQ.gif">
 <meta property="og:image" content="https://s2.ax1x.com/2020/02/12/1HbXqI.png">
 <meta property="article:published_time" content="2020-04-21T05:38:31.000Z">
-<meta property="article:modified_time" content="2020-04-21T05:45:01.345Z">
+<meta property="article:modified_time" content="2020-05-11T03:19:25.713Z">
 <meta property="article:author" content="Qingzhe Yuan">
 <meta property="article:tag" content="rhino">
 <meta name="twitter:card" content="summary">
@@ -429,10 +427,8 @@
       
 
       
-        <p><img src="https://s1.ax1x.com/2020/04/20/JMwUOI.png" alt="21" width="800px" /><br></p>
+        <p><img src="https://s1.ax1x.com/2020/04/20/JMwUOI.png" alt="21" width="800px" /><a id="more"></a></p>
 <h3 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h3><p>最近小编在绘制剖面的时候，觉得目前的用一个平面Surface去跟整个建筑进行intersect的工作流不是很有效率，一方面是因为相交之后的线型并不会保留图层的信息，另一方面是每一次更新都要进行一系列步骤：<strong>相交—&gt;水平旋转至X轴—&gt;竖向旋转至水平—&gt;导出</strong>。希望找到一个更有效率的工作流，可以更加快速的预览剖面以及导出。通过一系列搜索之后，发现了<strong>SectionTool</strong>这一个非常好用的剖面以及平面生成插件工具。</p>
-<a id="more"></a>
-
 <h3 id="插件优点"><a href="#插件优点" class="headerlink" title="插件优点"></a>插件优点</h3><p><img src="https://s1.ax1x.com/2020/04/19/JMaeNF.gif" alt="21" width="800px" /><br></p>
 <p>短短几秒，就已经生成了一个储存着剖面信息的模型了（生成了一个名为SEC_00的剖断线）。有多种方式可以预览剖面：第一种可以剖切模型看到剖面：</p>
 <p><img src="https://s1.ax1x.com/2020/04/20/JMaYND.gif" alt="21" width="800px" /><br></p>
@@ -688,7 +684,7 @@
               
                 <a href="/archives/%7C%7C%20archive">
               
-                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-count">14</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

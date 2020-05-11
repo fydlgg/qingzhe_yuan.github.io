@@ -105,12 +105,10 @@
 
 
 
-<meta name="description" content="写在前面上周实在是太忙了，项目从中标到出施工图一共就半年时间，而且基本上边施工边修改设计。由于是个矿坑改造项目，并且未来会有舞台表演，所有还要跟其他很多团队配合，真的还挺多事情，但是好的方面是在这么短时间内可以完整的跟一个这么复杂的项目，还是能学到不少的。Anyway，虽然拖了几天了，但是学习还是要继续的。今天我们学习Noah的最后一个功能：高层住宅强排。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Y笔记 | 跟着Noah源码学Grasshopper——自动住宅强排（一）">
 <meta property="og:url" content="http://qingzheyuan93.github.io/2020/04/01/20200401/index.html">
 <meta property="og:site_name" content="Y&#39;s Study Blog">
-<meta property="og:description" content="写在前面上周实在是太忙了，项目从中标到出施工图一共就半年时间，而且基本上边施工边修改设计。由于是个矿坑改造项目，并且未来会有舞台表演，所有还要跟其他很多团队配合，真的还挺多事情，但是好的方面是在这么短时间内可以完整的跟一个这么复杂的项目，还是能学到不少的。Anyway，虽然拖了几天了，但是学习还是要继续的。今天我们学习Noah的最后一个功能：高层住宅强排。">
 <meta property="og:image" content="https://s1.ax1x.com/2020/03/31/Gl3FJg.gif">
 <meta property="og:image" content="https://s1.ax1x.com/2020/03/31/Gl3gmt.png">
 <meta property="og:image" content="https://s1.ax1x.com/2020/03/31/Gl3T6s.png">
@@ -126,7 +124,7 @@
 <meta property="og:image" content="https://s1.ax1x.com/2020/04/01/GltyZR.gif">
 <meta property="og:image" content="https://s2.ax1x.com/2020/02/12/1HbXqI.png">
 <meta property="article:published_time" content="2020-04-01T06:21:17.000Z">
-<meta property="article:modified_time" content="2020-04-13T09:03:46.707Z">
+<meta property="article:modified_time" content="2020-05-11T03:19:49.343Z">
 <meta property="article:author" content="Qingzhe Yuan">
 <meta property="article:tag" content="rhino">
 <meta property="article:tag" content="grasshopper">
@@ -390,9 +388,9 @@
       
         <img src="https://s1.ax1x.com/2020/03/31/Gl3FJg.gif" alt="18" width="800px" />
 
-<h3 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h3><p>上周实在是太忙了，项目从中标到出施工图一共就半年时间，而且基本上边施工边修改设计。由于是个矿坑改造项目，并且未来会有舞台表演，所有还要跟其他很多团队配合，真的还挺多事情，但是好的方面是在这么短时间内可以完整的跟一个这么复杂的项目，还是能学到不少的。Anyway，虽然拖了几天了，但是学习还是要继续的。今天我们学习Noah的最后一个功能：<strong>高层住宅强排</strong>。</p>
 <a id="more"></a>
 
+<h3 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h3><p>上周实在是太忙了，项目从中标到出施工图一共就半年时间，而且基本上边施工边修改设计。由于是个矿坑改造项目，并且未来会有舞台表演，所有还要跟其他很多团队配合，真的还挺多事情，但是好的方面是在这么短时间内可以完整的跟一个这么复杂的项目，还是能学到不少的。Anyway，虽然拖了几天了，但是学习还是要继续的。今天我们学习Noah的最后一个功能：<strong>高层住宅强排</strong>。</p>
 <h3 id="整体预览"><a href="#整体预览" class="headerlink" title="整体预览"></a>整体预览</h3><p><img src="https://s1.ax1x.com/2020/03/31/Gl3gmt.png" alt="18" width="800px" /><br></p>
 <p>通过整体预览，我们可以看到大致的逻辑并不复杂，用地红线退让和模拟太阳光作为基础数据，输入核心计算电池，得到建筑体量相关的数据，最后再进行地形和绿化区域的细分。本篇主要对于前期的两个电池进行分析：<strong>数据录入、太阳计算</strong>。 </p>
 <h3 id="数据录入"><a href="#数据录入" class="headerlink" title="数据录入"></a>数据录入</h3><p> <img src="https://s1.ax1x.com/2020/03/31/Gl3T6s.png" alt="18" width="500px" /><br></p>
@@ -571,7 +569,7 @@ NCF论坛，本人在开源的基础上进行分析与学习。
               
                 <a href="/archives/%7C%7C%20archive">
               
-                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-count">14</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

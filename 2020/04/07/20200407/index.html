@@ -105,12 +105,10 @@
 
 
 
-<meta name="description" content="写在前面我们上一期介绍了如何通过Rhino中的PythonEditor编写自己的第一个功能。传送门点击以下链接：Y原创 | RhinoPython的集成开发环境介绍以及简单应用实例。但是这个功能并不完善，而且Python代码的编写也并不清晰，所以这一期继续深化我们之前的功能，并将这段代码整理成清晰，可读性更高的格式。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Y原创 | Offset_Su功能的完善以及python程序的标准语法">
 <meta property="og:url" content="http://qingzheyuan93.github.io/2020/04/07/20200407/index.html">
 <meta property="og:site_name" content="Y&#39;s Study Blog">
-<meta property="og:description" content="写在前面我们上一期介绍了如何通过Rhino中的PythonEditor编写自己的第一个功能。传送门点击以下链接：Y原创 | RhinoPython的集成开发环境介绍以及简单应用实例。但是这个功能并不完善，而且Python代码的编写也并不清晰，所以这一期继续深化我们之前的功能，并将这段代码整理成清晰，可读性更高的格式。">
 <meta property="og:image" content="https://s2.ax1x.com/2020/03/02/3fezyd.png">
 <meta property="og:image" content="https://s1.ax1x.com/2020/04/07/G2BVat.gif">
 <meta property="og:image" content="https://s1.ax1x.com/2020/04/07/G2BbJf.png">
@@ -128,7 +126,7 @@
 <meta property="og:image" content="https://s1.ax1x.com/2020/04/07/G2RswF.png">
 <meta property="og:image" content="https://s2.ax1x.com/2020/02/12/1HbXqI.png">
 <meta property="article:published_time" content="2020-04-07T10:28:07.000Z">
-<meta property="article:modified_time" content="2020-04-08T09:39:26.327Z">
+<meta property="article:modified_time" content="2020-05-11T03:19:41.638Z">
 <meta property="article:author" content="Qingzhe Yuan">
 <meta property="article:tag" content="rhino">
 <meta property="article:tag" content="python">
@@ -391,10 +389,9 @@
 
       
         <img src="https://s2.ax1x.com/2020/03/02/3fezyd.png" alt="17" width="800px" />
-
-<h3 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h3><p>我们上一期介绍了如何通过Rhino中的PythonEditor编写自己的第一个功能。传送门点击以下链接：<a href="https://qingzheyuan93.github.io/2020/03/31/20200331/">Y原创 | RhinoPython的集成开发环境介绍以及简单应用实例</a>。但是这个功能并不完善，而且Python代码的编写也并不清晰，所以这一期继续深化我们之前的功能，并将这段代码整理成清晰，可读性更高的格式。 </p>
 <a id="more"></a>
 
+<h3 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h3><p>我们上一期介绍了如何通过Rhino中的PythonEditor编写自己的第一个功能。传送门点击以下链接：<a href="https://qingzheyuan93.github.io/2020/03/31/20200331/">Y原创 | RhinoPython的集成开发环境介绍以及简单应用实例</a>。但是这个功能并不完善，而且Python代码的编写也并不清晰，所以这一期继续深化我们之前的功能，并将这段代码整理成清晰，可读性更高的格式。 </p>
 <h3 id="不足的地方"><a href="#不足的地方" class="headerlink" title="不足的地方"></a>不足的地方</h3><p>在SU中，我们可以对于不同体量中的面进行<code>offset</code>；而在Rhino中的逻辑不同，<strong>surface</strong>和<strong>Polysurface</strong>并不是一种类型，所以我们在rihno中无法对于Polysurface进行直接的操作，而且我们直接调用的是<code>GetSurfaceObject</code>的命令，只选择Surface类型的物体，<strong>所以我们需要想办法补充对于Polysurface的处理算法</strong>。 </p>
 <img src="https://s1.ax1x.com/2020/04/07/G2BVat.gif" alt="17" width="800px" />
 
@@ -583,7 +580,7 @@
               
                 <a href="/archives/%7C%7C%20archive">
               
-                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-count">14</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
