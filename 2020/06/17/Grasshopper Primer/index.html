@@ -1,0 +1,1024 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="rhino,grasshopper," />
+
+
+
+
+
+
+
+
+
+
+<meta property="og:type" content="article">
+<meta property="og:title" content="Y笔记 | Grasshopper从入门到放弃——官方教程翻译及拓展">
+<meta property="og:url" content="http://qingzheyuan93.github.io/2020/06/17/Grasshopper%20Primer/index.html">
+<meta property="og:site_name" content="Y&#39;s Study Blog">
+<meta property="og:image" content="https://s1.ax1x.com/2020/06/01/tG73C9.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/06/01/tGXtKA.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/06/17/NEpKNF.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/06/17/NEp3cR.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/06/17/NEpW4g.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/06/17/NEQHN4.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/06/17/NElLdS.gif">
+<meta property="og:image" content="https://s1.ax1x.com/2020/06/17/NE1Hp9.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/06/17/NE3lXq.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/06/17/NE3wcR.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/06/17/NE8rxs.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/06/17/NVmDl6.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/06/17/NVm51P.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/06/17/NVmLkj.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/06/17/NV3Frq.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/06/17/NV87nI.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/06/17/NVGZ34.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/06/17/NVYCkV.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/06/17/NVY31e.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/06/17/NVU538.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/06/17/NVUbHs.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/06/17/NVUX40.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/06/17/NVa9u4.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/06/17/NVdpJP.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/06/17/NVdiQS.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/06/17/NVdJoR.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/06/17/NVdBOe.png">
+<meta property="og:image" content="https://s2.ax1x.com/2020/02/12/1HbXqI.png">
+<meta property="article:published_time" content="2020-06-17T09:51:36.000Z">
+<meta property="article:modified_time" content="2020-06-17T10:45:51.845Z">
+<meta property="article:author" content="Qingzhe Yuan">
+<meta property="article:tag" content="rhino">
+<meta property="article:tag" content="grasshopper">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s1.ax1x.com/2020/06/01/tG73C9.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://qingzheyuan93.github.io/2020/06/17/Grasshopper Primer/"/>
+
+
+
+
+
+  <title>Y笔记 | Grasshopper从入门到放弃——官方教程翻译及拓展 | Y's Study Blog</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Y's Study Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://qingzheyuan93.github.io/2020/06/17/Grasshopper%20Primer/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Qingzhe Yuan">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://s2.ax1x.com/2020/02/11/1TMzAP.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Y's Study Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Y笔记 | Grasshopper从入门到放弃——官方教程翻译及拓展</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-06-17T17:51:36+08:00">
+                2020-06-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Y%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index">
+                    <span itemprop="name">Y笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <img src="https://s1.ax1x.com/2020/06/01/tG73C9.png" alt="26" width="800px" />
+
+<a id="more"></a>
+
+<h2 id="Grasshopper使用说明书（V3-3版本）"><a href="#Grasshopper使用说明书（V3-3版本）" class="headerlink" title="Grasshopper使用说明书（V3.3版本）"></a><font color=#008DB2>Grasshopper使用说明书（V3.3版本）</font></h2><p><font color=#008DB2><strong>欢迎</strong></font></p>
+<p>您看到的是Grasshopper说明书的第三版，这个版本是由犀牛4和当时版本Grasshopper的工程师的Andrew O. Payne进行编写。该版本在发布对于已经强大的Grasshopper有了明显的提升。</p>
+<p>本版本在原有的基础上进行了曲面升级，重点介绍了一些强大的功能更新。更新后的文字，图像和说明旨在更加高效地向初学者介绍如何进行<strong>图像化编程</strong>，并为经验丰富的资深人士介绍衍生设计（Generative Design）的工作流程。<strong>这个教程将作为新手和现有用户的实用指南，并向新用户说明如何在创意设计中使用Grasshopper。</strong></p>
+<p>本手册将介绍如何有效使用Grasshopper的一些基本概念和必要的技能以及工作流程。以下是可以从本手册中学到的知识：</p>
+<ul>
+<li><strong>简介</strong> - 什么是Grasshopper，如何使用？</li>
+<li><strong>Hello Grasshopper</strong> - 制作第一个GH程序</li>
+<li><strong>解析Grasshopper的定义</strong> - 由什么组成？</li>
+<li><strong>构建算法</strong> - 从简单开始，到构建复杂程序</li>
+<li><strong>使用列表进行设计</strong> - 什么是列表，如何管理它们？</li>
+<li><strong>使用数据树进行设计</strong> - 什么是数据结构，它们对流程意味着什么？</li>
+<li><strong>附录</strong> - 参考资料和相关工作文件，供大家继续探索。</li>
+</ul>
+<p>我们希望这本入门指南会带领您开始探索Grasshopper编程。祝学习顺利。<br><br></p>
+<p><font color=#008DB2><strong>Grasshopper说明书开源项目</strong></font></p>
+<p>Grasshopper使用手册是一个开源项目，由Bob McNeel，Scott Davidson和Robert McNeel＆Associates的Grasshopper开发团队发起。</p>
+<p>Mode Lab撰写了第三版的说明书。<a href="http://modelab.is" target="_blank" rel="noopener">http://modelab.is</a></p>
+<p><img src="https://s1.ax1x.com/2020/06/01/tGXtKA.png" alt="26" width="800px" /><br></p>
+<p>如果您想为这个项目做贡献，请查阅github Wiki，并在下面连接中进行修改或补充<a href="https://github.com/modelab/grasshopper-primer/wiki" target="_blank" rel="noopener">https://github.com/modelab/grasshopper-primer/wiki</a><br><br></p>
+<p><font color=#008DB2><strong>致谢</strong></font></p>
+<p>特别感谢David Rutten的无穷灵感和开发grasshopper的宝贵工作。我们还要感谢Andrew O. Payne提供了启动这项工作的资金。最后，非常感谢Bob McNeel和Robert McNeel＆Associates的所有人多年来的慷慨支持。<br><br></p>
+<p><font color=#008DB2><strong>所需软件</strong></font></p>
+<p><strong>犀牛</strong></p>
+<p>Rhino 5.0（现在更新了6.0）是工业设计建模软件的市场领导者。可以直接建模，获取高度复杂的形状。凭借其强大的、基于NURBS的引擎，Rhino可以创建，编辑，分析以及转换曲线，曲面和实体。对复杂程度或大小没有限制。</p>
+<p><a href="https://www.rhino3d.com/download/rhino/6" target="_blank" rel="noopener">https://www.rhino3d.com/download/rhino/6</a></p>
+<p><strong>Grasshopper</strong></p>
+<p>这是一款针对设计师的新型模型生成算法，Grasshopper是与Rhino的3D建模工具紧密集成的图形算法编辑器。与RhinoScript或Python不同，Grasshopper不需要脚本抽象语法的知识，但仍允许设计人员构建从简单到复杂的模型生成器。</p>
+<p><a href="http://www.grasshopper3d.com/page/download-1" target="_blank" rel="noopener">http://www.grasshopper3d.com/page/download-1</a><br><br></p>
+<p><font color=#008DB2><strong>论坛</strong></font></p>
+<p>Grasshopper论坛非常活跃，并提供了一个很好的平台来发布问题或者寻求帮助。该论坛针对Bug、错误提示和一般性问题，提供了示例以及FAQ。</p>
+<p><a href="http://www.grasshopper3d.com/forum" target="_blank" rel="noopener">http://www.grasshopper3d.com/forum</a></p>
+<p>Grasshopper网站的“常见问题”部分包含您可能遇到的许多问题的解决方案以及相关的链接。</p>
+<p><a href="http://www.grasshopper3d.com/notes/index/allNotes" target="_blank" rel="noopener">http://www.grasshopper3d.com/notes/index/allNotes</a><br><br></p>
+<p><font color=#008DB2><strong>许可信息</strong></font></p>
+<p>Grasshopper说明书是根据Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported许可获得许可的。可在以下链接获取此许可证的全文（可以在非商用的情况下进行使用）：<a href="http://creativecommons.org/licenses/by-nc-sa/3.0/us/legalcode" target="_blank" rel="noopener">http://creativecommons.org/licenses/by-nc-sa/3.0/us/legalcode</a><br><br></p>
+<h3 id="Grasshopper背景"><a href="#Grasshopper背景" class="headerlink" title=" Grasshopper背景"></a><font color=#008DB2> Grasshopper背景</font></h3><p>Grasshopper是由Robert McNeel＆Associates的David Rutten开发的可视化程序编辑器。作为Rhino的插件，Grasshopper与功能强大的建模环境集成在一起，供建筑，工程，产品设计等多个领域的创意专业人员使用。同时，Grasshopper和Rhino为我们提供了定义模型的精确参数控制的机会，探索生成的设计工作流的能力以及开发高级编程逻辑的平台，而所有这些都在直观的图形界面中进行。</p>
+<p>Grasshopper的起源可以追溯到Rhino版本4中的<strong>“Record History</strong>”按钮。借助此内置功能，用户可以随时随地在后台存储建模过程。例如记录了四个曲线的放样过程，然后编辑了其中一条曲线的控制点，则曲面几何形状将更新。早在2008年，David提出了一个问题：<strong>“是否对建模过程进行更明确的控制？”</strong>，Grasshopper便因此诞生了。这样就可以对建模历史进行详细的编辑，并使用户能够开发超出Rhino内置现有功能的功能逻辑序列。六年后，Grasshopper现在是一个强大的可视化程序编辑器，可以通过外部开发的组件进行扩展。</p>
+<p>本入门课程侧重于基础知识，提供研究Grasshopper的常规操作以及所需要的核心知识以，以帮助您在自己的创造性实践中进一步使用。在准备继续学习下文之前，让我们了解下什么是视觉编程、Grasshopper界面、基础术语、视口反馈和用户体验等特性。</p>
+<p>可视化编程是计算机编程的一种规范，其中，用户以图形方式而不是文本方式操作逻辑元素。一些最著名的文本编程语言，例如C＃，Visual Basic，Processing ，以及更接近Rhino的语言– Python和Rhinoscript要求我们编写受特定语言语法约束的代码。相比之下，可视化编程让我们可以将<strong>功能块</strong>快速连接，进行一系列操作，其中唯一需要的“语法”是电池块输入或接收适当类型的数据。在理想情况下，我们可以根据需求进行组织。详情请参阅<strong>“1.5 数据流匹配和使用数据树设计”</strong>部分。视觉编程的这一特征避免了尝试学习一种新语言（甚至是口头语言）时通常会遇到的障碍。</p>
+<p><img src="https://s1.ax1x.com/2020/06/17/NEpKNF.png" alt="28" width="800px" /> <br></p>
+<p>要使用Grasshopper及其可视化编程功能，我们需要从Grasshopper3D.com网站下载并安装该程序。安装完成后，我们可以在Rhino命令行输入“ Grasshopper”来打开插件。我们将看到Grasshopper加载提示，然后是Grasshopper编辑器窗口。现在，我们可以将电池块添加到<strong>“画布”</strong>，将它们用“电线”连接，然后将文件保存为.ghx格式。</p>
+<p><img src="https://s1.ax1x.com/2020/06/17/NEp3cR.png" alt="28" width="800px" /> <br></p>
+<p>我们可以在Grasshopper画布中创建“Slider”电池以控制几何形状，也可以将在此输入的数据与Rhino视口中的预览连接起来。这种连接是实时的。如果我们调整<code>Silder</code>的数据，Rhino窗口中的物件会更改。为了Grasshopper的使用方便，我们看到Rhino窗口中的几何预览是轻量级显示，并且会自动更新。请注意这种同步的关系，因为当您的定义变得更加复杂时，巧妙地管理了数据流，注意坚持的状态以及Rhino视窗中的模型可以高效的避免一些不必要的麻烦。</p>
+<p><img src="https://s1.ax1x.com/2020/06/17/NEpW4g.png" alt="28" width="800px" /> <br></p>
+<p><strong>谨记</strong></p>
+<ul>
+<li><p>Grasshopper是与Rhino3D的建模工具集成在一起的图形算法编辑器。</p>
+</li>
+<li><p>算法是旨在执行操作的过程步骤。</p>
+</li>
+<li><p>您可以使用Grasshopper设计算法，然后在Rhino3D中自动执行任务。</p>
+</li>
+<li><p>如果您不清楚如何在Grasshopper中执行特定操作，一个简单的入门方法是尝试手动使用Rhino命令逐步创建算法。</p>
+</li>
+</ul>
+<p>当您开始探索Grasshopper或已经有所提高时，便已经加入了全球Grasshopper社区，该社区充满了来自不同领域的活跃成员，具有不同的经验和水平。论坛Grasshopper3D.com是提出问题，分享发现并获取知识的资源平台。开发Grasshopper这么多年以来，这个论坛一直是我们最喜欢和常用的平台。欢迎大家一起加入！</p>
+<h3 id="Grasshopper初识"><a href="#Grasshopper初识" class="headerlink" title="Grasshopper初识"></a><font color=#008DB2>Grasshopper初识</font></h3><p>Grasshopper是与Rhino中建模工具集成在一起的图形算法编辑器。您可以使用Grasshopper设计算法，然后在Rhino中自动执行任务。</p>
+<h4 id="安装和运行-Grasshopper"><a href="#安装和运行-Grasshopper" class="headerlink" title="安装和运行 Grasshopper"></a><font color=#008DB2>安装和运行 Grasshopper</font></h4><p>因为目前Grasshopper都是内置在Rhino软件中的，就不需要相关的教程了。</p>
+<h4 id="Grasshopper交互界面"><a href="#Grasshopper交互界面" class="headerlink" title="Grasshopper交互界面"></a><font color=#008DB2>Grasshopper交互界面</font></h4><p>Grasshopper的界面采用<strong>“Plug and Play”</strong>的使用特性，使设计师能够通过使用友好的图形界面解决创造性的问题并且开发全新的建模系统。</p>
+<p>让我们开始学习Grasshopper的用户界面。Grasshopper是一种可视化编程应用程序，在其中您可以通过将组件拖动到主编辑窗口（称为画布）上来创建或开发程序。通过将电池的输出数据连接到后续电池的输入，创建可以从左到右读取的建模流程图。让我们从基础开始。</p>
+<p>在Rhino命令提示符下输入单词“Grasshopper”以调出Grasshopper编辑器。Grasshopper的用户界面包含许多元素，Rhino用户可能熟悉其中的大多数元素。让我们看一下界面的一些功能。</p>
+<p><img src="https://s1.ax1x.com/2020/06/17/NEQHN4.png" alt="28" width="800px" /> <br></p>
+<blockquote>
+<ol>
+<li>Windows标题栏。</li>
+<li>主菜单栏。</li>
+<li>文件浏览控制器。</li>
+<li>组件（电池）面板。</li>
+<li>画布工具栏。</li>
+<li>画布。</li>
+<li>矩形框的分栏表示的该区域提供了用于打开“最近访问”的文件的界面。3x3菜单显示（按时间顺序）最近访问过的文件，如果找不到该文件，则会显示一个红色的矩形框（如果将文件移动到新文件夹或将其删除，则可能会出现）。</li>
+<li>状态栏，告诉您计算机上当前安装了哪个版本的Grasshopper。如果有较新版本，则托盘中会出现一个弹出菜单，其中提供有关如何下载最新版本的说明。</li>
+</ol>
+</blockquote>
+<p><strong>1.1.2.1 WINDOWS标题栏</strong></p>
+<p>GH编辑器窗口标题栏的操作与Microsoft Windows中的大多数其他的标题栏不同。如果未最小化或最大化窗口，则双击标题栏会将对话框折叠到屏幕上的最小化栏中。这是在插件和Rhino之间切换的好方法，因为它可以最小化编辑器，而无需将其移至屏幕底部或其他窗口后面。</p>
+<p><img src="https://s1.ax1x.com/2020/06/17/NElLdS.gif" alt="28" width="800px" /> <br></p>
+<p>请注意，如果关闭编辑器，Rhino视口中的Grasshopper预览将消失，但实际上不会关闭该文件。下次在Rhino对话框中运行“ Grasshopper”命令时，该窗口将以相同的状态返回，并加载相同的文件。这是因为一旦从命令提示符启动它，您的Grasshopper窗口将保持激活状态，直到该Rhino实例关闭。</p>
+<p><strong>1.1.2.2 主菜单栏</strong></p>
+<p>标题栏类似于经典的Windows菜单，除了右侧的文件浏览器控件（部件3，请参阅下一节）。<code>“File”</code>菜单提供了一些常用功能（例如，“新文件”，“打开”，“保存”等），以及一些实用工具，可用于导出当前Grasshopper文档的图像（请参阅快速导出图像和导出高分辨率图像的说明）。您可以使用<code>“View”</code>和<code>“Display”</code>菜单来控制用户界面的不同方面，而<code>“Solution”</code>菜单可让您管理Grasshopper处理数据的不同属性。</p>
+<p>值得注意的是，可以通过<code>“File”</code>菜单下的<code>“Preference”</code>对话框来控制许多应用程序设置。其中，<code>“Author”</code>部分可让您设置个人相关，该数据将与每个Grasshopper文档一起存储，而<code>“Display”</code>部分，可让您对界面的外观进行精细控制。使用<code>“FIle”</code>部分，您可以指定自动保存文件的频率和存储位置（以防应用程序意外关闭或崩溃）。最后，<code>“Solution”</code>部分使您可以管理可以扩展功能的核心和第三方插件。</p>
+<p><img src="https://s1.ax1x.com/2020/06/17/NE1Hp9.png" alt="28" width="800px" /> <br></p>
+<p><strong>1.1.2.3 文件浏览器控制</strong></p>
+<p>通过文件浏览器，您可以通过此下拉列表选择不同的加载文件，从而在不同的加载文件之间快速切换。通过<code>“文件浏览器”</code>下拉列表打开文件，使您能够快速复制和粘贴不同文件中的项目。只需在<code>“浏览器控制窗口”</code>中单击活动文件名，就会显示所有打开文件的列表（以及每个打开的定义的小缩略图），以便于访问。您也可以按Alt + Tab快速在任何打开的Grasshopper文档之间切换。</p>
+<p>当然，您也可以通过标准的<code>“Open File”</code>对话框来加载任何Grasshopper文档，尽管您也可以将任何Grasshopper文件拖放到画布上以加载。</p>
+<blockquote>
+<p>Grasshopper是一个可以在Rhino的“顶部”运行的插件，因此具有自己的文件类型。默认文件类型是二进制数据文件，扩展名为.gh。另一种文件类型称为Grasshopper XML文件，其扩展名为.ghx。XML（可扩展标记语言）文件类型使用标签定义对象和对象属性（非常类似于.HTML文档），但使用自定义标签定义对象和每个对象中的数据。因为XML文件被格式化为文本文档，所以您可以在诸如NotePad之类的文本编辑器中打开任何Grasshopper XML文件，以查看幕后进行的编码。</p>
+</blockquote>
+<p>Grasshopper有几种不同的方法可以用来打开文件，使用这种方法时，您需要指定要使用的选项。</p>
+<ul>
+<li><p><strong>打开文件（Open）：</strong>顾名思义，此文件选项将仅打开您拖放到画布上。</p>
+</li>
+<li><p><strong>插入文件（Insert）：</strong>您可以使用此选项将现有文件作为分离的组件插入当前文档中。</p>
+</li>
+<li><p><strong>分组文件（Group）：</strong>此方法会将文件插入现有文档，但是将所有对象分组在一起。</p>
+</li>
+<li><p><strong>群集文件（Cluster）：</strong>类似于组功能，此方法会将文件插入现有文档中，但将为整个对象组创建一个Cluster对象。</p>
+</li>
+<li><p><strong>检查文件（Examine）：</strong>允许您以锁定状态打开文件，这意味着您可以浏览特定文件，但不能对定义进行任何更改。</p>
+</li>
+</ul>
+<p>Grasshopper还具有自动保存功能，该功能将根据特定的用户设定定期触发。在主菜单栏上的<code>“File”</code>菜单下可以找到自动保存首选项的列表。当Rhino文件关闭时，将出现一个弹出对话框，询问您是否要保存Rhino关闭时打开的任何Grasshopper文件。</p>
+<p><img src="https://s1.ax1x.com/2020/06/17/NE3lXq.png" alt="28" width="800px" /> <br></p>
+<p><strong>1.1.2.4 组件（电池）面板</strong></p>
+<p>该区域将组件（电池）分为<strong>类别和子类别</strong>，<strong>类别</strong>显示为不同的选项卡，<strong>子类别</strong>显示为下拉菜单。所有组件都已经分类为某个类别。这些类别按照清晰的逻辑区分，快速找到所需的特定组件（例如，所有原始数据类型的“ Params”或所有曲线相关工具的“ Curves”）。要将组件（电池）添加到画布，可以单击下拉菜单中的对象，也可以将组件直接从菜单拖动到画布上。</p>
+<p><img src="https://s1.ax1x.com/2020/06/17/NE3wcR.png" alt="28" width="800px" /> <br></p>
+<p>由于每个子类别中的组件数量可能超出调色板所能容纳的数量，因此每个面板上显示的图标数量有限。可以调整组件面板的高度和Grasshopper窗口的宽度，以在每个子类别中显示更多或更少的组件。要查看给定子类别中所有组件的菜单，只需单击每个子类别面板底部的黑条。这将打开一个下拉菜单，通过该菜单可以访问该子类别中的所有组件。</p>
+<p><img src="https://s1.ax1x.com/2020/06/17/NE8rxs.png" alt="28" width="800px" /> <br></p>
+<blockquote>
+<ol>
+<li>类别标签</li>
+<li>子类别面板</li>
+<li>单击黑条以打开子类别面板菜单</li>
+<li>将鼠标悬停在组件上以进行简短描述</li>
+<li>下拉式菜单</li>
+</ol>
+</blockquote>
+<p><strong>1.1.2.5 画布</strong></p>
+<p>画布是用于创建Grasshopper定义的主要工作区。在这里，您可以对于视觉编程的元素进行操作，也可以通过放置组件和连接电线来开始在画布中工作。</p>
+<p><strong>1.1.2.6 分组</strong></p>
+<p>在画布上将组件（电池）分组在一起对于提高可读性和可理解性尤其有用。分组使您能够快速选择画布中的多个组件（电池）组合在其中移动。您可以通过键入<code>Ctrl + G</code>并选择所需的组件来创建组。可以使用主菜单栏上<code>Edit</code>下的<code>Group</code>按钮进行成组。也可以通过右键单击任何组对象来定义组颜色，透明度，名称和轮廓类型的自定义参数。</p>
+<p><img src="https://s1.ax1x.com/2020/06/17/NVmDl6.png" alt="28" width="800px" /> <br></p>
+<blockquote>
+<ol>
+<li>Group轮廓</li>
+<li>右键单击组上的任意位置以编辑组的名称和外观</li>
+</ol>
+</blockquote>
+<p><img src="https://s1.ax1x.com/2020/06/17/NVm51P.png" alt="28" width="800px" /> <br></p>
+<blockquote>
+<p>可以通过双击改变成组的方式</p>
+</blockquote>
+<p><img src="https://s1.ax1x.com/2020/06/17/NVmLkj.png" alt="28" width="800px" /> <br></p>
+<p>两组相互嵌套。外部组的颜色（浅蓝色）已更改，以帮助从视觉上识别另一组。将外部组绘制在它们内部组件的“后面”，在这种情况下，这两个组具有深度顺序。要更改此设置，请转到主菜单栏中的<strong>“Edit”&gt;“Arrange”</strong>。</p>
+<p><strong>1.1.1.7 便捷操作工具</strong></p>
+<p>Grasshopper中提供了一些便捷操作工具，可以帮助您执行有用的操作。您可以在主菜单栏的<code>DIsplay</code>菜单下打开/关闭这些小部件中的任何一个。下面我们将看一些最常用的工具。</p>
+<p><code>Align Widget</code>是一种可以帮助您保持画布清洁的有用的UI部件。您可以通过同时选择多个组件并单击围绕所选组件的虚线轮廓中的选项之一来使用<code>Align Widget</code> 。您可以通过此工具对于电池进行<strong>左对齐，垂直居中，右对齐或顶部，水平居中，底部对齐或平均分配组件等操作</strong>。刚开始使用时，您可能会发现这些工具有时会妨碍您的工作（可能会出错，将多个组件折叠在一起）。但是，通过一些实践，这些工具在您开始构造易于理解的图形时将具有无价的价值。</p>
+<p><img src="https://s1.ax1x.com/2020/06/17/NV3Frq.png" alt="28" width="800px" /> <br></p>
+<blockquote>
+<ol>
+<li>右对齐</li>
+<li>垂直分布</li>
+</ol>
+</blockquote>
+<p><strong>Profiler工具</strong> Profiler列出了各个组件的运行时间，使您可以跟踪程序中的问题并在时间性能方面比较不同的组件。请注意，此工具默认情况下处于关闭状态。</p>
+<p><img src="https://s1.ax1x.com/2020/06/17/NV87nI.png" alt="28" width="800px" /> <br></p>
+<p><strong>Markov工具</strong> 此工具使用Markov链根据过去的行为来“预测”您可能接下来要使用的组件。Markov链是由有限数量的状态（或级别）和一些已知概率组成的过程。这个小部件可能需要一些时间才能习惯于特定用户，但是随着时间的流逝，您应该开始注意到该小部件将开始建议您接下来可能要使用的组件。Markov窗口小部件最多可以建议五个可能的组件，具体取决于您的近期活动。您可以右键单击“ Markov”工具（默认位置是画布的左下角），以将其停靠在画布的其他角之一中或将其完全隐藏。</p>
+<p><img src="https://s1.ax1x.com/2020/06/17/NVGZ34.png" alt="28" width="800px" /> <br></p>
+<p><strong>1.1.2.8 使用搜索功能</strong></p>
+<p>尽管在组件面板上放置每个组件的方法很多，以使其对于新用户来说很直观，但是人们有时发现很难找到埋藏在类别面板内部的特定组件。幸运的是，您还可以通过双击画布上的任何空白空间来按名称查找组件。这将调用一个弹出搜索框。只需键入您要查找的组件的名称，您就会看到与您的请求相匹配的参数或组件的列表。</p>
+<p><img src="https://s1.ax1x.com/2020/06/17/NVYCkV.png" alt="28" width="500px" /> <br></p>
+<blockquote>
+<p>双击画布上的任意位置，以调用关键字搜索在“组件面板”中找到的特定组件。</p>
+</blockquote>
+<p><img src="https://s1.ax1x.com/2020/06/17/NVY31e.png" alt="28" width="800px" /> <br></p>
+<blockquote>
+<p>搜索“ divide”将列出各种组件。</p>
+<p>1.除法运算符组件<br>2.划分曲面分量<br>3.划分Domain2组件</p>
+</blockquote>
+<p><strong>1.1.2.9 查找功能</strong></p>
+<p>实际上有数百种Grasshopper组件可供您使用，作为初学者，想要在组件面板中查找特定组件会比较困难。快速方法是双击画布上的任意位置以启动针对您要查找的组件的搜索查询。但是，如果我们需要找到已经放置在画布上的特定组件该怎么办？不用担心。通过右键单击画布上的任意位置或按F3键，可以调用<code>Find</code>功能。首先输入要查找的组件的名称。</p>
+<p>查找功能使用了非常复杂的算法，这些算法不仅可以在画布内搜索组件名称实例（组件名称是在组件面板下找到的组件的标题，我们作为用户无法更改，但我们可以为组件指定唯一签名（称为昵称）。<code>Find</code>功能还可以在画布上搜索任何组件类型，或对于文本面板，涂鸦和组内容中搜索。查找功能找到匹配项后，它将自动使其余定义变灰，并在突出显示的组件周围绘制虚线。</p>
+<p><img src="https://s1.ax1x.com/2020/06/17/NVU538.png" alt="28" width="600px" /> <br></p>
+<blockquote>
+<p>通过右键单击画布上的任意位置或按F3键，可以调用“查找”功能。首先输入要查找的组件的名称</p>
+</blockquote>
+<p><img src="https://s1.ax1x.com/2020/06/17/NVUbHs.png" alt="28" width="800px" /> <br></p>
+<p>查找功能对于在画布上定位特定组件很有帮助。右键单击画布上的任意位置以启动“查找”对话框。</p>
+<p><img src="https://s1.ax1x.com/2020/06/17/NVUX40.png" alt="28" width="600px" /> <br></p>
+<blockquote>
+<p>列表中每个项目旁边也会显示一个小箭头，该箭头指向画布上相应的组件。尝试在画布上四处移动“查找”对话框，并观察箭头向内旋转以跟踪其组成部分。单击“查找”结果将尝试将组件（在画布上）放置在“查找”对话框旁边。</p>
+</blockquote>
+<p><strong>1.1.2.10 使用圆形菜单</strong></p>
+<p>随着对于Grasshopper界面的熟悉，可以寻找加快工作流程的方法。使用快捷方式是一种很有效的方法，还有另一个方法可以快速访问许多有用的工具——圆形菜单。您可以通过单击<strong>空格键</strong>（当鼠标位于画布或组件上方时）或单击<strong>鼠标中键</strong>来调用圆形菜单。圆形菜单中可以调用不同的工具，其中工具的区别会根据直接在组件顶部点击还是在画布上的任何位置单击来调用菜单。在下图中，您可以看到，在选定组件的顶部单击而不是在画布上的其他任何位置单击，放射状菜单具有更多可用功能。此菜单可以极大地提高创建Grasshopper文档的速度。</p>
+<p><img src="https://s1.ax1x.com/2020/06/17/NVa9u4.png" alt="28" width="800px" /> <br></p>
+<p><strong>1.1.2.11 画布工具栏</strong></p>
+<p>使用画布工具栏可以快速访问许多常用的Grasshopper功能。所有工具也都可以通过菜单使用，并且可以根据需要隐藏工具栏。可以从主菜单栏上的<code>View</code>选项卡重新启用该工具栏。</p>
+<p><img src="https://s1.ax1x.com/2020/06/17/NVdpJP.png" alt="28" width="800px" /> <br></p>
+<blockquote>
+<ol>
+<li><strong>打开文件：</strong>打开Grasshopper文件的快捷操作</li>
+<li><strong>保存文件：</strong>保存当前Grasshopper文件的快捷操作</li>
+<li><strong>缩放默认值</strong>：默认缩放设置，可让您以预定义的比例放大或缩小画布</li>
+<li><strong>缩放范围：</strong>缩放到定义的范围。单击<strong>“缩放范围”</strong>图标旁边的箭头可以看到子菜单选项</li>
+<li><strong>命名视图：</strong>此功能提供了一个菜单，可让您存储或调用定义中的任何视图区域</li>
+<li><strong>草图绘制工具：</strong>草图绘制工具的工作原理与Adobe Photoshop中的铅笔工具集类似，但具有一些附加功能。</li>
+</ol>
+</blockquote>
+<p><img src="https://s1.ax1x.com/2020/06/17/NVdiQS.png" alt="28" width="800px" /> <br></p>
+<blockquote>
+<ol>
+<li><strong>预览设置：</strong>如果Grasshopper中通过组件生成了某种形式的几何图形，则默认情况下，此几何图形的预览将在视窗中可见。您可以通过右键单击每个组件并取消预览功能来基于对象禁用预览，或者使用这三个按钮之一来更改全局预览模式。（其中1号按钮为关闭预览）</li>
+<li>线框预览。</li>
+<li>带阴影的预览（默认）</li>
+<li><strong>预览选定的对象：</strong>切换此按钮后，Grasshopper将仅显示属于选定组件的几何图形，即使这些组件处于Preview = off状态。</li>
+<li><strong>文档预览设置：</strong> Grasshopper具有用于选定（半透明绿色）和未选定（半透明红色）几何的默认配色方案。可以使用“文档预览设置”对话框中进行设置，修改此配色方案。</li>
+<li><strong>预览网格质量：</strong>出于优化目的，这些设置使您可以控制Rhino中渲染的几何体的网格/表面显示的质量。较高的质量设置将导致较长的计算时间，而较低的设置将显示较不准确的预览几何图形。应该注意的是，当烘焙到Rhino文档中时，几何图形仍保持较高的分辨率-这些设置仅影响显示性能和质量。</li>
+</ol>
+</blockquote>
+<p><img src="https://s1.ax1x.com/2020/06/17/NVdJoR.png" alt="28" width="800px" /> <br></p>
+<p>Sketch工具允许更改线宽，线型和颜色。通过右键单击选定的草图对象，您可以选择简化线条以创建更平滑的效果。右键单击您的草图对象，然后选择<code>Load from Rhino</code>。出现提示时，在Rhino场景中选择任何2D形状。选择参考形状后，按Enter键，先前的草图线将重新配置为Rhino参考形状。</p>
+<p>注意：一旦从Rhino加载了形状，sketch对象可能已从其原始位置移开。Grasshopper中画布的原点（左上角）和Rhino中的世界xy平面原点一致。</p>
+<p><img src="https://s1.ax1x.com/2020/06/17/NVdBOe.png" alt="28" width="800px" /> <br></p>
+<blockquote>
+<p>Grasshopper默认选中（半透明绿色）和未选中（半透明红色）的配色方案。可以使用“文档预览设置”对话框修改此配色方案。</p>
+</blockquote>
+<h2 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h2><p>博客与微信公众号同步更新：</p>
+<p><img src="https://s2.ax1x.com/2020/02/12/1HbXqI.png" alt="17" width="800px" /> <br></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/rhino/" rel="tag"># rhino</a>
+          
+            <a href="/tags/grasshopper/" rel="tag"># grasshopper</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/06/10/20200610/" rel="next" title="Y原创 | 朱育帆老师新作GH全流程建模">
+                <i class="fa fa-chevron-left"></i> Y原创 | 朱育帆老师新作GH全流程建模
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="https://s2.ax1x.com/2020/02/11/1TMzAP.png"
+                alt="Qingzhe Yuan" />
+            
+              <p class="site-author-name" itemprop="name">Qingzhe Yuan</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/%7C%7C%20archive">
+              
+                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Grasshopper使用说明书（V3-3版本）"><span class="nav-number">1.</span> <span class="nav-text">Grasshopper使用说明书（V3.3版本）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Grasshopper背景"><span class="nav-number">1.1.</span> <span class="nav-text"> Grasshopper背景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Grasshopper初识"><span class="nav-number">1.2.</span> <span class="nav-text">Grasshopper初识</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#安装和运行-Grasshopper"><span class="nav-number">1.2.1.</span> <span class="nav-text">安装和运行 Grasshopper</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Grasshopper交互界面"><span class="nav-number">1.2.2.</span> <span class="nav-text">Grasshopper交互界面</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#写在最后"><span class="nav-number">2.</span> <span class="nav-text">写在最后</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Qingzhe Yuan</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
