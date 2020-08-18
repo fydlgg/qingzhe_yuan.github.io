@@ -106,7 +106,7 @@
 
 
 <meta property="og:type" content="article">
-<meta property="og:title" content="20200817">
+<meta property="og:title" content="Y原创 | Graph Mapper详解——GH中处理曲线（数列）最有效的电池，附优化插件Rich Graph mapper">
 <meta property="og:url" content="http://qingzheyuan93.github.io/2020/08/17/20200817/index.html">
 <meta property="og:site_name" content="Y&#39;s Study Blog">
 <meta property="og:image" content="https://s1.ax1x.com/2020/08/17/dmufj1.png">
@@ -132,7 +132,7 @@
 <meta property="og:image" content="https://s1.ax1x.com/2020/08/18/duqCxs.gif">
 <meta property="og:image" content="https://s2.ax1x.com/2020/02/12/1HbXqI.png">
 <meta property="article:published_time" content="2020-08-17T09:26:06.000Z">
-<meta property="article:modified_time" content="2020-08-18T07:34:18.801Z">
+<meta property="article:modified_time" content="2020-08-18T07:55:49.565Z">
 <meta property="article:author" content="Qingzhe Yuan">
 <meta property="article:tag" content="rhino">
 <meta property="article:tag" content="grasshopper">
@@ -173,7 +173,7 @@
 
 
 
-  <title>20200817 | Y's Study Blog</title>
+  <title>Y原创 | Graph Mapper详解——GH中处理曲线（数列）最有效的电池，附优化插件Rich Graph mapper | Y's Study Blog</title>
   
 
 
@@ -317,7 +317,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">20200817</h1>
+          <h1 class="post-title" itemprop="name headline">Y原创 | Graph Mapper详解——GH中处理曲线（数列）最有效的电池，附优化插件Rich Graph mapper</h1>
         
 
         <div class="post-meta">
@@ -407,7 +407,7 @@
 <p><img src="https://s1.ax1x.com/2020/08/17/dmMULq.png" alt="34" width="800px" /><br></p>
 <p>经过一番操作后，终于有反应了，我们来分析下这个电池是怎么工作的。</p>
 <p>首先，<strong>“0:1”</strong>的标识确实是定义了区间。当我们把输入的数值调整到0 to 1这个区间中的时候，电池对于数据产生影响了。</p>
-<p><strong>我们输入的数据，对应的是X轴的坐标，有效区间参照电池的右下角的标识。**</strong>而输出的数值是输入的X坐标在Y轴的数值，区间参照左上角的标识。**</p>
+<p><strong>我们输入的数据，对应的是X轴的坐标，有效区间参照电池的右下角的标识。而输出的数值是输入的X坐标在Y轴的数值，区间参照左上角的标识。</strong></p>
 <p><img src="https://s1.ax1x.com/2020/08/17/dmHlYd.png" alt="34" width="800px" /><br></p>
 <p>Graph Mapper电池的XY轴有效区间默认为<strong>“0 to 1”</strong>，如果每次输入都需要进行<code>Remap</code>的话，实在太繁琐，是不是可以调整Graph Mapper的有效区间，当然可以，但是调整起来也很麻烦……</p>
 <p>双击Graph Mapper任意区域，会弹出<strong>Graph Editor</strong>的窗口：</p>
