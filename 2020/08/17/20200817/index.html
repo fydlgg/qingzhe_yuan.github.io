@@ -130,9 +130,17 @@
 <meta property="og:image" content="https://s1.ax1x.com/2020/08/18/dub0ET.png">
 <meta property="og:image" content="https://s1.ax1x.com/2020/08/18/duboPe.gif">
 <meta property="og:image" content="https://s1.ax1x.com/2020/08/18/duqCxs.gif">
+<meta property="og:image" content="https://s1.ax1x.com/2020/08/24/dyuGsf.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/08/24/dyKelq.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/08/24/dyKIhj.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/08/24/dyKIhj.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/08/24/dyQQJJ.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/08/24/dylpOx.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/08/24/dylccR.gif">
+<meta property="og:image" content="https://s1.ax1x.com/2020/08/24/dy1gPg.gif">
 <meta property="og:image" content="https://s2.ax1x.com/2020/02/12/1HbXqI.png">
 <meta property="article:published_time" content="2020-08-17T09:26:06.000Z">
-<meta property="article:modified_time" content="2020-08-18T07:55:49.565Z">
+<meta property="article:modified_time" content="2020-08-24T14:23:43.399Z">
 <meta property="article:author" content="Qingzhe Yuan">
 <meta property="article:tag" content="rhino">
 <meta property="article:tag" content="grasshopper">
@@ -450,6 +458,31 @@
 <p>在一个项目中，结构杆件的形态也是作为设计的一部分，虽然有实用的<code>Pipe Variable</code>电池，但是也需要<code>Graph Mapper</code>去辅助调整截面尺寸的变化：</p>
 <p><img src="https://s1.ax1x.com/2020/08/18/duqCxs.gif" alt="34" width="800px" /><br></p>
 <p>通过调整，可以找到需要的杆件形态，在后期根据工厂加工的需要，进行细节的调整即可。</p>
+<h2 id="案例补充"><a href="#案例补充" class="headerlink" title="案例补充"></a>案例补充</h2><h3 id="写在前面-1"><a href="#写在前面-1" class="headerlink" title="写在前面"></a>写在前面</h3><p>随着我的公众号的更新，也有越来越多的同事开始了解grasshopper的作用了，也有不少人前来询问，有没有什么高效的方法实现设计中的诉求。有趣的是，就在我对于Graph Mapper的电池进行了详解之后，有个同事在实际项目中遇到了问题，而这个问题恰好可以利用Graph Mapper进行解决，而这种应用场景我之前也没有想到过。所以借此机会，将这个案例补充讲解下。</p>
+<h3 id="设计需求"><a href="#设计需求" class="headerlink" title="设计需求"></a>设计需求</h3><p>简单来说，正常的需求是在曲线上等分取点，并且原生电池中<strong>“Divide Curve”</strong>和<strong>“Divide Distance”</strong>两个电池可以直接实现。而现在的需求是在一根线上不等距的取点，但是点之间的距离是平顺变化的。如下图所示：</p>
+<p><img src="https://s1.ax1x.com/2020/08/24/dyuGsf.png" alt="34" width="800px" /><br></p>
+<h3 id="梳理逻辑"><a href="#梳理逻辑" class="headerlink" title="梳理逻辑"></a>梳理逻辑</h3><p>先确定输入端的数据有哪些。参考<code>Divide Curve</code>，有两个数据是确定需要手动输入的，一是目标曲线<strong>Curve</strong>和需要的数量<strong>Count</strong>。除此之外，还需要输入点之间的间距。这个间距可以转换为<code>Evaluate Curve</code>中的<strong>t值</strong>，而点之间的间距以及变化可以通过<code>Graph Mapper</code>进行控制。</p>
+<p><img src="https://s1.ax1x.com/2020/08/24/dyKelq.png" alt="34" width="800px" /><br></p>
+<p><img src="https://s1.ax1x.com/2020/08/24/dyKIhj.png" alt="34" width="800px" /><br></p>
+<p>在这个核心逻辑的基础上（数列可以被Graph Mapper控制），再将数列中的数字逐个相加，remap到<strong>“0 to 1”</strong>的区间，作为<strong>“t值”</strong>就可以对<strong>Reparameterize</strong>后的曲线进行不等距取点。</p>
+<h3 id="电池逻辑"><a href="#电池逻辑" class="headerlink" title="电池逻辑"></a>电池逻辑</h3><p><img src="https://s1.ax1x.com/2020/08/24/dyKIhj.png" alt="34" width="800px" /><br></p>
+<p>上图就是所有的电池逻辑，当向下调整Graph Mapper中的控制点的时候，就可以控制那部分的点进行集聚。当然，向上调整的时候，该部分的点进行离散。</p>
+<p>有两个知识点需要详细介绍。</p>
+<p><strong>1.Massive Addition的用法</strong></p>
+<p><img src="https://s1.ax1x.com/2020/08/24/dyQQJJ.png" alt="34" width="400px" /><br></p>
+<p>对于这个电池，大家常用的功能是链接第一个输出端<strong>“Result”</strong>，输出一系列数字的和。而另外一个输入端<strong>Partial Resul</strong>”的功能也很强大。根据英文可知，它的功能就是计算局部的和。</p>
+<p><img src="https://s1.ax1x.com/2020/08/24/dylpOx.png" alt="34" width="800px" /><br></p>
+<p>通过上图可以看出来，“Partial Results”将数列中的数字逐个叠加，并进行输出。所有通过这个电池和Graph Mapper就可以轻松控制一个数列中数字之间的差值了。</p>
+<img src="https://s1.ax1x.com/2020/08/24/dylccR.gif" alt="34" width="800px" />
+
+<p>上边的Panel显示的是数列中每一项之间的差，而右边的Panel显示的数列中每一项的数值。</p>
+<p><strong>2.Remap到“0 to 1”的区间</strong></p>
+<p>这个的原因跟t值有关。因为整个文件中应用到了<strong>“Evaluate Curve”</strong>电池，并且将Curve端进行<strong>Reparameterize</strong>了，所以将Curve的范围简化为了<strong>0 to 1</strong>的区间，所以需要将取值的点进行<strong>Remap</strong>。之前一篇帖子有详细的分析，可以了解下：<a href="http://mp.weixin.qq.com/s?__biz=MjM5NTE1NDAzMg==&mid=2247483682&idx=1&sn=0d7badb4584e432185d6cb77a36a0e57&chksm=a6fd903d918a192b974e7f1d2510bb98d185705aec0b2afc4dcf815b9d1db9a476c39ed6badb&scene=21#wechat_redirect" target="_blank" rel="noopener">Y原创 | GH小知识：“t”值的含义以及相关的常用电池</a></p>
+<p>介绍完这两个难点，整个逻辑就比较好理解了。那么我们应用到实际项目的曲线中，看看效果：</p>
+<img src="https://s1.ax1x.com/2020/08/24/dy1gPg.gif" alt="34" width="800px" />
+
+<p>感觉整体效果还是不错的，这个配色好像圣诞树，hhhh</p>
+<p>不知道这个方法有没有用，但是解决实际项目的成就感比单纯的学习更强烈，所以如果大家在实际项目中遇到问题，觉得可以用Grasshopper来解决的话，可以留言，我会尽可能帮大家想想的。</p>
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>这个电池的最核心的功能就是对于数列的调整，但是在GH中，任何物件都被数据化了，无论是一根线，还是一个点，都可以通过数字的组合去表达。所以无论什么物体，需要进行这种不规则的变化的时候，都可以通过这个电池进行修改。上面只是举了两个常用的例子，还有很多其他的场景可以使用，就看大家能否灵活运用了。</p>
 <p>Rich Graph Mapper插件下载链接：</p>
 <p>链接：<a href="https://pan.baidu.com/s/19sp604OLbip5dHzyxRA7PA" target="_blank" rel="noopener">https://pan.baidu.com/s/19sp604OLbip5dHzyxRA7PA</a></p>
@@ -631,7 +664,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#写在前面"><span class="nav-number">1.</span> <span class="nav-text">写在前面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#电池功能：对数列的控制"><span class="nav-number">2.</span> <span class="nav-text">电池功能：对数列的控制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Graph-Mapper的优化插件——Rich-Graph-Mapper"><span class="nav-number">3.</span> <span class="nav-text">Graph Mapper的优化插件——Rich Graph Mapper</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常见应用案例——曲线控制"><span class="nav-number">4.</span> <span class="nav-text">常见应用案例——曲线控制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常见应用案例——截面控制"><span class="nav-number">5.</span> <span class="nav-text">常见应用案例——截面控制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">6.</span> <span class="nav-text">总结</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#写在前面"><span class="nav-number">1.</span> <span class="nav-text">写在前面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#电池功能：对数列的控制"><span class="nav-number">2.</span> <span class="nav-text">电池功能：对数列的控制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Graph-Mapper的优化插件——Rich-Graph-Mapper"><span class="nav-number">3.</span> <span class="nav-text">Graph Mapper的优化插件——Rich Graph Mapper</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常见应用案例——曲线控制"><span class="nav-number">4.</span> <span class="nav-text">常见应用案例——曲线控制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常见应用案例——截面控制"><span class="nav-number">5.</span> <span class="nav-text">常见应用案例——截面控制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#案例补充"><span class="nav-number">6.</span> <span class="nav-text">案例补充</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#写在前面-1"><span class="nav-number">6.1.</span> <span class="nav-text">写在前面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设计需求"><span class="nav-number">6.2.</span> <span class="nav-text">设计需求</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#梳理逻辑"><span class="nav-number">6.3.</span> <span class="nav-text">梳理逻辑</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#电池逻辑"><span class="nav-number">6.4.</span> <span class="nav-text">电池逻辑</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">7.</span> <span class="nav-text">总结</span></a></li></ol></div>
             
 
           </div>
