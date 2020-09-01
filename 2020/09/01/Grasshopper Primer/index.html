@@ -107,7 +107,7 @@
 
 <meta property="og:type" content="article">
 <meta property="og:title" content="【置顶】 Y笔记 | Grasshopper从入门到放弃——官方教程翻译及拓展">
-<meta property="og:url" content="http://qingzheyuan93.github.io/2020/08/12/Grasshopper%20Primer/index.html">
+<meta property="og:url" content="http://qingzheyuan93.github.io/2020/09/01/Grasshopper%20Primer/index.html">
 <meta property="og:site_name" content="Y&#39;s Study Blog">
 <meta property="og:image" content="https://s1.ax1x.com/2020/06/01/tG73C9.png">
 <meta property="og:image" content="https://s1.ax1x.com/2020/06/01/tGXtKA.png">
@@ -184,9 +184,24 @@
 <meta property="og:image" content="https://s1.ax1x.com/2020/08/11/aXrKxK.png">
 <meta property="og:image" content="https://s1.ax1x.com/2020/08/11/aXrQKO.png">
 <meta property="og:image" content="https://s1.ax1x.com/2020/08/11/aXrlrD.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/09/01/dxtRdf.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/09/01/dxtqe0.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/09/01/dxNCO1.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/09/01/dxUC9g.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/09/01/dxUeEV.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/09/01/dxU5Ks.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/09/01/dxU7V0.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/09/01/dxUX24.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/09/01/dxaCa6.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/09/01/dxaARe.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/09/01/dxaZMd.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/09/01/dxatLn.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/09/01/dxayQJ.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/09/01/dxa7yd.gif">
+<meta property="og:image" content="https://s1.ax1x.com/2020/09/01/dxdSSg.png">
 <meta property="og:image" content="https://s2.ax1x.com/2020/02/12/1HbXqI.png">
-<meta property="article:published_time" content="2020-08-12T09:51:36.000Z">
-<meta property="article:modified_time" content="2020-08-12T13:33:47.108Z">
+<meta property="article:published_time" content="2020-09-01T09:51:36.000Z">
+<meta property="article:modified_time" content="2020-09-01T09:58:29.287Z">
 <meta property="article:author" content="Qingzhe Yuan">
 <meta property="article:tag" content="rhino">
 <meta property="article:tag" content="grasshopper">
@@ -221,7 +236,7 @@
 
 
 
-  <link rel="canonical" href="http://qingzheyuan93.github.io/2020/08/12/Grasshopper Primer/"/>
+  <link rel="canonical" href="http://qingzheyuan93.github.io/2020/09/01/Grasshopper Primer/"/>
 
 
 
@@ -354,7 +369,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://qingzheyuan93.github.io/2020/08/12/Grasshopper%20Primer/">
+    <link itemprop="mainEntityOfPage" href="http://qingzheyuan93.github.io/2020/09/01/Grasshopper%20Primer/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Qingzhe Yuan">
@@ -383,8 +398,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-08-12T17:51:36+08:00">
-                2020-08-12
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-09-01T17:51:36+08:00">
+                2020-09-01
               </time>
             
 
@@ -894,6 +909,80 @@
 <blockquote>
 <p>1.可变的圆半径<br>2.圈子之间放样</p>
 </blockquote>
+<h2 id="Grasshopper的算法"><a href="#Grasshopper的算法" class="headerlink" title="Grasshopper的算法"></a><font color=#008DB2>Grasshopper的算法</font></h2><p>本章将向您介绍基本的几何和数学概念，以及如何在Grasshopper中实现和使用它们。</p>
+<h3 id="点、平面和向量"><a href="#点、平面和向量" class="headerlink" title="点、平面和向量"></a><font color=#008DB2>点、平面和向量</font></h3><p><strong>一切的物体都从点开始。点仅是一个或多个称为坐标值得组合。坐标值的数量与它所驻留的空间的维数相对应。点，平面和向量是在Grasshopper中创建和转换几何的基础。</strong></p>
+<p><img src="https://s1.ax1x.com/2020/09/01/dxtRdf.png" alt="33" width="800px" /><br></p>
+<p><strong>1.3.1.1 点</strong></p>
+<p>三维空间中的点具有三个坐标，通常称为<strong>[x，y，z]</strong>。二维空间中的点只有两个坐标，称为<strong>[x，y]</strong>或<strong>[u，v]</strong>。二维空间绑定到有限的曲面中，它仍然是连续的，也就是说，假设曲面上有无数个点，但是这些点之间的最大距离是有限的。二维空间坐标只有在不超过面域范围区间的情况下才有效。在示例下图中，对于<strong>[u]</strong>和<strong>[v]</strong>方向，范围都设置为<strong>0.0</strong>到<strong>1.0</strong>，但是它可以是任意的有限域。而坐标为<strong>[1.5，0.6]</strong>的点将在曲面外部某处，因此无效。</p>
+<p>由于某个特定区间的曲面是真实位于三维世界空间中的，因此我们可以将曲面坐标转换为三维世界坐标。例如，表面上的点<strong>[0.2，0.5]</strong>与世界坐标中的点<strong>[1.8，2.0，4.1]</strong>相同。一旦使表面变形或变形，与<strong>[0.2，0.5]</strong>对应的三维坐标将改变。</p>
+<p><img src="https://s1.ax1x.com/2020/09/01/dxtqe0.png" alt="33" width="800px" /><br></p>
+<p>这是一个很难理解的概念，但是联想到您在地球以及太空中的位置关系，则有助于理解。我们倾向于使用<strong>局部坐标系</strong>来描述我们的位置：“我坐在电影院第七排的第三位”，“我坐在后排座位”。如果您所在的汽车在行驶中，即使您保持在相同的后座“坐标”中，您在世界坐标中的位置始终在变化。</p>
+<p><strong>1.3.1.2 向量</strong></p>
+<p>向量是描述方向和大小的几何量。向量是抽象的；即。它们代表方向和数量，而不是单纯的几何元素。</p>
+<p><strong>向量与点是无法区分的。</strong>也就是说，它们都是由三个数字组成的列表，因此没有办法确定某个列表是表示点还是向量。但是两个定义是有实际的区别。<strong>点是绝对的，向量是相对的。</strong>当我们将三个双精度数的列表视为一个点时，它表示空间中的某个坐标，当我们将其视为矢量时，它表示某个方向。向量是空间中的箭头，总是从世界原点<strong>（0.0，0.0，0.0）</strong>开始，在指定坐标处结束。</p>
+<p><img src="https://s1.ax1x.com/2020/09/01/dxNCO1.png" alt="33" width="800px" /><br></p>
+<p><strong>1.3.1.3 平面</strong></p>
+<p>平面是“平”的，并且在两个方向上无限延伸，从而定义了该部分的坐标系。在Rhino中，平面不是真正的对象，它们用于定义三维世界空间中的坐标系。实际上，<strong>最好将平面视为一种特殊的向量组合，它们都是只是数学构造，不是真实的物体</strong>。</p>
+<p><img src="https://s1.ax1x.com/2020/09/01/dxUC9g.png" alt="33" width="800px" /><br></p>
+<h3 id="1-3-2-磁力物体案例"><a href="#1-3-2-磁力物体案例" class="headerlink" title="1.3.2 磁力物体案例"></a><font color=#008DB2>1.3.2 磁力物体案例</font></h3><p><strong>”磁力物体“是作为虚拟磁铁的点，用来吸引或排斥其他对象。在Grasshopper中，任何从Rhino输入或在Grasshopper中创建的都可以用作”磁力物体“。”磁力物体“可以影响周围物体的所有参数，包括比例，旋转，颜色和位置。这些参数基于它们与吸引子几何形状的关系而改变。</strong></p>
+<p><img src="https://s1.ax1x.com/2020/09/01/dxUeEV.png" alt="33" width="800px" /><br></p>
+<blockquote>
+<p>1.吸引点<br>2.向量<br>3.圆根据法线朝向磁力物体</p>
+</blockquote>
+<p>在上图中，在吸引点和每个圆的中心点之间绘制了向量。这些向量用于定义圆的方向，因此它们始终面向吸引点。相同的吸引点可用于更改圆的其他参数。例如，可以通过使用每个向量的长度来缩放每个圆的半径，来放大最接近吸引点的圆。</p>
+<p><img src="https://s1.ax1x.com/2020/09/01/dxU5Ks.png" alt="33" width="800px" /><br></p>
+<p><strong>1.3.2.1 案例文件详解</strong></p>
+<p>在此示例中，我们将基于圆心和圆点之间的向量，使用吸引点来定向圆网格。每个圆的方向都将使其垂直于（面向）吸引点。</p>
+<p>整体如下图所示：</p>
+<p><img src="https://s1.ax1x.com/2020/09/01/dxU7V0.png" alt="33" width="800px" /><br></p>
+<p>下面进行详解：</p>
+<blockquote>
+<ol>
+<li>在Grasshopper中键入Ctrl + N开始新的定义</li>
+<li><strong>Vector / Grid / Hexagonal</strong>-将<strong>“ Hexagonal Grid”</strong>组件拖放到画布上</li>
+<li><strong>Param</strong> <strong><em>\</em>/ Input / Slider**</strong> - 在画布上拖放<strong>两个\</strong>数字滑块*<em>Slider*</em></li>
+<li>双击第一个数字滑块并设置以下内容：<strong>名称：Cell Radius; 区间下限：0.000；上限：1.000；值：0.500</strong></li>
+<li>双击第二个“ 数字滑块”并进行以下设置：<strong>名称：# of Cells ; 整数；区间下限：0；上限：10；值：10</strong></li>
+<li>将数字滑块（单元半径）连接到六边形网格组件的大小（S）输入</li>
+<li>将数字滑块（单元数）连接到六角网格组件的范围X（Ex）输入和范围Y（Ey）输入</li>
+</ol>
+</blockquote>
+<p><img src="https://s1.ax1x.com/2020/09/01/dxUX24.png" alt="33" width="800px" /><br></p>
+<blockquote>
+<ol start="8">
+<li><strong>Curve</strong> <strong>/ Primitive / Cirvle CNR</strong>-将<strong>“ 圆形CNR”</strong>组件拖放到画布上 </li>
+<li>将<strong>六角形网格</strong>的点（P）输出连接到<strong>Circle CNR组件</strong>的中心（C）输入</li>
+<li>将<strong>数字滑块（单元半径）</strong>连接到<strong>Circle CNR组件</strong>的半径（R）输入。</li>
+<li><strong>Vector / Vector / Vector 2Pt</strong>-将<strong>Vector 2Pt组件</strong>拖放到画布上 </li>
+<li>将“ <strong>六角网格”组件</strong>的“点”输出（P）连接到<strong>“ 矢量2Pt”组件</strong>的“基点”（A）输入。 </li>
+<li><strong>Params / Geometry / Point</strong> -将点组件拖放到画布上 </li>
+<li>右键单击<strong>“ 点”</strong>组件，然后选择“设置一个点”。在模型空间中，选择您想要吸引点的位置 </li>
+<li>将<strong>Point组件</strong>连接到<strong>Vector 2Pt组件</strong>的Tip Point（B）输入 </li>
+<li>将<strong>Vector 2Pt</strong>的<strong>Vector（V）</strong>输出连接到<strong>Circle CNR组件</strong>的<strong>Normal（N）</strong>输入。</li>
+</ol>
+</blockquote>
+<p><img src="https://s1.ax1x.com/2020/09/01/dxaCa6.png" alt="33" width="800px" /><br></p>
+<blockquote>
+<ol start="17">
+<li><strong>Curve</strong> <strong>/ Util / Offset</strong> –将<strong>“ 偏移量组件offset”</strong>拖放到画布上</li>
+<li><strong>Params</strong> <strong>/ Input / Slider</strong> - 在画布上拖放数字滑块</li>
+<li>双击数字滑块并设置以下内容：<strong>名称：偏移距离；舍入：浮点；下限：-0.500；上限：0.500；值：-0.250</strong></li>
+<li>将<strong>数字滑块</strong>（偏移距离）连接到偏移组件的<strong>距离（D）</strong>输入</li>
+</ol>
+</blockquote>
+<p><img src="https://s1.ax1x.com/2020/09/01/dxaARe.png" alt="33" width="800px" /><br></p>
+<p><img src="https://s1.ax1x.com/2020/09/01/dxaZMd.png" alt="33" width="400px" /><br></p>
+<blockquote>
+<ol start="21">
+<li><strong>Surface</strong> <strong>/ Freeform / Edge Surface</strong> -拖放边界表面到画布上</li>
+<li>将<strong>“ 偏移”组件</strong>的“曲线”（C）输出连接到<strong>边界曲面</strong>的 “边缘”（E）输入</li>
+</ol>
+</blockquote>
+<p><img src="https://s1.ax1x.com/2020/09/01/dxatLn.png" alt="33" width="800px" /><br></p>
+<p><img src="https://s1.ax1x.com/2020/09/01/dxayQJ.png" alt="33" width="800px" /><br></p>
+<p>最后的结果如下：</p>
+<p><img src="https://s1.ax1x.com/2020/09/01/dxa7yd.gif" alt="33" width="800px" /><br></p>
+<p><img src="https://s1.ax1x.com/2020/09/01/dxdSSg.png" alt="33" width="800px" /><br></p>
 <hr>
 <h1 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h1><br>
 博客与微信公众号同步更新：
@@ -931,8 +1020,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/08/03/20200803/" rel="next" title="Y原创 | 利用Sunflower计算光照信息，调整立面开窗大小">
-                <i class="fa fa-chevron-left"></i> Y原创 | 利用Sunflower计算光照信息，调整立面开窗大小
+              <a href="/2020/08/17/20200817/" rel="next" title="Y原创 | Graph Mapper详解——GH中处理曲线（数列）最有效的电池，附优化插件Rich Graph mapper">
+                <i class="fa fa-chevron-left"></i> Y原创 | Graph Mapper详解——GH中处理曲线（数列）最有效的电池，附优化插件Rich Graph mapper
               </a>
             
           </div>
@@ -940,10 +1029,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2020/08/17/20200817/" rel="prev" title="Y原创 | Graph Mapper详解——GH中处理曲线（数列）最有效的电池，附优化插件Rich Graph mapper">
-                Y原创 | Graph Mapper详解——GH中处理曲线（数列）最有效的电池，附优化插件Rich Graph mapper <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -1079,7 +1164,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Grasshopper基础"><span class="nav-number">1.</span> <span class="nav-text">Grasshopper基础</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Grasshopper初识"><span class="nav-number">1.1.</span> <span class="nav-text">Grasshopper初识</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装和运行-Grasshopper"><span class="nav-number">1.1.1.</span> <span class="nav-text">安装和运行 Grasshopper</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Grasshopper交互界面"><span class="nav-number">1.1.2.</span> <span class="nav-text">Grasshopper交互界面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#与犀牛软件交互"><span class="nav-number">1.1.3.</span> <span class="nav-text">与犀牛软件交互</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对于Grasshopper的分析"><span class="nav-number">1.2.</span> <span class="nav-text">对于Grasshopper的分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Grasshopper的对象类型"><span class="nav-number">1.2.1.</span> <span class="nav-text">Grasshopper的对象类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GH组件（电池）-Grasshopper"><span class="nav-number">1.2.2.</span> <span class="nav-text">GH组件（电池） Grasshopper</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据类型"><span class="nav-number">1.2.3.</span> <span class="nav-text">数据类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#组件连接（电线）"><span class="nav-number">1.2.4.</span> <span class="nav-text">组件连接（电线）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GH数据流"><span class="nav-number">1.2.5.</span> <span class="nav-text">GH数据流</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#写在最后"><span class="nav-number">2.</span> <span class="nav-text">写在最后</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Grasshopper基础"><span class="nav-number">1.</span> <span class="nav-text">Grasshopper基础</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Grasshopper初识"><span class="nav-number">1.1.</span> <span class="nav-text">Grasshopper初识</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装和运行-Grasshopper"><span class="nav-number">1.1.1.</span> <span class="nav-text">安装和运行 Grasshopper</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Grasshopper交互界面"><span class="nav-number">1.1.2.</span> <span class="nav-text">Grasshopper交互界面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#与犀牛软件交互"><span class="nav-number">1.1.3.</span> <span class="nav-text">与犀牛软件交互</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对于Grasshopper的分析"><span class="nav-number">1.2.</span> <span class="nav-text">对于Grasshopper的分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Grasshopper的对象类型"><span class="nav-number">1.2.1.</span> <span class="nav-text">Grasshopper的对象类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GH组件（电池）-Grasshopper"><span class="nav-number">1.2.2.</span> <span class="nav-text">GH组件（电池） Grasshopper</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据类型"><span class="nav-number">1.2.3.</span> <span class="nav-text">数据类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#组件连接（电线）"><span class="nav-number">1.2.4.</span> <span class="nav-text">组件连接（电线）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GH数据流"><span class="nav-number">1.2.5.</span> <span class="nav-text">GH数据流</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Grasshopper的算法"><span class="nav-number">1.3.</span> <span class="nav-text">Grasshopper的算法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#点、平面和向量"><span class="nav-number">1.3.1.</span> <span class="nav-text">点、平面和向量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-2-磁力物体案例"><span class="nav-number">1.3.2.</span> <span class="nav-text">1.3.2 磁力物体案例</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#写在最后"><span class="nav-number">2.</span> <span class="nav-text">写在最后</span></a></li></ol></div>
             
 
           </div>
