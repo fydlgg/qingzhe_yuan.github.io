@@ -105,12 +105,10 @@
 
 
 
-<meta name="description" content="写在前面前一阵有同事询问我如何用Grasshopper处理参数化处理材质，并将模型导入到SU中。需求是这样的：某个设计方案中设置了一个斜面的玻璃顶棚，需要将顶棚的玻璃分板根据不同的高度进行透明度的变化： 顶棚的模型 Rhino渲染效果 SU中的效果 因为设计中的变化需求是比较简单，所以目前模型中的效果也是比较简单，单一维度的变化。当然也是可以实现更加复杂的变化，内在的逻辑都是一致的，下面我们就看">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Y原创 | 通过GH对于材质属性进行控制（透明度，颜色等）">
 <meta property="og:url" content="http://qingzheyuan93.github.io/2020/09/15/20200915/index.html">
 <meta property="og:site_name" content="Y&#39;s Study Blog">
-<meta property="og:description" content="写在前面前一阵有同事询问我如何用Grasshopper处理参数化处理材质，并将模型导入到SU中。需求是这样的：某个设计方案中设置了一个斜面的玻璃顶棚，需要将顶棚的玻璃分板根据不同的高度进行透明度的变化： 顶棚的模型 Rhino渲染效果 SU中的效果 因为设计中的变化需求是比较简单，所以目前模型中的效果也是比较简单，单一维度的变化。当然也是可以实现更加复杂的变化，内在的逻辑都是一致的，下面我们就看">
 <meta property="og:image" content="https://s1.ax1x.com/2020/09/14/wsuYoq.jpg">
 <meta property="og:image" content="https://s1.ax1x.com/2020/09/14/wsKApT.png">
 <meta property="og:image" content="https://s1.ax1x.com/2020/09/14/wsKu7R.png">
@@ -126,7 +124,7 @@
 <meta property="og:image" content="https://s1.ax1x.com/2020/09/14/wsM6G6.png">
 <meta property="og:image" content="https://s1.ax1x.com/2020/08/02/atU9s0.jpg">
 <meta property="article:published_time" content="2020-09-15T12:12:28.000Z">
-<meta property="article:modified_time" content="2020-09-15T12:15:03.231Z">
+<meta property="article:modified_time" content="2020-09-15T12:18:59.218Z">
 <meta property="article:author" content="Qingzhe Yuan">
 <meta property="article:tag" content="rhino">
 <meta property="article:tag" content="grasshopper">
@@ -389,6 +387,8 @@
 
       
         <p><img src="https://s1.ax1x.com/2020/09/14/wsuYoq.jpg" alt="38" width="800px" /><br></p>
+<a id="more"></a>
+
 <h3 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h3><p>前一阵有同事询问我如何用Grasshopper处理参数化处理材质，并将模型导入到SU中。需求是这样的：某个设计方案中设置了一个斜面的玻璃顶棚，需要将顶棚的玻璃分板根据不同的高度进行透明度的变化：</p>
 <p><strong>顶棚的模型</strong><br><img src="https://s1.ax1x.com/2020/09/14/wsKApT.png" alt="38" width="800px" /><br></p>
 <p><strong>Rhino渲染效果</strong><br><img src="https://s1.ax1x.com/2020/09/14/wsKu7R.png" alt="38" width="800px" /><br></p>
