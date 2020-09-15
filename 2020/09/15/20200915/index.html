@@ -105,30 +105,33 @@
 
 
 
+<meta name="description" content="写在前面前一阵有同事询问我如何用Grasshopper处理参数化处理材质，并将模型导入到SU中。需求是这样的：某个设计方案中设置了一个斜面的玻璃顶棚，需要将顶棚的玻璃分板根据不同的高度进行透明度的变化： 顶棚的模型 Rhino渲染效果 SU中的效果 因为设计中的变化需求是比较简单，所以目前模型中的效果也是比较简单，单一维度的变化。当然也是可以实现更加复杂的变化，内在的逻辑都是一致的，下面我们就看">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Y笔记 | 跟着Noah源码学Grasshopper——自动立面（一）">
-<meta property="og:url" content="http://qingzheyuan93.github.io/2020/02/17/20200217/index.html">
+<meta property="og:title" content="Y原创 | 通过GH对于材质属性进行控制（透明度，颜色等）">
+<meta property="og:url" content="http://qingzheyuan93.github.io/2020/09/15/20200915/index.html">
 <meta property="og:site_name" content="Y&#39;s Study Blog">
-<meta property="og:image" content="https://s2.ax1x.com/2020/02/20/3eiwvD.png">
-<meta property="og:image" content="https://s2.ax1x.com/2020/02/21/3ueXGQ.png">
-<meta property="og:image" content="https://s2.ax1x.com/2020/02/21/3um3Je.png">
-<meta property="og:image" content="https://s2.ax1x.com/2020/02/21/3unWjA.png">
-<meta property="og:image" content="https://s2.ax1x.com/2020/02/21/3unOjs.jpg">
-<meta property="og:image" content="https://s2.ax1x.com/2020/02/21/3uuVD1.png">
-<meta property="og:image" content="https://s2.ax1x.com/2020/02/21/3uuZHx.png">
-<meta property="og:image" content="https://s2.ax1x.com/2020/02/21/3uuorR.png">
-<meta property="og:image" content="https://s2.ax1x.com/2020/02/21/3uKnLn.png">
-<meta property="og:image" content="https://s2.ax1x.com/2020/02/21/3uKMd0.png">
-<meta property="og:image" content="https://s2.ax1x.com/2020/02/21/3uKKZq.png">
-<meta property="og:image" content="https://s2.ax1x.com/2020/02/21/3uQU56.png">
-<meta property="og:image" content="https://s2.ax1x.com/2020/02/12/1HbXqI.png">
-<meta property="article:published_time" content="2020-02-17T08:27:22.000Z">
-<meta property="article:modified_time" content="2020-05-11T03:20:21.213Z">
+<meta property="og:description" content="写在前面前一阵有同事询问我如何用Grasshopper处理参数化处理材质，并将模型导入到SU中。需求是这样的：某个设计方案中设置了一个斜面的玻璃顶棚，需要将顶棚的玻璃分板根据不同的高度进行透明度的变化： 顶棚的模型 Rhino渲染效果 SU中的效果 因为设计中的变化需求是比较简单，所以目前模型中的效果也是比较简单，单一维度的变化。当然也是可以实现更加复杂的变化，内在的逻辑都是一致的，下面我们就看">
+<meta property="og:image" content="https://s1.ax1x.com/2020/09/14/wsuYoq.jpg">
+<meta property="og:image" content="https://s1.ax1x.com/2020/09/14/wsKApT.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/09/14/wsKu7R.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/09/14/wsKlh6.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/09/14/wsKtnH.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/09/14/wsKgBj.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/09/14/wsKwNt.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/09/14/wsKI3T.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/09/14/wsKu7R.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/09/14/wsKlh6.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/09/14/wsMKKg.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/09/14/wsMwqJ.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/09/14/wsM6G6.png">
+<meta property="og:image" content="https://s1.ax1x.com/2020/08/02/atU9s0.jpg">
+<meta property="article:published_time" content="2020-09-15T12:12:28.000Z">
+<meta property="article:modified_time" content="2020-09-15T12:15:03.231Z">
 <meta property="article:author" content="Qingzhe Yuan">
 <meta property="article:tag" content="rhino">
 <meta property="article:tag" content="grasshopper">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://s2.ax1x.com/2020/02/20/3eiwvD.png">
+<meta name="twitter:image" content="https://s1.ax1x.com/2020/09/14/wsuYoq.jpg">
 
 
 
@@ -158,13 +161,13 @@
 
 
 
-  <link rel="canonical" href="http://qingzheyuan93.github.io/2020/02/17/20200217/"/>
+  <link rel="canonical" href="http://qingzheyuan93.github.io/2020/09/15/20200915/"/>
 
 
 
 
 
-  <title>Y笔记 | 跟着Noah源码学Grasshopper——自动立面（一） | Y's Study Blog</title>
+  <title>Y原创 | 通过GH对于材质属性进行控制（透明度，颜色等） | Y's Study Blog</title>
   
 
 
@@ -291,7 +294,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://qingzheyuan93.github.io/2020/02/17/20200217/">
+    <link itemprop="mainEntityOfPage" href="http://qingzheyuan93.github.io/2020/09/15/20200915/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Qingzhe Yuan">
@@ -308,7 +311,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Y笔记 | 跟着Noah源码学Grasshopper——自动立面（一）</h1>
+          <h1 class="post-title" itemprop="name headline">Y原创 | 通过GH对于材质属性进行控制（透明度，颜色等）</h1>
         
 
         <div class="post-meta">
@@ -320,8 +323,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-02-17T16:27:22+08:00">
-                2020-02-17
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-09-15T20:12:28+08:00">
+                2020-09-15
               </time>
             
 
@@ -343,8 +346,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Y%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index">
-                    <span itemprop="name">Y笔记</span>
+                  <a href="/categories/Y%E5%8E%9F%E5%88%9B/" itemprop="url" rel="index">
+                    <span itemprop="name">Y原创</span>
                   </a>
                 </span>
 
@@ -385,64 +388,46 @@
       
 
       
-        <img src="https://s2.ax1x.com/2020/02/20/3eiwvD.png" alt="15-1" width="800px" />
+        <p><img src="https://s1.ax1x.com/2020/09/14/wsuYoq.jpg" alt="38" width="800px" /><br></p>
+<h3 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h3><p>前一阵有同事询问我如何用Grasshopper处理参数化处理材质，并将模型导入到SU中。需求是这样的：某个设计方案中设置了一个斜面的玻璃顶棚，需要将顶棚的玻璃分板根据不同的高度进行透明度的变化：</p>
+<p><strong>顶棚的模型</strong><br><img src="https://s1.ax1x.com/2020/09/14/wsKApT.png" alt="38" width="800px" /><br></p>
+<p><strong>Rhino渲染效果</strong><br><img src="https://s1.ax1x.com/2020/09/14/wsKu7R.png" alt="38" width="800px" /><br></p>
+<p><strong>SU中的效果</strong><br><img src="https://s1.ax1x.com/2020/09/14/wsKlh6.png" alt="38" width="800px" /><br></p>
+<p>因为设计中的变化需求是比较简单，所以目前模型中的效果也是比较简单，单一维度的变化。当然也是可以实现更加复杂的变化，内在的逻辑都是一致的，下面我们就看下实现的方法。</p>
+<h3 id="颜色参数"><a href="#颜色参数" class="headerlink" title="颜色参数"></a>颜色参数</h3><p>在介绍整体逻辑之前，简单说下在rhino中常用的颜色参数的组合。GH中提供了很多种选择，RGB、CMYK等等：</p>
+<p><img src="https://s1.ax1x.com/2020/09/14/wsKtnH.png" alt="38" width="400px" /><br></p>
+<p>当然最常用的还是RGB的组合。RGB和RGB(f)的区别不大，只是颜色的区间是<strong>0 to 255</strong>还是<strong>0 to 1</strong>：</p>
+<p><img src="https://s1.ax1x.com/2020/09/14/wsKgBj.png" alt="38" width="400px" /><br></p>
+<p>RGB电池有四个输入端，<strong>Red</strong>、<strong>Green</strong>、<strong>Blue</strong>以及<strong>Alpha</strong>，其中RGB就对应着三原色红、绿、蓝，而Alpha则对应着透明度。在设置材质时，经常会把材质参数和透明度区分开，因为材质不单单是颜色：</p>
+<p><img src="https://s1.ax1x.com/2020/09/14/wsKwNt.png" alt="38" width="800px" /><br></p>
+<p>上图中，左侧是原生的材质编辑器，右侧是<strong>Human</strong>插件中的材质编辑器。原生电池只能处理比较简单的只有颜色的材质，而插件可以处理带有贴图的材质。其中每一个输入都是数据，<strong>颜色由三个参数组成，Alpha(Transparency)透明度有0-1的自然数控制，贴图是由文件路径控制</strong>。这个背景下，所有数据都可以进行参数化的处理。</p>
+<h3 id="参数化处理逻辑"><a href="#参数化处理逻辑" class="headerlink" title="参数化处理逻辑"></a>参数化处理逻辑</h3><p>其实处理的逻辑没什么难的，只要把“材质”看作跟“长度”这种基本属性一样，处理好数据的结构和顺序即可：</p>
+<p><img src="https://s1.ax1x.com/2020/09/14/wsKI3T.png" alt="38" width="800px" /><br></p>
+<p>设计中，顶棚是弧形，通过Lunchbox中的分板电池进行10*10的分板。分板后并没有形成树型数据。因为我们希望玻璃分板的透明度每一行都进行变化，所以需要将每行中的玻璃板进行分组，形成树形数据。这里用到了<strong>Partition List</strong>，按照顺序将数据中每十项成组。</p>
+<p>之后根据分组的数量，将0 to 1区间（0=模糊；1=透明）等分，每一组的材质透明属性，分别赋予0 to 1之间的数值，最终会呈现逐渐透明的效果：</p>
+<img src="https://s1.ax1x.com/2020/09/14/wsKu7R.png" alt="38" width="800px" />
 
-<a id="more"></a>
+<p>当然这种材质也是可以在SU中被识别的：</p>
+<img src="https://s1.ax1x.com/2020/09/14/wsKlh6.png" alt="38" width="800px" />
 
-<h3 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h3><p>&emsp;&emsp;这一期我们学习Noah的新功能——根据层线自动生成建筑立面。相比于之前自动生成城市的功能，我自己更期待这个功能的应用。因为在日常工作中设计一个城市需要考虑的条件远比电池功能中所考虑的更加复杂，而且其中的很多条件并没有达到完全的自定义，所以感觉应用性不强。而这次的功能非常的实用。在城市设计中，经常苦恼模型过于简单，没有立面看不出效果。通过这个功能可以快速得到简单的建筑立面，并提供了一定的自定义选项，可以组合出丰富的效果，基本满足了在城市设计层面的立面需求。</p>
-<!-- more -->
+<h3 id="相关拓展"><a href="#相关拓展" class="headerlink" title="相关拓展"></a>相关拓展</h3><p>在上述案例中，介绍的是如何参数化处理材质的透明（Transparency）属性，其实颜色也是可以进行变化的。将上文中的例子稍微改变一下即可：</p>
+<img src="https://s1.ax1x.com/2020/09/14/wsMKKg.png" alt="38" width="800px" />
 
-<h3 id="整体逻辑"><a href="#整体逻辑" class="headerlink" title="整体逻辑"></a>整体逻辑</h3><p><img src="https://s2.ax1x.com/2020/02/21/3ueXGQ.png" alt="12" /><br></p>
-<p>&emsp;&emsp;从电池可以看出，整体逻辑较为清晰。基本逻辑就是从层线–&gt;楼板–&gt;洞口–&gt;墙体–&gt;玻璃–&gt;窗框，层层递进。最终呈现效果如下（Rhino自带渲染）：</p>
-<p><img src="https://s2.ax1x.com/2020/02/21/3um3Je.png" alt="12" /><br></p>
-<p>&emsp;&emsp;对于不同形状的轮廓，均可呈现出明显的分隔，玻璃存在明显的粗细两个层次，另外，对于分割方式，洞口的构造，玻璃的划分等等均有自定义的选项，可以满足日常的需求。</p>
-<h3 id="Step1：层线整理"><a href="#Step1：层线整理" class="headerlink" title="Step1：层线整理"></a>Step1：层线整理</h3><p><img src="https://s2.ax1x.com/2020/02/21/3unWjA.png" alt="12" /><br></p>
-<p>&emsp;&emsp;这部分电池的功能及其逻辑较为简单。主要的功能是将层线按照高度进行排序。应用的方法就是常用的排序方法：通过Sort List将Z轴高度排序，并依次提取线框并成为树形结构。最后输出排序后的建筑层线以及不同层的标高。</p>
-<h3 id="Step2：立面分割"><a href="#Step2：立面分割" class="headerlink" title="Step2：立面分割"></a>Step2：立面分割</h3><p>&emsp;&emsp;这部分叫立面分割，主要功能是将建筑的立面按照不同的方式进行分割，方便后期进行材料的区分和立面的处理。其内部逻辑如下：</p>
-<p><img src="https://s2.ax1x.com/2020/02/21/3unOjs.jpg" alt="12" /><br></p>
-<p><strong>&emsp;&emsp;第1部分</strong>将楼板下根据标高向下移动（排除楼板厚度）；<strong>第2部分</strong>将楼板根据“分割估距”进行分割，并进行连线；<strong>第3部分</strong>是对于转角进行连线。</p>
-<p><img src="https://s2.ax1x.com/2020/02/21/3uuVD1.png" alt="12" /><br></p>
-<p><strong>&emsp;&emsp;第4部分</strong>是是对于这些线进行部分选取，而选取的方式可由用户手动输入选择，也可以随机选择。目前自带四种分割方式：<strong>等距分割、随机分割、对应分割，特殊分割</strong>。</p>
-<p><img src="https://s2.ax1x.com/2020/02/21/3uuZHx.png" alt="12" /><br></p>
-<p>&emsp;&emsp;对应分割是随机保留分割线，但是每层保留一致线条，如下图：</p>
-<p><img src="https://s2.ax1x.com/2020/02/21/3uuorR.png" alt="12" /><br></p>
-<p>&emsp;&emsp;<strong>特殊分割</strong>是作者通过自制的数学算法进行选取，没有具体的实际意义，丰富立面分割方式的选择。具体方式的电池逻辑就不进行详细介绍了，一方面大家可以根据自己的需求进行选择，另一方面其逻辑较为简单， 大家完全可以根据需求自制选择的算法。</p>
-<p>&emsp;&emsp;<strong>第5部分</strong>将生成的分割线进行消重、排序和封面的操作。其中进行消重的操作是通过插件<code>kangaroo</code>内的<code>removeDuplicateLines</code>电池实现的。对于没有该插件的同学可以尝试自己写一个该功能的电池。提示：可以提取线段的起点终点的坐标数据，通过自带的<code>set</code>电池（该电池的功能是创造<strong>集合</strong>，根据集合的<strong>互异性</strong>，保证集合内部没有重复的元素）消除相同坐标，最后再进行连线。</p>
-<center>
-    <img src="https://s2.ax1x.com/2020/02/21/3uKnLn.png" width="100px" alt="12"/>
-    <div style="color:orange; border-bottom: 
-    display: inline-block;
-    color: #999;">Remove Duplicated Lines</div>
-    <img src="https://s2.ax1x.com/2020/02/21/3uKMd0.png" width="100px" alt="12"/>
-    <div style="color:orange;
-    display: inline-block;
-    color: #999;">Create Set</div>
-</center>
+<p>这个逻辑中最重要的电池就是<strong>PufferFish插件</strong>中Tween Color。PufferFish插件的主张是<strong>”万物皆可Tween“</strong>。具体Tween是什么意思，可点击下面链接进行了解：<a href="http://mp.weixin.qq.com/s?__biz=MjM5NTE1NDAzMg==&mid=2247483682&idx=1&sn=0d7badb4584e432185d6cb77a36a0e57&chksm=a6fd903d918a192b974e7f1d2510bb98d185705aec0b2afc4dcf815b9d1db9a476c39ed6badb&scene=21#wechat_redirect" target="_blank" rel="noopener">Y原创 | GH小知识：“t”值的含义以及相关的常用电池</a></p>
+<p>这个案例中就是通过Tween Color，将红色和绿色这个颜色区间等分为10份，再分别赋予到每组的分板上。</p>
+<p>大家看到这个颜色会不会联想到对于场地高程分色的分析图。其实逻辑是差不多，只不过颜色跟高程信息产生了关系：</p>
+<img src="https://s1.ax1x.com/2020/09/14/wsMwqJ.png" alt="38" width="800px" />
 
-<p>&emsp;&emsp;消重后，并进行排序（将转角的分割线按照顺序排列进序列之中）之后，通shift list将每层的分割线依次进行<code>Ruled Surface</code>（Loft），最后进行输出墙面。</p>
-<center>
-    <img src="https://s2.ax1x.com/2020/02/21/3uKKZq.png" width="100px" alt="12"/>
-    <div style="color:orange;
-    display: inline-block;
-    color: #999;">Rule Surface</div>
-</center>
-<br>
+<p>每一个mesh中的Face面，都有一个高程属性（即中心点的Z坐标）。<strong>这些Z坐标组成了区间Domain，每一个面的Z坐标都对应着在这个区间中的位置。如果将数字区间转化为颜色区间（颜色无非是一个数组），则每一个Face面都对应着一个颜色</strong>，最后便会呈现渐变的效果。</p>
+<img src="https://s1.ax1x.com/2020/09/14/wsM6G6.png" alt="38" width="800px" />
 
-<img src="https://s2.ax1x.com/2020/02/21/3uQU56.png"  alt="12" />
-
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>&emsp;&emsp;目前只介绍了第1、2部分，但是找了一个具体的城市设计模型，对于整体算法进行了尝试，整体来说使用起来还是比较顺畅的，只是当面积较大时，运算速度还是比较慢的，但是出来的效果是可以接受的。</p>
-<p>&emsp;&emsp;但是这个电池还有比较局限的地方，只能搭建出比较传统的立面，有时建筑的里面是根据设计来的，这个电池并不能满足。所以才是要拆开这个电池去学习的目的，通过了解其内部的逻辑，才能在自己需要的时候，通过最小化的修改，得到自己的需求。</p>
-<hr>
-<center>
-<b>
-版权声明：文章中所有的Noah相关的电池及电池组版权归属于<br>
-NCF论坛，本人在开源的基础上进行分析与学习。
-<b>
-</center>
-
-<br>
-
-<p><img src="https://s2.ax1x.com/2020/02/12/1HbXqI.png" alt="end"></p>
+<p><strong>颜色渐变Gradient电池</strong>的功能就是将一系列颜色构成颜色区间，并根据输入的值在区间中的位置，选取颜色。最后通过Construct Mesh电池，将颜色赋予到Mesh上面。</p>
+<blockquote>
+<p><strong>P.S.Mesh的颜色是这个物体的自带属性，与Nurb物体赋予颜色材质有本质的区别！</strong></p>
+</blockquote>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>正好上一期教程中介绍过GH中的颜色属性，配合食用效果更佳：<a href="http://mp.weixin.qq.com/s?__biz=MjM5NTE1NDAzMg==&mid=2247484500&idx=1&sn=ceb9f83fbf089b8de34437e36c561f7e&chksm=a6fd954b918a1c5d076f49365b7e0df6d55c94fa071b2096b2d15d50d954ca27ff5d1f855e42&scene=21#wechat_redirect" target="_blank" rel="noopener">Y笔记 | Grasshopper从入门到放弃——1.3.3 -1.3.5 数学表达式+区间、颜色+逻辑运算</a></p>
+<p>其实GH中的大部分物体和属性都可以转化成数据，并进行参数化的处理，大家可以多多尝试。</p>
+<p><img src="https://s1.ax1x.com/2020/08/02/atU9s0.jpg" alt="32" width="800px" /><br></p>
 
       
     </div>
@@ -475,8 +460,8 @@ NCF论坛，本人在开源的基础上进行分析与学习。
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/02/15/20200215/" rel="next" title="Y分享 | GH中犀牛图层拾取器（Pipeline）与标识电池（Tag）">
-                <i class="fa fa-chevron-left"></i> Y分享 | GH中犀牛图层拾取器（Pipeline）与标识电池（Tag）
+              <a href="/2020/09/01/Grasshopper%20Primer/" rel="next" title="【置顶】 Y笔记 | Grasshopper从入门到放弃——官方教程翻译及拓展">
+                <i class="fa fa-chevron-left"></i> 【置顶】 Y笔记 | Grasshopper从入门到放弃——官方教程翻译及拓展
               </a>
             
           </div>
@@ -484,10 +469,6 @@ NCF论坛，本人在开源的基础上进行分析与学习。
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2020/02/20/20200220/" rel="prev" title="Y笔记 | 跟着Noah源码学Grasshopper——自动立面（二）">
-                Y笔记 | 跟着Noah源码学Grasshopper——自动立面（二） <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -623,7 +604,7 @@ NCF论坛，本人在开源的基础上进行分析与学习。
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#写在前面"><span class="nav-number">1.</span> <span class="nav-text">写在前面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#整体逻辑"><span class="nav-number">2.</span> <span class="nav-text">整体逻辑</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Step1：层线整理"><span class="nav-number">3.</span> <span class="nav-text">Step1：层线整理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Step2：立面分割"><span class="nav-number">4.</span> <span class="nav-text">Step2：立面分割</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结"><span class="nav-number">5.</span> <span class="nav-text">总结</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#写在前面"><span class="nav-number">1.</span> <span class="nav-text">写在前面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#颜色参数"><span class="nav-number">2.</span> <span class="nav-text">颜色参数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参数化处理逻辑"><span class="nav-number">3.</span> <span class="nav-text">参数化处理逻辑</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#相关拓展"><span class="nav-number">4.</span> <span class="nav-text">相关拓展</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结"><span class="nav-number">5.</span> <span class="nav-text">总结</span></a></li></ol></div>
             
 
           </div>
