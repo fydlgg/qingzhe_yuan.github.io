@@ -264,9 +264,23 @@
 <meta property="og:image" content="https://s1.ax1x.com/2020/10/22/BidZfe.png">
 <meta property="og:image" content="https://s1.ax1x.com/2020/10/22/BidQmt.png">
 <meta property="og:image" content="https://s1.ax1x.com/2020/10/22/Bid1Tf.png">
+<meta property="og:image" content="https://s3.ax1x.com/2020/12/13/rmw1Lq.png">
+<meta property="og:image" content="https://s3.ax1x.com/2020/12/13/rm0w4S.png">
+<meta property="og:image" content="https://s3.ax1x.com/2020/12/13/rm0ov9.png">
+<meta property="og:image" content="https://s3.ax1x.com/2020/12/13/rmBCDI.png">
+<meta property="og:image" content="https://s3.ax1x.com/2020/12/13/rmBlV0.png">
+<meta property="og:image" content="https://s3.ax1x.com/2020/12/13/rmB35T.png">
+<meta property="og:image" content="https://s3.ax1x.com/2020/12/13/rmDpJU.png">
+<meta property="og:image" content="https://s3.ax1x.com/2020/12/13/rmDFy9.png">
+<meta property="og:image" content="https://s3.ax1x.com/2020/12/13/rmDnJO.png">
+<meta property="og:image" content="https://s3.ax1x.com/2020/12/13/rmDBOs.png">
+<meta property="og:image" content="https://s3.ax1x.com/2020/12/13/rmrPtf.png">
+<meta property="og:image" content="https://s3.ax1x.com/2020/12/13/rmrn7q.png">
+<meta property="og:image" content="https://s3.ax1x.com/2020/12/13/rmrsjH.png">
+<meta property="og:image" content="https://s3.ax1x.com/2020/12/13/rmr58S.png">
 <meta property="og:image" content="https://s2.ax1x.com/2020/02/12/1HbXqI.png">
 <meta property="article:published_time" content="2020-10-22T09:51:36.000Z">
-<meta property="article:modified_time" content="2020-10-22T06:57:53.424Z">
+<meta property="article:modified_time" content="2020-12-27T13:30:21.849Z">
 <meta property="article:author" content="Qingzhe Yuan">
 <meta property="article:tag" content="rhino">
 <meta property="article:tag" content="grasshopper">
@@ -1391,7 +1405,7 @@
 <p><strong>1.4.4.4 随机</strong></p>
 <p>随机分量（Set/Sequence/Random）可用于生成伪随机数列表。它们被称为“伪”随机数，因为数字序列是唯一的，但对于每个种子值Seed都是稳定的。因此，您可以通过更改种子值（S输入）来生成一组全新的随机数。如上例所示，域是两个数值极限之间的定义间隔。</p>
 <p><img src="https://s1.ax1x.com/2020/10/21/BP8DsO.png" alt="33" width="800px" /> <br></p>
-<h3 id="列表可视化"><a href="#列表可视化" class="headerlink" title="列表可视化"></a><font color=#008DB2>列表可视化</font></h3><p><strong>如果无法查看数据从一个组件流向另一个组件，则很难理解Grasshopper中的列表数据。有几种方法可以使列表可视化，从而有助于理解和操作数据。</strong></p>
+<h3 id="列表管理"><a href="#列表管理" class="headerlink" title="列表管理"></a><font color=#008DB2>列表管理</font></h3><p><strong>如果无法查看数据从一个组件流向另一个组件，则很难理解Grasshopper中的列表数据。有几种方法可以使列表可视化，从而有助于理解和操作数据。</strong></p>
 <p>有很多不同的方式来可视化数据列表。最常见的方法是使用数据列表创建一些几何图形（如：点）。通过将Range组件的R输出连接到<code>Construct Point</code>组件的Y输入，我们可以看到Y方向上的点列表。</p>
 <p><img src="https://s1.ax1x.com/2020/10/22/BiaxW4.png" alt="33" width="800px" /> <br></p>
 <p>让我们看一些可以帮助我们理解数据的组件。</p>
@@ -1417,6 +1431,97 @@
 <li>Custom color preview</li>
 </ol>
 </blockquote>
+<h3 id="列表可视化"><a href="#列表可视化" class="headerlink" title="列表可视化"></a><font color=#008DB2>列表可视化</font></h3><p><strong>Grasshopper最强大的功能之一就是能够快速构建和处理各种数据列表。我们可以在列表中存储许多不同类型的数据（数字，点，向量，曲线，曲面，线形等），并且在“Sets/Lists”子类别下可以找到许多有用的工具。</strong></p>
+<p><strong>1.4.6.1 列表长度 List Length</strong></p>
+<p><strong>List Length组件</strong>（Sets/List/List Length）用来测量列表的长度。因为我们的列表始终从零开始，所以列表中可能的最高索引数值等于列表的长度减去1。在此示例中，我们将基本List连接到<strong>List Length</strong>的<strong>“L”输入端</strong>，显示列表中有6个值。</p>
+<p><img src="https://s3.ax1x.com/2020/12/13/rmw1Lq.png" alt="43" width="800px" /><br></p>
+<p><strong>1.4.6.2 列表项 List Item</strong></p>
+<p>列表项组件在<strong>Sets/Lists/List Item</strong>中，可以从数据集中检索特定的数据项。当访问列表中的单个项目时，可以根据要检索的项目数向<strong>I输入端</strong>中输入相应的数字。<strong>L输入端</strong>定义了要进行分析的列表。在此示例中，我们将input数值设置为2，因此List Item组件返回与列表中第3个条目号关联的数据项。</p>
+<p><img src="https://s3.ax1x.com/2020/12/13/rm0w4S.png" alt="43" width="800px" /><br></p>
+<p><strong>1.4.6.3 反向列表 Reverse List</strong></p>
+<p>我们可以使用<strong>Reverse List组件</strong>（Sets/Lists/Reverse）来反转列表的顺序。如果我们在反向列表组件中输入一个从0.0到50.0的数字升序列表；输出返回从50.0到0.0的降序列表。</p>
+<p><img src="https://s3.ax1x.com/2020/12/13/rm0ov9.png" alt="43" width="800px" /><br></p>
+<p><em>*1.4.6.4 错位列表 Shift List</em></p>
+<p><strong>错位列表Shift List组件</strong>（Sets/Sequence/Shift List）将根据移位偏移的值将列表向上或向下移动相应位数。我们将List连接到Shift-L输入端，同时还将数字连接到Shift-S输入端。如果将偏移量设置为-1，则列表的所有值将向下移动一个列表项。同样，如果将偏移量更改为+1，则列表的所有值将上移一个列表项。如果自动换行输入等于True，则落在末尾的项目将重新添加到列表的开头或结尾。在此示例中，我们将移位偏移值设置为+1，因此我们的列表上移了一个列表项。现在，我们要决定如何对待第一个值。如果我们将<strong>Wrap值</strong>设置为<code>False</code>，则第一个列表项将上移并移出列表，本质上是从数据集中删除该值（因此，列表长度比以前少了一个）。但是，如果将<strong>wrap值</strong>设置为<code>True</code>，则第一个条目将移到列表的底部。</p>
+<p><img src="https://s3.ax1x.com/2020/12/13/rmBCDI.png" alt="43" width="800px" /><br></p>
+<p><strong>1.4.6.5 插入列表 Insert List</strong></p>
+<p><strong>Insert List组件</strong>（Sets/Lists/Insert Item）使您可以将项目集合插入列表。为了使其正常工作，您需要知道要插入的项目以及每个新项目的索引位置。在下面的示例中，我们将字母A，B和C插入第三个索引位置。</p>
+<p><img src="https://s3.ax1x.com/2020/12/13/rmBlV0.png" alt="43" width="800px" /><br></p>
+<p><strong>1.4.6.6 编织列表 Weave</strong></p>
+<p><strong>Weave组件</strong>（Sets / Lists / Weave）根据指定的编织模式（Pattern输入True和False确定编织规则），将两个或多个列表合并在一起，当模式和数据流不完全匹配时，该组件可以在输出流中插入null值。</p>
+<p><img src="https://s3.ax1x.com/2020/12/13/rmB35T.png" alt="43" width="800px" /><br></p>
+<p><strong>1.4.6.7 删除列表项 Cull Pattern</strong></p>
+<p>Cull Pattern（Sets/Sequence/Cull Pattern）使用重复的规则删除列表中的元素（Pattern输入True和False确定删除规则）。规则就是通过布尔值（True或False）的列表。重复删除规则，直到对数据列表中的所有元素运行完计算为止。</p>
+<p><img src="https://s3.ax1x.com/2020/12/13/rmDpJU.png" alt="43" width="800px" /><br></p>
+<h3 id="列表应用案例"><a href="#列表应用案例" class="headerlink" title="列表应用案例"></a><font color=#008DB2>列表应用案例</font></h3><p>让我们来看一个使用上一部分中列表组件的案例。在此案例中，我们通过将几何图形映射到矩形网格来创建图案形状。通过使用“List Item”组件从几何列表中检索所需的图块来创建图案。</p>
+<p><img src="https://s3.ax1x.com/2020/12/13/rmDFy9.png" alt="43" width="800px" /><br></p>
+<blockquote>
+<ol>
+<li>对应索引值为1的几何图案</li>
+<li>对应索引值为2的几何图案</li>
+<li>对应索引值为3的几何图案</li>
+</ol>
+</blockquote>
+<p><img src="https://s3.ax1x.com/2020/12/13/rmDnJO.png" alt="43" width="800px" /><br></p>
+<blockquote>
+<ol>
+<li>映射模式</li>
+<li>几何模式</li>
+</ol>
+</blockquote>
+<ol>
+<li>打开一个犀牛文件</li>
+<li>创建两个相等大小的正方形。</li>
+<li>在每个正方形中创建不同的几何形状。在上面显示的示例中。</li>
+<li><strong>创</strong>建新的GH文件</li>
+<li><strong>Params / Geometry / Geometry</strong> –将两个Geometry电池拖放到画布上。</li>
+<li>右键单击第一个<strong>Geometry电池</strong>，然后选择设置一个几何图形。设置您要输入的第一个Geometry。</li>
+<li>右键单击第二个<strong>Geometry电池</strong>，然后选择设置一个几何图形。设置您要引用的第二个Geometry。</li>
+<li><strong>Params/Geometry/Curv**</strong>e<strong>–将两个</strong>Curve 电池**拖放到画布上。</li>
+<li>右键单击第一个Curve 电池，然后选择设置一个曲线。设置您要输入的第一个正方形。</li>
+<li>右键单击第二个Curve 电池，然后选择设置一个曲线。设置您要输入的第二个正方形。</li>
+<li><strong>Vector/Grid/Rectangle</strong>–将“<strong>Rectangle Grid”</strong>组件拖放到画布上。</li>
+<li><strong>Params/Input/Slider</strong>-在画布上拖放三个数字滑块。</li>
+<li>双击第一个数字滑块并设置值为10：</li>
+<li>双击第二个数字滑块也设置值为10：</li>
+<li>双击第三个数字滑块也设置值为10：</li>
+<li>将第一个<strong>数字滑块</strong>连接到<strong>“矩形网格”</strong>组件的“大小X（Sx）”输入。</li>
+<li>将第二个<strong>数字滑块</strong>连接到<strong>“矩形网格”</strong>组件的“大小Y（Sy）”输入。</li>
+<li>将第三个<strong><em>\</em>数字滑块**</strong>连接到<strong>“矩形网格”</strong>组件的范围X（Ex）输入和范围Y（Ey）输入。</li>
+</ol>
+<p><img src="https://s3.ax1x.com/2020/12/13/rmDBOs.png" alt="43" width="800px" /><br></p>
+<ol start="19">
+<li><strong>Sets/Tree/Merge</strong>–将两个<strong>Merge组件</strong>拖放到画布上。</li>
+<li>将第一个<strong>Geometry</strong>参数连接到第一个<strong>Merge组件</strong>的Data Stream 1（D1）输入。</li>
+<li>将第二个<strong>Geometry</strong>参数连接到第一个<strong>Merge</strong>组件的Data Stream 2（D2）输入。</li>
+<li>将第一个<strong>Curve</strong>参数连接到第二个<strong>Merge</strong>组件的Data Stream 1（D1）输入。</li>
+<li>将第二个<strong>Curve</strong>参数连接到第二个<strong><em>\</em>Merge**</strong>组件的Data Stream 1（D2）输入。</li>
+<li>右键单击“<strong>Rectangle Grid</strong>”组件的<strong>“C”</strong>输出端，然后选择<strong>“Flatten”</strong>。</li>
+</ol>
+<p><img src="https://s3.ax1x.com/2020/12/13/rmrPtf.png" alt="43" width="800px" /><br></p>
+<ol start="25">
+<li><strong>Sets/List/List Length</strong>将<strong>“List Length”</strong>组件拖放到画布上。</li>
+<li>将<strong>“Rectangle Grid”</strong>组件的<strong>“C”</strong>输出连接到<strong>“List Length”</strong>电池的“列表”（L）输入。</li>
+<li><strong>Sets /Sequence/Repeat Data</strong>–将<strong>“Repeat Data”</strong>组件拖放到画布上。</li>
+<li>将<strong>“List length”</strong>组件的“长度（L）”输出连接到<strong>“Repeat Data”</strong>组件的“长度（L）”输入。</li>
+<li>Params/Input Panel-拖放到画布上。</li>
+<li>双击<strong>Panel</strong>取消选择multi Data，Wrrap item。输入1 0 0的列表</li>
+<li>将<strong>Panel</strong>连接到<strong>Repeat Data</strong>组件的数据（D）输入。</li>
+</ol>
+<p><img src="https://s3.ax1x.com/2020/12/13/rmrn7q.png" alt="43" width="800px" /><br></p>
+<ol start="32">
+<li><strong>Sets/List/List Item</strong>–放置出两个List Item组件。</li>
+<li>将第一个<strong>Merge</strong>组件的Result（R）输出连接到第一个<strong>List item</strong>组件的List（L）输入。</li>
+<li>将第二个<strong>Merge</strong>组件的Result（R）输出连接到第二个<strong>List Item</strong>组件的List（L）输入。</li>
+<li>将<strong>Repeat Dat</strong>a组件的数据（D）输出连接到第一和第二<strong>List Item</strong>组件的索引（i）输入。</li>
+<li><strong>Transform/Affine/Rectangle Mapping</strong>将<strong>“Rectangle Mapping</strong>”组件拖放到画布上。</li>
+<li>将<strong>“Rectangle Grid”</strong>组件的<strong>C输出端</strong>连接到<strong>“Rectangle Mapping”</strong>组件的“目标”（T）输入。</li>
+<li>将第一个<strong>“Lisi item”</strong>组件的项（I）输出连接到<strong>“Rectangle Mapping”</strong>组件的“几何（G）”输入。</li>
+<li>将第二个<strong>“Listi item”</strong>组件的项（I）输出连接到<strong>“Rectangle Mapping”</strong>组件的“源（S）”输入。 </li>
+</ol>
+<p><img src="https://s3.ax1x.com/2020/12/13/rmrsjH.png" alt="43" width="800px" /><br></p>
+<p>更改输入的几何图形和图案将更改最终的图块图案。</p>
+<p><img src="https://s3.ax1x.com/2020/12/13/rmr58S.png" alt="43" width="800px" /><br></p>
 <hr>
 <h1 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h1><br>
 博客与微信公众号同步更新：
@@ -1602,7 +1707,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Grasshopper基础"><span class="nav-number">1.</span> <span class="nav-text">Grasshopper基础</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Grasshopper初识"><span class="nav-number">1.1.</span> <span class="nav-text">Grasshopper初识</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装和运行-Grasshopper"><span class="nav-number">1.1.1.</span> <span class="nav-text">安装和运行 Grasshopper</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Grasshopper交互界面"><span class="nav-number">1.1.2.</span> <span class="nav-text">Grasshopper交互界面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#与犀牛软件交互"><span class="nav-number">1.1.3.</span> <span class="nav-text">与犀牛软件交互</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对于Grasshopper的分析"><span class="nav-number">1.2.</span> <span class="nav-text">对于Grasshopper的分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Grasshopper的对象类型"><span class="nav-number">1.2.1.</span> <span class="nav-text">Grasshopper的对象类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GH组件（电池）-Grasshopper"><span class="nav-number">1.2.2.</span> <span class="nav-text">GH组件（电池） Grasshopper</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据类型"><span class="nav-number">1.2.3.</span> <span class="nav-text">数据类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#组件连接（电线）"><span class="nav-number">1.2.4.</span> <span class="nav-text">组件连接（电线）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GH数据流"><span class="nav-number">1.2.5.</span> <span class="nav-text">GH数据流</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Grasshopper的算法"><span class="nav-number">1.3.</span> <span class="nav-text">Grasshopper的算法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#点、平面和向量"><span class="nav-number">1.3.1.</span> <span class="nav-text">点、平面和向量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#磁力物体案例"><span class="nav-number">1.3.2.</span> <span class="nav-text">磁力物体案例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数学、表达式、判断符号"><span class="nav-number">1.3.3.</span> <span class="nav-text">数学、表达式、判断符号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#区间和颜色"><span class="nav-number">1.3.4.</span> <span class="nav-text">区间和颜色</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#布尔值和逻辑运算符号"><span class="nav-number">1.3.5.</span> <span class="nav-text">布尔值和逻辑运算符号</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#列表的艺术"><span class="nav-number">1.4.</span> <span class="nav-text">列表的艺术</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#曲线-Curve-Geometry"><span class="nav-number">1.4.1.</span> <span class="nav-text">曲线  Curve Geometry</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#列表-What-is-List"><span class="nav-number">1.4.2.</span> <span class="nav-text">列表 What is List</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#列表数据匹配-Data-Stream-Matching"><span class="nav-number">1.4.3.</span> <span class="nav-text">列表数据匹配 Data Stream Matching</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建列表"><span class="nav-number">1.4.4.</span> <span class="nav-text">创建列表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#列表可视化"><span class="nav-number">1.4.5.</span> <span class="nav-text">列表可视化</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#写在最后"><span class="nav-number">2.</span> <span class="nav-text">写在最后</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Grasshopper基础"><span class="nav-number">1.</span> <span class="nav-text">Grasshopper基础</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Grasshopper初识"><span class="nav-number">1.1.</span> <span class="nav-text">Grasshopper初识</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装和运行-Grasshopper"><span class="nav-number">1.1.1.</span> <span class="nav-text">安装和运行 Grasshopper</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Grasshopper交互界面"><span class="nav-number">1.1.2.</span> <span class="nav-text">Grasshopper交互界面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#与犀牛软件交互"><span class="nav-number">1.1.3.</span> <span class="nav-text">与犀牛软件交互</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对于Grasshopper的分析"><span class="nav-number">1.2.</span> <span class="nav-text">对于Grasshopper的分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Grasshopper的对象类型"><span class="nav-number">1.2.1.</span> <span class="nav-text">Grasshopper的对象类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GH组件（电池）-Grasshopper"><span class="nav-number">1.2.2.</span> <span class="nav-text">GH组件（电池） Grasshopper</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据类型"><span class="nav-number">1.2.3.</span> <span class="nav-text">数据类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#组件连接（电线）"><span class="nav-number">1.2.4.</span> <span class="nav-text">组件连接（电线）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GH数据流"><span class="nav-number">1.2.5.</span> <span class="nav-text">GH数据流</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Grasshopper的算法"><span class="nav-number">1.3.</span> <span class="nav-text">Grasshopper的算法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#点、平面和向量"><span class="nav-number">1.3.1.</span> <span class="nav-text">点、平面和向量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#磁力物体案例"><span class="nav-number">1.3.2.</span> <span class="nav-text">磁力物体案例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数学、表达式、判断符号"><span class="nav-number">1.3.3.</span> <span class="nav-text">数学、表达式、判断符号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#区间和颜色"><span class="nav-number">1.3.4.</span> <span class="nav-text">区间和颜色</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#布尔值和逻辑运算符号"><span class="nav-number">1.3.5.</span> <span class="nav-text">布尔值和逻辑运算符号</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#列表的艺术"><span class="nav-number">1.4.</span> <span class="nav-text">列表的艺术</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#曲线-Curve-Geometry"><span class="nav-number">1.4.1.</span> <span class="nav-text">曲线  Curve Geometry</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#列表-What-is-List"><span class="nav-number">1.4.2.</span> <span class="nav-text">列表 What is List</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#列表数据匹配-Data-Stream-Matching"><span class="nav-number">1.4.3.</span> <span class="nav-text">列表数据匹配 Data Stream Matching</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建列表"><span class="nav-number">1.4.4.</span> <span class="nav-text">创建列表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#列表管理"><span class="nav-number">1.4.5.</span> <span class="nav-text">列表管理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#列表可视化"><span class="nav-number">1.4.6.</span> <span class="nav-text">列表可视化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#列表应用案例"><span class="nav-number">1.4.7.</span> <span class="nav-text">列表应用案例</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#写在最后"><span class="nav-number">2.</span> <span class="nav-text">写在最后</span></a></li></ol></div>
             
 
           </div>
