@@ -107,7 +107,7 @@
 
 <meta property="og:type" content="article">
 <meta property="og:title" content="【置顶】 Y笔记 | Grasshopper从入门到放弃——官方教程翻译及拓展">
-<meta property="og:url" content="http://qingzheyuan93.github.io/2020/12/31/Grasshopper%20Primer/index.html">
+<meta property="og:url" content="http://qingzheyuan93.github.io/2021/01/28/Grasshopper%20Primer/index.html">
 <meta property="og:site_name" content="Y&#39;s Study Blog">
 <meta property="og:image" content="https://s1.ax1x.com/2020/06/01/tG73C9.png">
 <meta property="og:image" content="https://s1.ax1x.com/2020/06/01/tGXtKA.png">
@@ -278,9 +278,26 @@
 <meta property="og:image" content="https://s3.ax1x.com/2020/12/13/rmrn7q.png">
 <meta property="og:image" content="https://s3.ax1x.com/2020/12/13/rmrsjH.png">
 <meta property="og:image" content="https://s3.ax1x.com/2020/12/13/rmr58S.png">
+<meta property="og:image" content="https://s3.ax1x.com/2021/01/28/y9IL8K.png">
+<meta property="og:image" content="https://s3.ax1x.com/2021/01/28/y9o9UI.png">
+<meta property="og:image" content="https://s3.ax1x.com/2021/01/28/y9oNZ9.gif">
+<meta property="og:image" content="https://s3.ax1x.com/2021/01/28/y9olGV.png">
+<meta property="og:image" content="https://s3.ax1x.com/2021/01/28/y9oebj.png">
+<meta property="og:image" content="https://s3.ax1x.com/2021/01/28/y9oaI1.png">
+<meta property="og:image" content="https://s3.ax1x.com/2021/01/28/y9o0G6.png">
+<meta property="og:image" content="https://s3.ax1x.com/2021/01/28/y9oDxO.png">
+<meta property="og:image" content="https://s3.ax1x.com/2021/01/28/y9oyse.png">
+<meta property="og:image" content="https://s3.ax1x.com/2021/01/28/y9obZj.gif">
+<meta property="og:image" content="https://s3.ax1x.com/2021/01/28/y9oXiq.png">
+<meta property="og:image" content="https://s3.ax1x.com/2021/01/28/y9TSQU.png">
+<meta property="og:image" content="https://s3.ax1x.com/2021/01/28/y9TnyD.png">
+<meta property="og:image" content="https://s3.ax1x.com/2021/01/28/y9TMeH.png">
+<meta property="og:image" content="https://s3.ax1x.com/2021/01/28/y9TGfP.png">
+<meta property="og:image" content="https://s3.ax1x.com/2021/01/28/y9TWm4.png">
+<meta property="og:image" content="https://s3.ax1x.com/2021/01/28/y9T5kR.png">
 <meta property="og:image" content="https://s2.ax1x.com/2020/02/12/1HbXqI.png">
-<meta property="article:published_time" content="2020-12-31T09:51:36.000Z">
-<meta property="article:modified_time" content="2021-01-04T11:35:49.062Z">
+<meta property="article:published_time" content="2021-01-28T09:51:36.000Z">
+<meta property="article:modified_time" content="2021-01-28T12:16:45.863Z">
 <meta property="article:author" content="Qingzhe Yuan">
 <meta property="article:tag" content="rhino">
 <meta property="article:tag" content="grasshopper">
@@ -315,7 +332,7 @@
 
 
 
-  <link rel="canonical" href="http://qingzheyuan93.github.io/2020/12/31/Grasshopper Primer/"/>
+  <link rel="canonical" href="http://qingzheyuan93.github.io/2021/01/28/Grasshopper Primer/"/>
 
 
 
@@ -448,7 +465,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://qingzheyuan93.github.io/2020/12/31/Grasshopper%20Primer/">
+    <link itemprop="mainEntityOfPage" href="http://qingzheyuan93.github.io/2021/01/28/Grasshopper%20Primer/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Qingzhe Yuan">
@@ -477,8 +494,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-12-31T17:51:36+08:00">
-                2020-12-31
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-01-28T17:51:36+08:00">
+                2021-01-28
               </time>
             
 
@@ -1522,6 +1539,107 @@
 <p><img src="https://s3.ax1x.com/2020/12/13/rmrsjH.png" alt="43" width="800px" /><br></p>
 <p>更改输入的几何图形和图案将更改最终的图块图案。</p>
 <p><img src="https://s3.ax1x.com/2020/12/13/rmr58S.png" alt="43" width="800px" /><br></p>
+<h2 id="树型数据"><a href="#树型数据" class="headerlink" title="树型数据"></a><font color=#008DB2>树型数据</font></h2><p><strong>随着GH形体的复杂性增加，相应的数据量也会增加。为了更高效地使用Grasshopper，需要树型数据来整理所有的数据量。更重要的是可以通过树型数据了解如何存储，访问和处理大量数据。</strong></p>
+<h3 id="Nurbs-曲面"><a href="#Nurbs-曲面" class="headerlink" title="Nurbs 曲面"></a><font color=#008DB2>Nurbs 曲面</font></h3><p><strong>NURBS曲面（non-uniform rational B-splines）是一种将曲面数学化的表示形式，可以精确地建模任何形状。从简单的2D线，圆，弧或方体到最复杂的3D自由形有机表面或实体。由于其灵活性和准确性，NURBS模型可用于从平面设计，动画建模到工程制造中的任何过程。</strong></p>
+<p>除了一些原始的曲面类型（例如球体，圆锥，平面和圆柱体），Rhino还支持三种自由曲面类型，其中最有用的是NURBS曲面。与曲线类似，所有可能的表面形状都可以用NURBS曲面表示。到目前为止，它也是最有用的曲面定义方式，也是我们将重点学习的。</p>
+<blockquote>
+<ol>
+<li>球体[平面，半径]</li>
+<li>圆柱体[平面，半径，高度]</li>
+<li>平面[平面，宽度，高度]</li>
+<li>圆锥体[平面，半径，高度]</li>
+</ol>
+</blockquote>
+<p><img src="https://s3.ax1x.com/2021/01/28/y9IL8K.png" alt="43" width="800px" /><br></p>
+<p><strong>1.5.1.1 Nurbs 曲面</strong></p>
+<p>NURBS曲面与NURBS曲线非常相似。使用相同的算法来计算形状，法线，切线，曲率等属性，但是存在一些明显的差异。例如，曲线具有切线向量和法线平面，而曲面具有法线向量和切线平面，这意味着曲线缺少法向量而曲面没有切向量。在NURBS曲面的情况下，实际上存在两个方向，因为NURBS曲面是{u}和{v}曲线的矩形网格。即使这些方向通常是任意的，我们还是最终还是使用它们，因为它们使我们的更加方便地对于曲面进行分析和细化。</p>
+<p><img src="https://s3.ax1x.com/2021/01/28/y9o9UI.png" alt="43" width="800px" /><br></p>
+<p>您可以将NURBS曲面视为沿两个方向延伸的NURBS曲线的网格，由多个控制点以及该曲面在u和v方向上的度数（Degree）定义。更高的Degree表示NURBS曲面可以高效地存储和表示高度精确的自由曲面。</p>
+<hr>
+<p>小编课堂：什么是度（Degree）？</p>
+<p>简单举一个例子，在Rhino中调用Adjustable Curve Blend（可调节的曲线混接）命令时，会有如下界面：</p>
+<p><img src="https://s3.ax1x.com/2021/01/28/y9oNZ9.gif" alt="43" width="800px" /><br></p>
+<p><img src="https://s3.ax1x.com/2021/01/28/y9olGV.png" alt="43" width="600px" /><br></p>
+<p>其中在Continuity一栏中有几个选项：Position、Tangency、Curvature、G3、G4，分别代表着不同的Degree阶数，对应着曲率的变化程度。</p>
+<p><strong>1阶Degree（Position）为直线，没有曲率，一个控制点。</strong></p>
+<p><img src="https://s3.ax1x.com/2021/01/28/y9oebj.png" alt="43" width="800px" /><br></p>
+<p><strong>2阶Degree（Tangent）为弧线，曲率会骤变，但是切线连续，两个控制点。</strong></p>
+<p><img src="https://s3.ax1x.com/2021/01/28/y9oaI1.png" alt="43" width="800px" /><br></p>
+<p><strong>3阶Degree（Curvature）为曲率连续，但曲率变化并不顺滑，三个控制点。</strong></p>
+<p><img src="https://s3.ax1x.com/2021/01/28/y9o0G6.png" alt="43" width="800px" /><br></p>
+<p><strong>4阶Degree（G3）为曲率连续，且曲率变化顺滑，四个控制点。</strong></p>
+<p><img src="https://s3.ax1x.com/2021/01/28/y9oDxO.png" alt="43" width="800px" /><br></p>
+<p><strong>5阶Degree（G4）为曲率连续，且曲率变化顺滑，五个控制点。（比4阶曲线的曲率变化更顺滑，本质没有变化）</strong></p>
+<p><img src="https://s3.ax1x.com/2021/01/28/y9oyse.png" alt="43" width="800px" /><br></p>
+<hr>
+<p>*<em>曲面域 Surface Domain *</em></p>
+<p>曲面域定义为（u，v）的参数范围，该参数求值为该曲面上的三维空间点。通常将每个维度（u或v）中的区间坐标描述为两个实数（u_min至u_max）和（v_min至v_max）。更改曲面的称为重新参数化曲面Reparameterize。</p>
+<p><img src="https://s3.ax1x.com/2021/01/28/y9obZj.gif" alt="43" width="800px" /><br></p>
+<p>在之前的教程中，我单独介绍过这部分，详情可以点击 <a href="http://mp.weixin.qq.com/s?__biz=MjM5NTE1NDAzMg==&mid=2247483682&idx=1&sn=0d7badb4584e432185d6cb77a36a0e57&chksm=a6fd903d918a192b974e7f1d2510bb98d185705aec0b2afc4dcf815b9d1db9a476c39ed6badb&scene=21#wechat_redirect" target="_blank" rel="noopener">Y原创 | GH小知识：“t”值的含义以及相关的常用电池</a></p>
+<p>在Grasshopper中，Reparameterize重新参数化NURBS曲面以使u和v范围都在0到1之间通常很有用。这使我们可以轻松地在曲面上进行分析和细化。</p>
+<p><img src="https://s3.ax1x.com/2021/01/28/y9oXiq.png" alt="43" width="800px" /><br></p>
+<p>在二维参数矩形中以相等间隔评估参数并不需要展开处理。</p>
+<p>*<em>表面分析 Surface Evaluate *</em></p>
+<p>在曲面区间内的参数分析会在曲面上生成一个点。请记住，区间的中间（u的中间值，u的中间值）可能不一定能取到3D曲面的中点。同样，分析曲面区间之外的u值和v值（超出了曲面的范围）也不会提供有效的结果。</p>
+<p><img src="https://s3.ax1x.com/2021/01/28/y9TSQU.png" alt="43" width="800px" /><br></p>
+<p>*<em>法线向量和切平面 Normal Vectors and Tangent Planes *</em></p>
+<p>切平面是在曲面上某一点在该点与曲面相切的平面。切平面的z方向表示该点处曲面的法线方向。</p>
+<p>Grasshopper处理Nurbs曲面的方式与Rhino相似，因为应用了同一种算法。但是，Grasshopper为了保证运算的效率，有些曲面的显示略有不同，显示质量较低，以高效的运算。您可能会注意到GH中的曲面中有一些不顺滑的面，但这是意料之中的，并且仅是Grasshopper显示设置的结果。任何Bake的几何体仍将使用较高的显示设置。</p>
+<p><strong>1.5.1.1 曲面投影</strong></p>
+<p>在上一节中，我们解释了Nurbs曲面包含由u和v域定义某点的坐标空间。这意味着可以将由x和y坐标定义的二维几何图形映射到曲面的uv空间。几何形状将相应根据曲面的曲率而拉伸和变化。这与将二维几何体简单地投影到曲面上不同，将从从二维几何体绘制向量，直到它们与曲面相交为止。</p>
+<p><img src="https://s3.ax1x.com/2021/01/28/y9TnyD.png" alt="43" width="800px" /><br></p>
+<p>您可以将投影视为将阴影投射到曲面上的几何图形，将映射视为在曲面上拉伸几何图形。</p>
+<blockquote>
+<ol>
+<li>uv坐标定义的映射几何</li>
+<li>将几何体投影到表面上</li>
+</ol>
+</blockquote>
+<p>正如二维几何图形可以投影到曲面的uv空间上一样，盒子包含的三维几何图形也可以映射到表面上进行相应的扭曲。此操作称为<strong>“盒子变形”（Box morphing）</strong>，可用于顺应具有三维几何分量的曲面。</p>
+<p><img src="https://s3.ax1x.com/2021/01/28/y9TMeH.png" alt="43" width="800px" /><br></p>
+<p>要在曲面上放置扭曲的盒子，必须将曲面域划分为一个网格。通过将盒子的每个端点向对应的目标点生成向量，并移动到相应的位置。</p>
+<p><strong>1.5.1.3 Box Morph盒子变形实例</strong></p>
+<p>在此示例中，我们将使用Box Morph将一个物体沿Nurbs曲面流动。</p>
+<p><img src="https://s3.ax1x.com/2021/01/28/y9TGfP.png" alt="43" width="800px" /><br></p>
+<blockquote>
+<ol>
+<li>完成后的效果</li>
+<li>原始Box的物体</li>
+<li>曲面网格划分</li>
+<li>扭曲的盒子排列在曲面上</li>
+</ol>
+</blockquote>
+<p>案例步骤：</p>
+<ol>
+<li>打开一个犀牛文件</li>
+<li><strong>Params / Geometry / Surface</strong> –将Surface电池拖放到画布上</li>
+<li><strong>Params/Geometry/Geometry</strong> - 将Geometry电池拖到画布上</li>
+<li>右键单击<strong>Surface电池</strong>，然后选择<strong>“Set one Surface”</strong> –在Rhino视口中选择目标曲面</li>
+<li>右键单击<strong>Geometry电池</strong>，然后选择<strong>“Set one Geometry”</strong> –选择您的Rhino几何物体</li>
+<li><strong>Maths / Domain / Divide Domain2</strong> –将<strong>Divide Domain2电池</strong>拖放到画布上</li>
+<li><strong>Params / Input / Silder</strong> – 将三个Slider拖到画布上</li>
+<li>将Slider设置以下内容：整数；Min：0；Max：10；Value：5</li>
+<li>将其他两个Slider进行同样的设置</li>
+<li>将<strong>Surface电**</strong>池**的输出连接到Divide Domain2组件的Domain（I）输入端</li>
+<li>将第一个<strong>Slider</strong>连接到Divide Domain2组件的U Count（U）输入端</li>
+<li>将第二个<strong>Slider</strong>连接到Divide Domain2组件的V Count（V）输入端</li>
+<li><strong>Transform / Morph / Box Surface</strong> – 将<strong>“Surface Box”</strong>组件拖动到画布上</li>
+<li>将<strong>Surface电池</strong>的输出连接到<strong>Surface Box电池</strong>的Surface（S）输入端</li>
+<li>将<strong>Divide Domain2电池</strong>的Segements（S）输出连接到<strong>Surface Box电池</strong>的Domain（D）输入端</li>
+</ol>
+<p><img src="https://s3.ax1x.com/2021/01/28/y9TWm4.png" alt="43" width="800px" /><br></p>
+<p>您应该看到一个扭曲的盒子组合，顺应着参考曲面流动。更改“ U”和“ V”的Slider以更改数量，并使用高度slider调整其高度。</p>
+<ol start="16">
+<li>将第三个Slider连接到<strong>Surface Box组件</strong>的高度（H）输入端</li>
+<li><strong>Surface / Primitive/ Bounding Box</strong> – 将Bounding Box组件拖到画布上</li>
+<li><strong>Transform / Morph / Box Morph</strong> – 将“Box Morph”电池拖放到画布上</li>
+<li>将<strong>Geometry电池</strong>的输出连接到B<strong>ounding Box组件</strong>的Content（C）输入端</li>
+<li>将<strong>Geometry电池</strong>的输出连接到<strong>Box Morph组件</strong>的Geometry（G）输入端</li>
+<li>将<strong>Bounding Box电池</strong>的Box（B）输出连接到<strong>Box Morph电池</strong>的Reference（R）输入端</li>
+<li>将<strong>Surface Box电池</strong>的Twisted Box（B）输出连接到<strong>Box Morph电池</strong>的Target（T）输入端</li>
+</ol>
+<p><img src="https://s3.ax1x.com/2021/01/28/y9T5kR.png" alt="43" width="800px" /><br></p>
+<p>现在，可以看到原始体块顺应曲面曲面进行了变形流动。</p>
 <hr>
 <h1 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h1><br>
 博客与微信公众号同步更新：
@@ -1559,8 +1677,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/11/08/20201108/" rel="next" title="Y原创 | Grasshopper的“黑暗皮肤”及自定义风格样式">
-                <i class="fa fa-chevron-left"></i> Y原创 | Grasshopper的“黑暗皮肤”及自定义风格样式
+              <a href="/2021/01/15/20210115/" rel="next" title="Y原创 | Rhino中的效率神器——WorkSession（类似CAD中的外部参照Xref）">
+                <i class="fa fa-chevron-left"></i> Y原创 | Rhino中的效率神器——WorkSession（类似CAD中的外部参照Xref）
               </a>
             
           </div>
@@ -1568,10 +1686,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2021/01/15/20210115/" rel="prev" title="Y原创 | Rhino中的效率神器——WorkSession（类似CAD中的外部参照Xref）">
-                Y原创 | Rhino中的效率神器——WorkSession（类似CAD中的外部参照Xref） <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -1707,7 +1821,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Grasshopper基础"><span class="nav-number">1.</span> <span class="nav-text">Grasshopper基础</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Grasshopper初识"><span class="nav-number">1.1.</span> <span class="nav-text">Grasshopper初识</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装和运行-Grasshopper"><span class="nav-number">1.1.1.</span> <span class="nav-text">安装和运行 Grasshopper</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Grasshopper交互界面"><span class="nav-number">1.1.2.</span> <span class="nav-text">Grasshopper交互界面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#与犀牛软件交互"><span class="nav-number">1.1.3.</span> <span class="nav-text">与犀牛软件交互</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对于Grasshopper的分析"><span class="nav-number">1.2.</span> <span class="nav-text">对于Grasshopper的分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Grasshopper的对象类型"><span class="nav-number">1.2.1.</span> <span class="nav-text">Grasshopper的对象类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GH组件（电池）-Grasshopper"><span class="nav-number">1.2.2.</span> <span class="nav-text">GH组件（电池） Grasshopper</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据类型"><span class="nav-number">1.2.3.</span> <span class="nav-text">数据类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#组件连接（电线）"><span class="nav-number">1.2.4.</span> <span class="nav-text">组件连接（电线）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GH数据流"><span class="nav-number">1.2.5.</span> <span class="nav-text">GH数据流</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Grasshopper的算法"><span class="nav-number">1.3.</span> <span class="nav-text">Grasshopper的算法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#点、平面和向量"><span class="nav-number">1.3.1.</span> <span class="nav-text">点、平面和向量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#磁力物体案例"><span class="nav-number">1.3.2.</span> <span class="nav-text">磁力物体案例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数学、表达式、判断符号"><span class="nav-number">1.3.3.</span> <span class="nav-text">数学、表达式、判断符号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#区间和颜色"><span class="nav-number">1.3.4.</span> <span class="nav-text">区间和颜色</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#布尔值和逻辑运算符号"><span class="nav-number">1.3.5.</span> <span class="nav-text">布尔值和逻辑运算符号</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#列表的艺术"><span class="nav-number">1.4.</span> <span class="nav-text">列表的艺术</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#曲线-Curve-Geometry"><span class="nav-number">1.4.1.</span> <span class="nav-text">曲线  Curve Geometry</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#列表-What-is-List"><span class="nav-number">1.4.2.</span> <span class="nav-text">列表 What is List</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#列表数据匹配-Data-Stream-Matching"><span class="nav-number">1.4.3.</span> <span class="nav-text">列表数据匹配 Data Stream Matching</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建列表"><span class="nav-number">1.4.4.</span> <span class="nav-text">创建列表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#列表管理"><span class="nav-number">1.4.5.</span> <span class="nav-text">列表管理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#列表可视化"><span class="nav-number">1.4.6.</span> <span class="nav-text">列表可视化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#列表应用案例"><span class="nav-number">1.4.7.</span> <span class="nav-text">列表应用案例</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#写在最后"><span class="nav-number">2.</span> <span class="nav-text">写在最后</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Grasshopper基础"><span class="nav-number">1.</span> <span class="nav-text">Grasshopper基础</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Grasshopper初识"><span class="nav-number">1.1.</span> <span class="nav-text">Grasshopper初识</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装和运行-Grasshopper"><span class="nav-number">1.1.1.</span> <span class="nav-text">安装和运行 Grasshopper</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Grasshopper交互界面"><span class="nav-number">1.1.2.</span> <span class="nav-text">Grasshopper交互界面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#与犀牛软件交互"><span class="nav-number">1.1.3.</span> <span class="nav-text">与犀牛软件交互</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对于Grasshopper的分析"><span class="nav-number">1.2.</span> <span class="nav-text">对于Grasshopper的分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Grasshopper的对象类型"><span class="nav-number">1.2.1.</span> <span class="nav-text">Grasshopper的对象类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GH组件（电池）-Grasshopper"><span class="nav-number">1.2.2.</span> <span class="nav-text">GH组件（电池） Grasshopper</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据类型"><span class="nav-number">1.2.3.</span> <span class="nav-text">数据类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#组件连接（电线）"><span class="nav-number">1.2.4.</span> <span class="nav-text">组件连接（电线）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GH数据流"><span class="nav-number">1.2.5.</span> <span class="nav-text">GH数据流</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Grasshopper的算法"><span class="nav-number">1.3.</span> <span class="nav-text">Grasshopper的算法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#点、平面和向量"><span class="nav-number">1.3.1.</span> <span class="nav-text">点、平面和向量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#磁力物体案例"><span class="nav-number">1.3.2.</span> <span class="nav-text">磁力物体案例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数学、表达式、判断符号"><span class="nav-number">1.3.3.</span> <span class="nav-text">数学、表达式、判断符号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#区间和颜色"><span class="nav-number">1.3.4.</span> <span class="nav-text">区间和颜色</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#布尔值和逻辑运算符号"><span class="nav-number">1.3.5.</span> <span class="nav-text">布尔值和逻辑运算符号</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#列表的艺术"><span class="nav-number">1.4.</span> <span class="nav-text">列表的艺术</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#曲线-Curve-Geometry"><span class="nav-number">1.4.1.</span> <span class="nav-text">曲线  Curve Geometry</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#列表-What-is-List"><span class="nav-number">1.4.2.</span> <span class="nav-text">列表 What is List</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#列表数据匹配-Data-Stream-Matching"><span class="nav-number">1.4.3.</span> <span class="nav-text">列表数据匹配 Data Stream Matching</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建列表"><span class="nav-number">1.4.4.</span> <span class="nav-text">创建列表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#列表管理"><span class="nav-number">1.4.5.</span> <span class="nav-text">列表管理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#列表可视化"><span class="nav-number">1.4.6.</span> <span class="nav-text">列表可视化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#列表应用案例"><span class="nav-number">1.4.7.</span> <span class="nav-text">列表应用案例</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#树型数据"><span class="nav-number">1.5.</span> <span class="nav-text">树型数据</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Nurbs-曲面"><span class="nav-number">1.5.1.</span> <span class="nav-text">Nurbs 曲面</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#写在最后"><span class="nav-number">2.</span> <span class="nav-text">写在最后</span></a></li></ol></div>
             
 
           </div>
